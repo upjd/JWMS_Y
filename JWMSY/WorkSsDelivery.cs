@@ -6,7 +6,6 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
@@ -16,8 +15,14 @@ using JWMSY.DLL;
 
 namespace JWMSY
 {
+    /// <summary>
+    /// 二次拣货桌面端
+    /// </summary>
     public partial class WorkSsDelivery : Form
     {
+        /// <summary>
+        /// 二次拣货桌面端构造函数
+        /// </summary>
         public WorkSsDelivery()
         {
             InitializeComponent();
