@@ -1,0 +1,32 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="JWMSY.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="cUser" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="cServer" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="JWMSY_WmsService_BaseConService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:2370/BaseConService.asmx</Value>
+    </Setting>
+    <Setting Name="JWMSY_EasOrderService_EasOrder" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:32422/EasOrder.asmx</Value>
+    </Setting>
+    <Setting Name="JWMSY_OrderService_WMS" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://test.yofoto.cn/wms.asmx</Value>
+    </Setting>
+    <Setting Name="JWMSY_CompareService_EasAndWmsCompareReport" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.0.173:9191/EasAndWmsCompareReport.asmx</Value>
+    </Setting>
+    <Setting Name="DataCon" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=192.168.0.173;Initial Catalog=JWMSY_2015;Persist Security Info=True;User ID=sa;Password=kingdee&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=192.168.0.173;Initial Catalog=JWMSY_2015;Persist Security Info=True;User ID=sa;Password=kingdee</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

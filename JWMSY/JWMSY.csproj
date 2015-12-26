@@ -1,0 +1,1642 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B97A047D-C40A-4F21-BB3E-06082D22FA3B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JWMSY</RootNamespace>
+    <AssemblyName>JWMSY</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>发布\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\JWMSY.XML</DocumentationFile>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\scanicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aspose.Cells">
+      <HintPath>bin\Debug\dll_library\Aspose.Cells.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v12.1.Core, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\dll_library\DevExpress.Charts.v12.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\dll_library\DevExpress.Data.v12.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Office.v12.1.Core, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\dll_library\DevExpress.Office.v12.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.PivotGrid.v12.1.Core, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\dll_library\DevExpress.PivotGrid.v12.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v12.1.Core, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\dll_library\DevExpress.Printing.v12.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Reports.v12.1.Designer, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\dll_library\DevExpress.Reports.v12.1.Designer.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v12.1.Core, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\dll_library\DevExpress.RichEdit.v12.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\dll_library\DevExpress.Utils.v12.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v12.1.UI, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\dll_library\DevExpress.Utils.v12.1.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\dll_library\DevExpress.XtraBars.v12.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\dll_library\DevExpress.XtraCharts.v12.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\dll_library\DevExpress.XtraEditors.v12.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraPivotGrid.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\dll_library\DevExpress.XtraPivotGrid.v12.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\dll_library\DevExpress.XtraPrinting.v12.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\dll_library\DevExpress.XtraReports.v12.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v12.1.Design, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\dll_library\DevExpress.XtraReports.v12.1.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v12.1.Extensions, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\dll_library\DevExpress.XtraReports.v12.1.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\dll_library\DevExpress.XtraTreeList.v12.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraVerticalGrid.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\dll_library\DevExpress.XtraVerticalGrid.v12.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Documents.Excel.v12.1, Version=12.1.20121.2135, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\dll_library\Infragistics2.Documents.Excel.v12.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Shared.v12.1, Version=12.1.20121.2135, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\dll_library\Infragistics2.Shared.v12.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Win.AppStylistSupport.v12.1, Version=12.1.20121.2135, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics2.Win.Misc.v12.1, Version=12.1.20121.2135, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\dll_library\Infragistics2.Win.Misc.v12.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Win.SupportDialogs.v12.1, Version=12.1.20121.2135, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\dll_library\Infragistics2.Win.SupportDialogs.v12.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Win.UltraWinChart.v12.1, Version=12.1.20121.2135, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\dll_library\Infragistics2.Win.UltraWinChart.v12.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Win.UltraWinEditors.v12.1, Version=12.1.20121.2135, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\dll_library\Infragistics2.Win.UltraWinEditors.v12.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Win.UltraWinExplorerBar.v12.1, Version=12.1.20121.2135, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\dll_library\Infragistics2.Win.UltraWinExplorerBar.v12.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Win.UltraWinGrid.ExcelExport.v12.1, Version=12.1.20121.2135, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\dll_library\Infragistics2.Win.UltraWinGrid.ExcelExport.v12.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Win.UltraWinGrid.v12.1, Version=12.1.20121.2135, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\dll_library\Infragistics2.Win.UltraWinGrid.v12.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Win.UltraWinListView.v12.1, Version=12.1.20121.2135, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\dll_library\Infragistics2.Win.UltraWinListView.v12.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Win.UltraWinSchedule.v12.1, Version=12.1.20121.2135, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\dll_library\Infragistics2.Win.UltraWinSchedule.v12.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Win.UltraWinStatusBar.v12.1, Version=12.1.20121.2135, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\dll_library\Infragistics2.Win.UltraWinStatusBar.v12.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Win.UltraWinTabbedMdi.v12.1, Version=12.1.20121.2135, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\dll_library\Infragistics2.Win.UltraWinTabbedMdi.v12.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Win.UltraWinTabControl.v12.1, Version=12.1.20121.2135, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\dll_library\Infragistics2.Win.UltraWinTabControl.v12.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Win.UltraWinToolbars.v12.1, Version=12.1.20121.2135, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\dll_library\Infragistics2.Win.UltraWinToolbars.v12.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Win.UltraWinTree.v12.1, Version=12.1.20121.2135, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\dll_library\Infragistics2.Win.UltraWinTree.v12.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Win.v12.1, Version=12.1.20121.2135, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\dll_library\Infragistics2.Win.v12.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.LabelManager2">
+      <HintPath>..\SetupService\bin\Debug\dll_library\Interop.LabelManager2.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.ConnectionUI">
+      <HintPath>bin\Debug\dll_library\Microsoft.Data.ConnectionUI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.ConnectionUI.Dialog">
+      <HintPath>bin\Debug\dll_library\Microsoft.Data.ConnectionUI.Dialog.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SearchFilter">
+      <HintPath>bin\Debug\dll_library\SearchFilter.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UpjdControlBox">
+      <HintPath>bin\Debug\dll_library\UpjdControlBox.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutVersion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutVersion.Designer.cs">
+      <DependentUpon>AboutVersion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseClass.cs" />
+    <Compile Include="BaseModifyPwd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseModifyPwd.Designer.cs">
+      <DependentUpon>BaseModifyPwd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseStructure.cs" />
+    <Compile Include="Base_RawMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base_RawMaterial.Designer.cs">
+      <DependentUpon>Base_RawMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLL\DataBaseControl.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBaseControl.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DLL\DataInventory.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataInventory.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DLL\DataProductMain.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataProductMain.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DLL\DataRecord.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataRecord.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DLL\DataUseTableFormat.cs">
+      <DependentUpon>DataUseTableFormat.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DLL\DataUseTableFormat.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataUseTableFormat.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DLL\DllWmsMain.cs" />
+    <Compile Include="DLL\DllWorkPrintLabel.cs" />
+    <Compile Include="DLL\SDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsCompare.cs">
+      <DependentUpon>dsCompare.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="dsCompare.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsCompare.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PdaGetIntQuantity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PdaGetIntQuantity.Designer.cs">
+      <DependentUpon>PdaGetIntQuantity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RptOrderList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RptOrderList.Designer.cs">
+      <DependentUpon>RptOrderList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt_SFOrderWmsEas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rpt_SFOrderWmsEas.Designer.cs">
+      <DependentUpon>Rpt_SFOrderWmsEas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt_WmsSSDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rpt_WmsSSDetail.Designer.cs">
+      <DependentUpon>Rpt_WmsSSDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt_RmStoreDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rpt_RmStoreDetail.Designer.cs">
+      <DependentUpon>Rpt_RmStoreDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SearchEasQuery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchEasQuery.Designer.cs">
+      <DependentUpon>SearchEasQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Select_RawMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Select_RawMaterial.Designer.cs">
+      <DependentUpon>Select_RawMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpjdControl\lblTitle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UpjdControl\lblTitle.Designer.cs">
+      <DependentUpon>lblTitle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\CompareService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\EasOrderService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\OrderService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WmsService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="WmsFunction.cs" />
+    <Compile Include="WmsLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WmsLogin.Designer.cs">
+      <DependentUpon>WmsLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WmsMainChild.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WmsMainChild.Designer.cs">
+      <DependentUpon>WmsMainChild.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WmsRibbonMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WmsRibbonMain.Designer.cs">
+      <DependentUpon>WmsRibbonMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkDeleteFromTransfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkDeleteFromTransfer.Designer.cs">
+      <DependentUpon>WorkDeleteFromTransfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkOemDelivery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkOemDelivery.Designer.cs">
+      <DependentUpon>WorkOemDelivery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkProBoxWeigh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkProBoxWeigh.Designer.cs">
+      <DependentUpon>WorkProBoxWeigh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkProductBoxLotNoUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkProductBoxLotNoUpdate.Designer.cs">
+      <DependentUpon>WorkProductBoxLotNoUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkProductLotNoUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkProductLotNoUpdate.Designer.cs">
+      <DependentUpon>WorkProductLotNoUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkRmPrintLabel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkRmPrintLabel.Designer.cs">
+      <DependentUpon>WorkRmPrintLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkSemiPrintLabel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkSemiPrintLabel.Designer.cs">
+      <DependentUpon>WorkSemiPrintLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkProPrintLabel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkProPrintLabel.Designer.cs">
+      <DependentUpon>WorkProPrintLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkProPrintLabelBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkProPrintLabelBox.Designer.cs">
+      <DependentUpon>WorkProPrintLabelBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkProPrintLabelBoxSS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkProPrintLabelBoxSS.Designer.cs">
+      <DependentUpon>WorkProPrintLabelBoxSS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base_PackMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base_PackMaterial.Designer.cs">
+      <DependentUpon>Base_PackMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base_Semi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base_Semi.Designer.cs">
+      <DependentUpon>Base_Semi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base_Product.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base_Product.Designer.cs">
+      <DependentUpon>Base_Product.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base_ColumnSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base_ColumnSetting.Designer.cs">
+      <DependentUpon>Base_ColumnSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkPackPrintLabel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkPackPrintLabel.Designer.cs">
+      <DependentUpon>WorkPackPrintLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkSsDelivery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkSsDelivery.Designer.cs">
+      <DependentUpon>WorkSsDelivery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkSSDeliveryReturn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkSSDeliveryReturn.Designer.cs">
+      <DependentUpon>WorkSSDeliveryReturn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkSSReplaceBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkSSReplaceBox.Designer.cs">
+      <DependentUpon>WorkSSReplaceBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkTempBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkTempBox.Designer.cs">
+      <DependentUpon>WorkTempBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Work_EasRmPurchaseOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Work_EasRmPurchaseOrder.Designer.cs">
+      <DependentUpon>Work_EasRmPurchaseOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Work_EasRmTransferOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Work_EasRmTransferOrder.Designer.cs">
+      <DependentUpon>Work_EasRmTransferOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt_RmTransferStoreDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rpt_RmTransferStoreDetail.Designer.cs">
+      <DependentUpon>Rpt_RmTransferStoreDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Work_EasRmProduceOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Work_EasRmProduceOrder.Designer.cs">
+      <DependentUpon>Work_EasRmProduceOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt_RmDeliveryDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rpt_RmDeliveryDetail.Designer.cs">
+      <DependentUpon>Rpt_RmDeliveryDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Work_EasSemiWorkOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Work_EasSemiWorkOrder.Designer.cs">
+      <DependentUpon>Work_EasSemiWorkOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt_SemiStoreDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rpt_SemiStoreDetail.Designer.cs">
+      <DependentUpon>Rpt_SemiStoreDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Work_EasSemiTransferOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Work_EasSemiTransferOrder.Designer.cs">
+      <DependentUpon>Work_EasSemiTransferOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt_SemiTransferStoreDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rpt_SemiTransferStoreDetail.Designer.cs">
+      <DependentUpon>Rpt_SemiTransferStoreDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Work_EasSemiProduceOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Work_EasSemiProduceOrder.Designer.cs">
+      <DependentUpon>Work_EasSemiProduceOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt_SemiDeliveryDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rpt_SemiDeliveryDetail.Designer.cs">
+      <DependentUpon>Rpt_SemiDeliveryDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Work_EasProWorkOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Work_EasProWorkOrder.Designer.cs">
+      <DependentUpon>Work_EasProWorkOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt_ProStoreDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rpt_ProStoreDetail.Designer.cs">
+      <DependentUpon>Rpt_ProStoreDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Work_EasProTransferOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Work_EasProTransferOrder.Designer.cs">
+      <DependentUpon>Work_EasProTransferOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt_ProTransferStoreDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rpt_ProTransferStoreDetail.Designer.cs">
+      <DependentUpon>Rpt_ProTransferStoreDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt_ProSFDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rpt_ProSFDetail.Designer.cs">
+      <DependentUpon>Rpt_ProSFDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt_ProSSDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rpt_ProSSDetail.Designer.cs">
+      <DependentUpon>Rpt_ProSSDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt_ProSaleOrderDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rpt_ProSaleOrderDetail.Designer.cs">
+      <DependentUpon>Rpt_ProSaleOrderDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt_ProSaleReturnDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rpt_ProSaleReturnDetail.Designer.cs">
+      <DependentUpon>Rpt_ProSaleReturnDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt_ProTransferDeliveryDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rpt_ProTransferDeliveryDetail.Designer.cs">
+      <DependentUpon>Rpt_ProTransferDeliveryDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt_RmTransferDeliveryDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rpt_RmTransferDeliveryDetail.Designer.cs">
+      <DependentUpon>Rpt_RmTransferDeliveryDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt_SemiTransferDeliveryDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rpt_SemiTransferDeliveryDetail.Designer.cs">
+      <DependentUpon>Rpt_SemiTransferDeliveryDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Work_EasProOemOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Work_EasProOemOrder.Designer.cs">
+      <DependentUpon>Work_EasProOemOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base_Templet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base_Templet.Designer.cs">
+      <DependentUpon>Base_Templet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt_RmPrintRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rpt_RmPrintRecord.Designer.cs">
+      <DependentUpon>Rpt_RmPrintRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt_PackPrintRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rpt_PackPrintRecord.Designer.cs">
+      <DependentUpon>Rpt_PackPrintRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt_SemiPrintRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rpt_SemiPrintRecord.Designer.cs">
+      <DependentUpon>Rpt_SemiPrintRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt_ProPrintRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rpt_ProPrintRecord.Designer.cs">
+      <DependentUpon>Rpt_ProPrintRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt_ProPrintBoxRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rpt_ProPrintBoxRecord.Designer.cs">
+      <DependentUpon>Rpt_ProPrintBoxRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt_ProPrintBoxSSRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rpt_ProPrintBoxSSRecord.Designer.cs">
+      <DependentUpon>Rpt_ProPrintBoxSSRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt_WmsAndEasComparePoDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rpt_WmsAndEasComparePoDetail.Designer.cs">
+      <DependentUpon>Rpt_WmsAndEasComparePoDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt_WmsAndEasCompareTransferDelivery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rpt_WmsAndEasCompareTransferDelivery.Designer.cs">
+      <DependentUpon>Rpt_WmsAndEasCompareTransferDelivery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt_WmsAndEasCompareTransferStore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rpt_WmsAndEasCompareTransferStore.Designer.cs">
+      <DependentUpon>Rpt_WmsAndEasCompareTransferStore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt_WmsAndEasCompareProduceDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rpt_WmsAndEasCompareProduceDetail.Designer.cs">
+      <DependentUpon>Rpt_WmsAndEasCompareProduceDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt_WmsAndEasCompareWoStore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rpt_WmsAndEasCompareWoStore.Designer.cs">
+      <DependentUpon>Rpt_WmsAndEasCompareWoStore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt_WmsAndEasCompareSaleDelivery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rpt_WmsAndEasCompareSaleDelivery.Designer.cs">
+      <DependentUpon>Rpt_WmsAndEasCompareSaleDelivery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Work_EasProSaleOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Work_EasProSaleOrder.Designer.cs">
+      <DependentUpon>Work_EasProSaleOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt_ProOemDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rpt_ProOemDetail.Designer.cs">
+      <DependentUpon>Rpt_ProOemDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Work_EasTransferDeliveryOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Work_EasTransferDeliveryOrder.Designer.cs">
+      <DependentUpon>Work_EasTransferDeliveryOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkTempVipBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkTempVipBox.Designer.cs">
+      <DependentUpon>WorkTempVipBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt_ProSFOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rpt_ProSFOrder.Designer.cs">
+      <DependentUpon>Rpt_ProSFOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt_WmsAndEasDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rpt_WmsAndEasDetail.Designer.cs">
+      <DependentUpon>Rpt_WmsAndEasDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt_WmsLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rpt_WmsLog.Designer.cs">
+      <DependentUpon>Rpt_WmsLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkProPrintLabelBoxVIP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkProPrintLabelBoxVIP.Designer.cs">
+      <DependentUpon>WorkProPrintLabelBoxVIP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rpt_WmsAndEasCompareSaleDeliveryOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rpt_WmsAndEasCompareSaleDeliveryOrder.Designer.cs">
+      <DependentUpon>Rpt_WmsAndEasCompareSaleDeliveryOrder.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AboutVersion.resx">
+      <DependentUpon>AboutVersion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base_RawMaterial.resx">
+      <DependentUpon>Base_RawMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PdaGetIntQuantity.resx">
+      <DependentUpon>PdaGetIntQuantity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="RptOrderList.resx">
+      <DependentUpon>RptOrderList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rpt_SFOrderWmsEas.resx">
+      <DependentUpon>Rpt_SFOrderWmsEas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rpt_WmsSSDetail.resx">
+      <DependentUpon>Rpt_WmsSSDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rpt_RmStoreDetail.resx">
+      <DependentUpon>Rpt_RmStoreDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchEasQuery.resx">
+      <DependentUpon>SearchEasQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Select_RawMaterial.resx">
+      <DependentUpon>Select_RawMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpjdControl\lblTitle.resx">
+      <DependentUpon>lblTitle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WmsLogin.resx">
+      <DependentUpon>WmsLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WmsMainChild.resx">
+      <DependentUpon>WmsMainChild.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WmsRibbonMain.resx">
+      <DependentUpon>WmsRibbonMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkDeleteFromTransfer.resx">
+      <DependentUpon>WorkDeleteFromTransfer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkOemDelivery.resx">
+      <DependentUpon>WorkOemDelivery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkProBoxWeigh.resx">
+      <DependentUpon>WorkProBoxWeigh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkProductBoxLotNoUpdate.resx">
+      <DependentUpon>WorkProductBoxLotNoUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkProductLotNoUpdate.resx">
+      <DependentUpon>WorkProductLotNoUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkRmPrintLabel.resx">
+      <DependentUpon>WorkRmPrintLabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkSemiPrintLabel.resx">
+      <DependentUpon>WorkSemiPrintLabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkProPrintLabel.resx">
+      <DependentUpon>WorkProPrintLabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkProPrintLabelBox.resx">
+      <DependentUpon>WorkProPrintLabelBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkProPrintLabelBoxSS.resx">
+      <DependentUpon>WorkProPrintLabelBoxSS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base_PackMaterial.resx">
+      <DependentUpon>Base_PackMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base_Semi.resx">
+      <DependentUpon>Base_Semi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base_Product.resx">
+      <DependentUpon>Base_Product.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base_ColumnSetting.resx">
+      <DependentUpon>Base_ColumnSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkPackPrintLabel.resx">
+      <DependentUpon>WorkPackPrintLabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkSsDelivery.resx">
+      <DependentUpon>WorkSsDelivery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkSSDeliveryReturn.resx">
+      <DependentUpon>WorkSSDeliveryReturn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkSSReplaceBox.resx">
+      <DependentUpon>WorkSSReplaceBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkTempBox.resx">
+      <DependentUpon>WorkTempBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Work_EasRmPurchaseOrder.resx">
+      <DependentUpon>Work_EasRmPurchaseOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Work_EasRmTransferOrder.resx">
+      <DependentUpon>Work_EasRmTransferOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rpt_RmTransferStoreDetail.resx">
+      <DependentUpon>Rpt_RmTransferStoreDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Work_EasRmProduceOrder.resx">
+      <DependentUpon>Work_EasRmProduceOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rpt_RmDeliveryDetail.resx">
+      <DependentUpon>Rpt_RmDeliveryDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Work_EasSemiWorkOrder.resx">
+      <DependentUpon>Work_EasSemiWorkOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rpt_SemiStoreDetail.resx">
+      <DependentUpon>Rpt_SemiStoreDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Work_EasSemiTransferOrder.resx">
+      <DependentUpon>Work_EasSemiTransferOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rpt_SemiTransferStoreDetail.resx">
+      <DependentUpon>Rpt_SemiTransferStoreDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Work_EasSemiProduceOrder.resx">
+      <DependentUpon>Work_EasSemiProduceOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rpt_SemiDeliveryDetail.resx">
+      <DependentUpon>Rpt_SemiDeliveryDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Work_EasProWorkOrder.resx">
+      <DependentUpon>Work_EasProWorkOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rpt_ProStoreDetail.resx">
+      <DependentUpon>Rpt_ProStoreDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Work_EasProTransferOrder.resx">
+      <DependentUpon>Work_EasProTransferOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rpt_ProTransferStoreDetail.resx">
+      <DependentUpon>Rpt_ProTransferStoreDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rpt_ProSFDetail.resx">
+      <DependentUpon>Rpt_ProSFDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rpt_ProSSDetail.resx">
+      <DependentUpon>Rpt_ProSSDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rpt_ProSaleOrderDetail.resx">
+      <DependentUpon>Rpt_ProSaleOrderDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rpt_ProSaleReturnDetail.resx">
+      <DependentUpon>Rpt_ProSaleReturnDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rpt_ProTransferDeliveryDetail.resx">
+      <DependentUpon>Rpt_ProTransferDeliveryDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rpt_RmTransferDeliveryDetail.resx">
+      <DependentUpon>Rpt_RmTransferDeliveryDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rpt_SemiTransferDeliveryDetail.resx">
+      <DependentUpon>Rpt_SemiTransferDeliveryDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Work_EasProOemOrder.resx">
+      <DependentUpon>Work_EasProOemOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base_Templet.resx">
+      <DependentUpon>Base_Templet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rpt_RmPrintRecord.resx">
+      <DependentUpon>Rpt_RmPrintRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rpt_PackPrintRecord.resx">
+      <DependentUpon>Rpt_PackPrintRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rpt_SemiPrintRecord.resx">
+      <DependentUpon>Rpt_SemiPrintRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rpt_ProPrintRecord.resx">
+      <DependentUpon>Rpt_ProPrintRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rpt_ProPrintBoxRecord.resx">
+      <DependentUpon>Rpt_ProPrintBoxRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rpt_ProPrintBoxSSRecord.resx">
+      <DependentUpon>Rpt_ProPrintBoxSSRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rpt_WmsAndEasComparePoDetail.resx">
+      <DependentUpon>Rpt_WmsAndEasComparePoDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rpt_WmsAndEasCompareTransferDelivery.resx">
+      <DependentUpon>Rpt_WmsAndEasCompareTransferDelivery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rpt_WmsAndEasCompareTransferStore.resx">
+      <DependentUpon>Rpt_WmsAndEasCompareTransferStore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rpt_WmsAndEasCompareProduceDetail.resx">
+      <DependentUpon>Rpt_WmsAndEasCompareProduceDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rpt_WmsAndEasCompareWoStore.resx">
+      <DependentUpon>Rpt_WmsAndEasCompareWoStore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rpt_WmsAndEasCompareSaleDelivery.resx">
+      <DependentUpon>Rpt_WmsAndEasCompareSaleDelivery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Work_EasProSaleOrder.resx">
+      <DependentUpon>Work_EasProSaleOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rpt_ProOemDetail.resx">
+      <DependentUpon>Rpt_ProOemDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Work_EasTransferDeliveryOrder.resx">
+      <DependentUpon>Work_EasTransferDeliveryOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkTempVipBox.resx">
+      <DependentUpon>WorkTempVipBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rpt_ProSFOrder.resx">
+      <DependentUpon>Rpt_ProSFOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rpt_WmsAndEasDetail.resx">
+      <DependentUpon>Rpt_WmsAndEasDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rpt_WmsLog.resx">
+      <DependentUpon>Rpt_WmsLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkProPrintLabelBoxVIP.resx">
+      <DependentUpon>WorkProPrintLabelBoxVIP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rpt_WmsAndEasCompareSaleDeliveryOrder.resx">
+      <DependentUpon>Rpt_WmsAndEasCompareSaleDeliveryOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="app.manifest" />
+    <None Include="DLL\DataBaseControl.xsc">
+      <DependentUpon>DataBaseControl.xsd</DependentUpon>
+    </None>
+    <None Include="DLL\DataBaseControl.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataBaseControl.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DLL\DataBaseControl.xss">
+      <DependentUpon>DataBaseControl.xsd</DependentUpon>
+    </None>
+    <None Include="DLL\DataInventory.xsc">
+      <DependentUpon>DataInventory.xsd</DependentUpon>
+    </None>
+    <None Include="DLL\DataInventory.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataInventory.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DLL\DataInventory.xss">
+      <DependentUpon>DataInventory.xsd</DependentUpon>
+    </None>
+    <None Include="DLL\DataProductMain.xsc">
+      <DependentUpon>DataProductMain.xsd</DependentUpon>
+    </None>
+    <None Include="DLL\DataProductMain.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataProductMain.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DLL\DataProductMain.xss">
+      <DependentUpon>DataProductMain.xsd</DependentUpon>
+    </None>
+    <None Include="DLL\DataRecord.xsc">
+      <DependentUpon>DataRecord.xsd</DependentUpon>
+    </None>
+    <None Include="DLL\DataRecord.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataRecord.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DLL\DataRecord.xss">
+      <DependentUpon>DataRecord.xsd</DependentUpon>
+    </None>
+    <None Include="DLL\DataUseTableFormat.xsc">
+      <DependentUpon>DataUseTableFormat.xsd</DependentUpon>
+    </None>
+    <None Include="DLL\DataUseTableFormat.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataUseTableFormat.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DLL\DataUseTableFormat.xss">
+      <DependentUpon>DataUseTableFormat.xsd</DependentUpon>
+    </None>
+    <None Include="DLL\SDataSet.xsc">
+      <DependentUpon>SDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DLL\SDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DLL\SDataSet.xss">
+      <DependentUpon>SDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="dsCompare.xsc">
+      <DependentUpon>dsCompare.xsd</DependentUpon>
+    </None>
+    <None Include="dsCompare.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsCompare.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsCompare.xss">
+      <DependentUpon>dsCompare.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Web References\CompareService\EasAndWmsCompareReport.wsdl" />
+    <None Include="Web References\CompareService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\EasOrderService\EasOrder.wsdl" />
+    <None Include="Web References\EasOrderService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\OrderService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\OrderService\wms.wsdl" />
+    <None Include="Web References\WmsService\BaseConService.wsdl" />
+    <None Include="Web References\WmsService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\abandon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_obj.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addtsk_tsk.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\amount.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\analysis.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\approveprogress.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\attachment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\box.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\box.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_web.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancel.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chart_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chart_6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chart_8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\client.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\collect.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\column.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Convert.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\corresponding.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cRefresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\currency.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\currencytransfer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\customer BOM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delivery.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\department.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\design.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Desktop_Restore.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\details.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\disable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Down_load.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\draft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\examin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\export.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\export.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ExportDialog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\first page.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\first.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\first_page.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Framework_loading_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Framework_pictureBox.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\function.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\giveup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\goods_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\goods_6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\goods_9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gotoobj_tsk.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\import.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\item.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\JARAN_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\JR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keepbusinessrecords.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Last page.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\last.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\last_page.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading all.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock_down.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LoginForm_btn_default_focus_normal.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LoginForm_calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LoginForm_cn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LoginForm_defalt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LoginForm_dropdown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LoginForm_login_btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LoginForm_login_btn_click.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LoginForm_login_btn_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LoginForm_login_btn1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LoginForm_password.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LoginForm_server.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LoginForm_time.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LoginForm_user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mail.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mine.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MTC_bag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Next page.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\next_page.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\office_11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\office_12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\outBox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ParentItem.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\person.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pre.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\preview.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\previous page.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\previous_page.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\print.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printDialog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Production_orders_list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Purchase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\query.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Raw_material.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\record.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\relogin.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\report.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Report_Center.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\role.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sale.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\savegif.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scan barcode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_tool.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\send.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\setting.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\setting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sorting.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Storage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\store issue.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\title_banner.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tool_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Toolbar_BizNavigation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toolbarBk.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\total.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trans8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\u8.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Validation.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vary.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vendor bom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\view_menu.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\window_titlebar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\working_center.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wms.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wms.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wms.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wmsTitle.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\barcodeicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scanicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scanpng.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://192.168.0.173:9191/EasAndWmsCompareReport.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\CompareService\</RelPath>
+      <UpdateFromURL>http://192.168.0.173:9191/EasAndWmsCompareReport.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>JWMSY_CompareService_EasAndWmsCompareReport</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:2370/BaseConService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WmsService\</RelPath>
+      <UpdateFromURL>http://localhost:2370/BaseConService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>JWMSY_WmsService_BaseConService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:32422/EasOrder.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\EasOrderService\</RelPath>
+      <UpdateFromURL>http://localhost:32422/EasOrder.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>JWMSY_EasOrderService_EasOrder</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://test.yofoto.cn/wms.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\OrderService\</RelPath>
+      <UpdateFromURL>http://test.yofoto.cn/wms.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>JWMSY_OrderService_WMS</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\WmsService\BaseConService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\EasOrderService\EasOrder.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackgroundImageStore.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\OrderService\wms.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\CompareService\EasAndWmsCompareReport.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Query.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

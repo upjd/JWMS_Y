@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetPurReceivalDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPurReceivalDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPurReceivalDetailResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMoveIssue">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMoveIssueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMoveIssueResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMoveInWarehs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMoveInWarehsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMoveInWarehsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMoveMaterialReq">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMoveMaterialReqResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMoveMaterialReqResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetManufactureRec">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetManufactureRecResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetManufactureRecResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSaleIssue">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSaleIssueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSaleIssueResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSaleOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dStartDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="dEndDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSaleOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSaleOrderResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetPurReceivalDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPurReceivalDetail" />
+  </wsdl:message>
+  <wsdl:message name="GetPurReceivalDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPurReceivalDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMoveIssueSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMoveIssue" />
+  </wsdl:message>
+  <wsdl:message name="GetMoveIssueSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMoveIssueResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMoveInWarehsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMoveInWarehs" />
+  </wsdl:message>
+  <wsdl:message name="GetMoveInWarehsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMoveInWarehsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMoveMaterialReqSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMoveMaterialReq" />
+  </wsdl:message>
+  <wsdl:message name="GetMoveMaterialReqSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMoveMaterialReqResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetManufactureRecSoapIn">
+    <wsdl:part name="parameters" element="tns:GetManufactureRec" />
+  </wsdl:message>
+  <wsdl:message name="GetManufactureRecSoapOut">
+    <wsdl:part name="parameters" element="tns:GetManufactureRecResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSaleIssueSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSaleIssue" />
+  </wsdl:message>
+  <wsdl:message name="GetSaleIssueSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSaleIssueResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSaleOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSaleOrder" />
+  </wsdl:message>
+  <wsdl:message name="GetSaleOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSaleOrderResponse" />
+  </wsdl:message>
+  <wsdl:portType name="EasAndWmsCompareReportSoap">
+    <wsdl:operation name="GetPurReceivalDetail">
+      <wsdl:input message="tns:GetPurReceivalDetailSoapIn" />
+      <wsdl:output message="tns:GetPurReceivalDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoveIssue">
+      <wsdl:input message="tns:GetMoveIssueSoapIn" />
+      <wsdl:output message="tns:GetMoveIssueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoveInWarehs">
+      <wsdl:input message="tns:GetMoveInWarehsSoapIn" />
+      <wsdl:output message="tns:GetMoveInWarehsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoveMaterialReq">
+      <wsdl:input message="tns:GetMoveMaterialReqSoapIn" />
+      <wsdl:output message="tns:GetMoveMaterialReqSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetManufactureRec">
+      <wsdl:input message="tns:GetManufactureRecSoapIn" />
+      <wsdl:output message="tns:GetManufactureRecSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSaleIssue">
+      <wsdl:input message="tns:GetSaleIssueSoapIn" />
+      <wsdl:output message="tns:GetSaleIssueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSaleOrder">
+      <wsdl:input message="tns:GetSaleOrderSoapIn" />
+      <wsdl:output message="tns:GetSaleOrderSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EasAndWmsCompareReportSoap" type="tns:EasAndWmsCompareReportSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPurReceivalDetail">
+      <soap:operation soapAction="http://tempuri.org/GetPurReceivalDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoveIssue">
+      <soap:operation soapAction="http://tempuri.org/GetMoveIssue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoveInWarehs">
+      <soap:operation soapAction="http://tempuri.org/GetMoveInWarehs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoveMaterialReq">
+      <soap:operation soapAction="http://tempuri.org/GetMoveMaterialReq" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetManufactureRec">
+      <soap:operation soapAction="http://tempuri.org/GetManufactureRec" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSaleIssue">
+      <soap:operation soapAction="http://tempuri.org/GetSaleIssue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSaleOrder">
+      <soap:operation soapAction="http://tempuri.org/GetSaleOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="EasAndWmsCompareReportSoap12" type="tns:EasAndWmsCompareReportSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPurReceivalDetail">
+      <soap12:operation soapAction="http://tempuri.org/GetPurReceivalDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoveIssue">
+      <soap12:operation soapAction="http://tempuri.org/GetMoveIssue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoveInWarehs">
+      <soap12:operation soapAction="http://tempuri.org/GetMoveInWarehs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoveMaterialReq">
+      <soap12:operation soapAction="http://tempuri.org/GetMoveMaterialReq" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetManufactureRec">
+      <soap12:operation soapAction="http://tempuri.org/GetManufactureRec" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSaleIssue">
+      <soap12:operation soapAction="http://tempuri.org/GetSaleIssue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSaleOrder">
+      <soap12:operation soapAction="http://tempuri.org/GetSaleOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EasAndWmsCompareReport">
+    <wsdl:port name="EasAndWmsCompareReportSoap" binding="tns:EasAndWmsCompareReportSoap">
+      <soap:address location="http://192.168.0.173:9191/EasAndWmsCompareReport.asmx" />
+    </wsdl:port>
+    <wsdl:port name="EasAndWmsCompareReportSoap12" binding="tns:EasAndWmsCompareReportSoap12">
+      <soap12:address location="http://192.168.0.173:9191/EasAndWmsCompareReport.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

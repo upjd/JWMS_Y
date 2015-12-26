@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsCompare" targetNamespace="http://tempuri.org/dsCompare.xsd" xmlns:mstns="http://tempuri.org/dsCompare.xsd" xmlns="http://tempuri.org/dsCompare.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsCompare" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsCompare" msprop:Generator_UserDSName="dsCompare">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="WmsData" msprop:Generator_TableClassName="WmsDataDataTable" msprop:Generator_TableVarName="tableWmsData" msprop:Generator_TablePropName="WmsData" msprop:Generator_RowDeletingName="WmsDataRowDeleting" msprop:Generator_RowChangingName="WmsDataRowChanging" msprop:Generator_RowEvHandlerName="WmsDataRowChangeEventHandler" msprop:Generator_RowDeletedName="WmsDataRowDeleted" msprop:Generator_UserTableName="WmsData" msprop:Generator_RowChangedName="WmsDataRowChanged" msprop:Generator_RowEvArgName="WmsDataRowChangeEvent" msprop:Generator_RowClassName="WmsDataRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="wcInvCode" msprop:Generator_ColumnVarNameInTable="columnwcInvCode" msprop:Generator_ColumnPropNameInRow="wcInvCode" msprop:Generator_ColumnPropNameInTable="wcInvCodeColumn" msprop:Generator_UserColumnName="wcInvCode" type="xs:string" minOccurs="0" />
+              <xs:element name="wcInvName" msprop:Generator_ColumnVarNameInTable="columnwcInvName" msprop:Generator_ColumnPropNameInRow="wcInvName" msprop:Generator_ColumnPropNameInTable="wcInvNameColumn" msprop:Generator_UserColumnName="wcInvName" type="xs:string" minOccurs="0" />
+              <xs:element name="wiQuantity" msprop:Generator_ColumnVarNameInTable="columnwiQuantity" msprop:Generator_ColumnPropNameInRow="wiQuantity" msprop:Generator_ColumnPropNameInTable="wiQuantityColumn" msprop:Generator_UserColumnName="wiQuantity" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="EasData" msprop:Generator_TableClassName="EasDataDataTable" msprop:Generator_TableVarName="tableEasData" msprop:Generator_TablePropName="EasData" msprop:Generator_RowDeletingName="EasDataRowDeleting" msprop:Generator_RowChangingName="EasDataRowChanging" msprop:Generator_RowEvHandlerName="EasDataRowChangeEventHandler" msprop:Generator_RowDeletedName="EasDataRowDeleted" msprop:Generator_UserTableName="EasData" msprop:Generator_RowChangedName="EasDataRowChanged" msprop:Generator_RowEvArgName="EasDataRowChangeEvent" msprop:Generator_RowClassName="EasDataRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

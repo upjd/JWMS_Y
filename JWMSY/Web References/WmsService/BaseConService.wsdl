@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.kingdee.com/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.kingdee.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.kingdee.com/">
+      <s:element name="GetWmsConstring">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetWmsConstringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWmsConstringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVer">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetVerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetVerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUpdateData">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetUpdateDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUpdateDataResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetWmsConstringSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWmsConstring" />
+  </wsdl:message>
+  <wsdl:message name="GetWmsConstringSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWmsConstringResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetVerSoapIn">
+    <wsdl:part name="parameters" element="tns:GetVer" />
+  </wsdl:message>
+  <wsdl:message name="GetVerSoapOut">
+    <wsdl:part name="parameters" element="tns:GetVerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUpdateDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUpdateData" />
+  </wsdl:message>
+  <wsdl:message name="GetUpdateDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUpdateDataResponse" />
+  </wsdl:message>
+  <wsdl:portType name="BaseConServiceSoap">
+    <wsdl:operation name="GetWmsConstring">
+      <wsdl:input message="tns:GetWmsConstringSoapIn" />
+      <wsdl:output message="tns:GetWmsConstringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">取得更新版本号</wsdl:documentation>
+      <wsdl:input message="tns:GetVerSoapIn" />
+      <wsdl:output message="tns:GetVerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdateData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">在线更新软件</wsdl:documentation>
+      <wsdl:input message="tns:GetUpdateDataSoapIn" />
+      <wsdl:output message="tns:GetUpdateDataSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BaseConServiceSoap" type="tns:BaseConServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetWmsConstring">
+      <soap:operation soapAction="http://www.kingdee.com/GetWmsConstring" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVer">
+      <soap:operation soapAction="http://www.kingdee.com/GetVer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdateData">
+      <soap:operation soapAction="http://www.kingdee.com/GetUpdateData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BaseConServiceSoap12" type="tns:BaseConServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetWmsConstring">
+      <soap12:operation soapAction="http://www.kingdee.com/GetWmsConstring" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVer">
+      <soap12:operation soapAction="http://www.kingdee.com/GetVer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdateData">
+      <soap12:operation soapAction="http://www.kingdee.com/GetUpdateData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BaseConService">
+    <wsdl:port name="BaseConServiceSoap" binding="tns:BaseConServiceSoap">
+      <soap:address location="http://localhost:2370/BaseConService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BaseConServiceSoap12" binding="tns:BaseConServiceSoap12">
+      <soap12:address location="http://localhost:2370/BaseConService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

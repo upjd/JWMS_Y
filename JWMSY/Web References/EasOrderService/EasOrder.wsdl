@@ -1,0 +1,1208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.kingdee.com/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.kingdee.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.kingdee.com/">
+      <s:element name="GetPo2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cOrderNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPo2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPo2Result">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPo">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetPoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPoDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cOrderNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPoDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPoDetailResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTransfer2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cOrderNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTransfer2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTransfer2Result">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTransfer">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTransferResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTransferResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTransferDelivery2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cOrderNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTransferDelivery2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTransferDelivery2Result">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTransferDelivery">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTransferDeliveryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTransferDeliveryResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTransferDeliveryDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cOrderNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTransferDeliveryDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTransferDeliveryDetailResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTransferDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cOrderNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTransferDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTransferDetailResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOem2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cOrderNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOem2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOem2Result">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOem">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetOemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOemResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOemDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cOrderNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOemDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOemDetailResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWo2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cOrderNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWo2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWo2Result">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWo">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetWoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWoDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cOrderNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWoDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWoDetailResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProduce2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cOrderNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProduce2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProduce2Result">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProduce">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetProduceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProduceResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProduceDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cOrderNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProduceDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProduceDetailResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSale2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cOrderNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSale2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSale2Result">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSale">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSaleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSaleResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSaleDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cOrderNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSaleDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSaleDetailResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMaterialList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cOrderNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMaterialListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMaterialListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRm">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetRmResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRmResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSemi">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSemiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSemiResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPro">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetProResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetPo2SoapIn">
+    <wsdl:part name="parameters" element="tns:GetPo2" />
+  </wsdl:message>
+  <wsdl:message name="GetPo2SoapOut">
+    <wsdl:part name="parameters" element="tns:GetPo2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetPoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPo" />
+  </wsdl:message>
+  <wsdl:message name="GetPoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPoDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPoDetail" />
+  </wsdl:message>
+  <wsdl:message name="GetPoDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPoDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTransfer2SoapIn">
+    <wsdl:part name="parameters" element="tns:GetTransfer2" />
+  </wsdl:message>
+  <wsdl:message name="GetTransfer2SoapOut">
+    <wsdl:part name="parameters" element="tns:GetTransfer2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetTransferSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTransfer" />
+  </wsdl:message>
+  <wsdl:message name="GetTransferSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTransferResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTransferDelivery2SoapIn">
+    <wsdl:part name="parameters" element="tns:GetTransferDelivery2" />
+  </wsdl:message>
+  <wsdl:message name="GetTransferDelivery2SoapOut">
+    <wsdl:part name="parameters" element="tns:GetTransferDelivery2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetTransferDeliverySoapIn">
+    <wsdl:part name="parameters" element="tns:GetTransferDelivery" />
+  </wsdl:message>
+  <wsdl:message name="GetTransferDeliverySoapOut">
+    <wsdl:part name="parameters" element="tns:GetTransferDeliveryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTransferDeliveryDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTransferDeliveryDetail" />
+  </wsdl:message>
+  <wsdl:message name="GetTransferDeliveryDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTransferDeliveryDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTransferDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTransferDetail" />
+  </wsdl:message>
+  <wsdl:message name="GetTransferDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTransferDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOem2SoapIn">
+    <wsdl:part name="parameters" element="tns:GetOem2" />
+  </wsdl:message>
+  <wsdl:message name="GetOem2SoapOut">
+    <wsdl:part name="parameters" element="tns:GetOem2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetOemSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOem" />
+  </wsdl:message>
+  <wsdl:message name="GetOemSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOemResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOemDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOemDetail" />
+  </wsdl:message>
+  <wsdl:message name="GetOemDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOemDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWo2SoapIn">
+    <wsdl:part name="parameters" element="tns:GetWo2" />
+  </wsdl:message>
+  <wsdl:message name="GetWo2SoapOut">
+    <wsdl:part name="parameters" element="tns:GetWo2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetWoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWo" />
+  </wsdl:message>
+  <wsdl:message name="GetWoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWoDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWoDetail" />
+  </wsdl:message>
+  <wsdl:message name="GetWoDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWoDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProduce2SoapIn">
+    <wsdl:part name="parameters" element="tns:GetProduce2" />
+  </wsdl:message>
+  <wsdl:message name="GetProduce2SoapOut">
+    <wsdl:part name="parameters" element="tns:GetProduce2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetProduceSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProduce" />
+  </wsdl:message>
+  <wsdl:message name="GetProduceSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProduceResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProduceDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProduceDetail" />
+  </wsdl:message>
+  <wsdl:message name="GetProduceDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProduceDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSale2SoapIn">
+    <wsdl:part name="parameters" element="tns:GetSale2" />
+  </wsdl:message>
+  <wsdl:message name="GetSale2SoapOut">
+    <wsdl:part name="parameters" element="tns:GetSale2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetSaleSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSale" />
+  </wsdl:message>
+  <wsdl:message name="GetSaleSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSaleResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSaleDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSaleDetail" />
+  </wsdl:message>
+  <wsdl:message name="GetSaleDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSaleDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMaterialListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMaterialList" />
+  </wsdl:message>
+  <wsdl:message name="GetMaterialListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMaterialListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRmSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRm" />
+  </wsdl:message>
+  <wsdl:message name="GetRmSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRmResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSemiSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSemi" />
+  </wsdl:message>
+  <wsdl:message name="GetSemiSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSemiResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPro" />
+  </wsdl:message>
+  <wsdl:message name="GetProSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProResponse" />
+  </wsdl:message>
+  <wsdl:portType name="EasOrderSoap">
+    <wsdl:operation name="GetPo2">
+      <wsdl:input message="tns:GetPo2SoapIn" />
+      <wsdl:output message="tns:GetPo2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPo">
+      <wsdl:input message="tns:GetPoSoapIn" />
+      <wsdl:output message="tns:GetPoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPoDetail">
+      <wsdl:input message="tns:GetPoDetailSoapIn" />
+      <wsdl:output message="tns:GetPoDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTransfer2">
+      <wsdl:input message="tns:GetTransfer2SoapIn" />
+      <wsdl:output message="tns:GetTransfer2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTransfer">
+      <wsdl:input message="tns:GetTransferSoapIn" />
+      <wsdl:output message="tns:GetTransferSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTransferDelivery2">
+      <wsdl:input message="tns:GetTransferDelivery2SoapIn" />
+      <wsdl:output message="tns:GetTransferDelivery2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTransferDelivery">
+      <wsdl:input message="tns:GetTransferDeliverySoapIn" />
+      <wsdl:output message="tns:GetTransferDeliverySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTransferDeliveryDetail">
+      <wsdl:input message="tns:GetTransferDeliveryDetailSoapIn" />
+      <wsdl:output message="tns:GetTransferDeliveryDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTransferDetail">
+      <wsdl:input message="tns:GetTransferDetailSoapIn" />
+      <wsdl:output message="tns:GetTransferDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOem2">
+      <wsdl:input message="tns:GetOem2SoapIn" />
+      <wsdl:output message="tns:GetOem2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOem">
+      <wsdl:input message="tns:GetOemSoapIn" />
+      <wsdl:output message="tns:GetOemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOemDetail">
+      <wsdl:input message="tns:GetOemDetailSoapIn" />
+      <wsdl:output message="tns:GetOemDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWo2">
+      <wsdl:input message="tns:GetWo2SoapIn" />
+      <wsdl:output message="tns:GetWo2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWo">
+      <wsdl:input message="tns:GetWoSoapIn" />
+      <wsdl:output message="tns:GetWoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWoDetail">
+      <wsdl:input message="tns:GetWoDetailSoapIn" />
+      <wsdl:output message="tns:GetWoDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProduce2">
+      <wsdl:input message="tns:GetProduce2SoapIn" />
+      <wsdl:output message="tns:GetProduce2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProduce">
+      <wsdl:input message="tns:GetProduceSoapIn" />
+      <wsdl:output message="tns:GetProduceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProduceDetail">
+      <wsdl:input message="tns:GetProduceDetailSoapIn" />
+      <wsdl:output message="tns:GetProduceDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSale2">
+      <wsdl:input message="tns:GetSale2SoapIn" />
+      <wsdl:output message="tns:GetSale2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSale">
+      <wsdl:input message="tns:GetSaleSoapIn" />
+      <wsdl:output message="tns:GetSaleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSaleDetail">
+      <wsdl:input message="tns:GetSaleDetailSoapIn" />
+      <wsdl:output message="tns:GetSaleDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaterialList">
+      <wsdl:input message="tns:GetMaterialListSoapIn" />
+      <wsdl:output message="tns:GetMaterialListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRm">
+      <wsdl:input message="tns:GetRmSoapIn" />
+      <wsdl:output message="tns:GetRmSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSemi">
+      <wsdl:input message="tns:GetSemiSoapIn" />
+      <wsdl:output message="tns:GetSemiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPro">
+      <wsdl:input message="tns:GetProSoapIn" />
+      <wsdl:output message="tns:GetProSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EasOrderSoap" type="tns:EasOrderSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPo2">
+      <soap:operation soapAction="http://www.kingdee.com/GetPo2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPo">
+      <soap:operation soapAction="http://www.kingdee.com/GetPo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPoDetail">
+      <soap:operation soapAction="http://www.kingdee.com/GetPoDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransfer2">
+      <soap:operation soapAction="http://www.kingdee.com/GetTransfer2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransfer">
+      <soap:operation soapAction="http://www.kingdee.com/GetTransfer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransferDelivery2">
+      <soap:operation soapAction="http://www.kingdee.com/GetTransferDelivery2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransferDelivery">
+      <soap:operation soapAction="http://www.kingdee.com/GetTransferDelivery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransferDeliveryDetail">
+      <soap:operation soapAction="http://www.kingdee.com/GetTransferDeliveryDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransferDetail">
+      <soap:operation soapAction="http://www.kingdee.com/GetTransferDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOem2">
+      <soap:operation soapAction="http://www.kingdee.com/GetOem2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOem">
+      <soap:operation soapAction="http://www.kingdee.com/GetOem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOemDetail">
+      <soap:operation soapAction="http://www.kingdee.com/GetOemDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWo2">
+      <soap:operation soapAction="http://www.kingdee.com/GetWo2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWo">
+      <soap:operation soapAction="http://www.kingdee.com/GetWo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWoDetail">
+      <soap:operation soapAction="http://www.kingdee.com/GetWoDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProduce2">
+      <soap:operation soapAction="http://www.kingdee.com/GetProduce2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProduce">
+      <soap:operation soapAction="http://www.kingdee.com/GetProduce" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProduceDetail">
+      <soap:operation soapAction="http://www.kingdee.com/GetProduceDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSale2">
+      <soap:operation soapAction="http://www.kingdee.com/GetSale2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSale">
+      <soap:operation soapAction="http://www.kingdee.com/GetSale" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSaleDetail">
+      <soap:operation soapAction="http://www.kingdee.com/GetSaleDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaterialList">
+      <soap:operation soapAction="http://www.kingdee.com/GetMaterialList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRm">
+      <soap:operation soapAction="http://www.kingdee.com/GetRm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSemi">
+      <soap:operation soapAction="http://www.kingdee.com/GetSemi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPro">
+      <soap:operation soapAction="http://www.kingdee.com/GetPro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="EasOrderSoap12" type="tns:EasOrderSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPo2">
+      <soap12:operation soapAction="http://www.kingdee.com/GetPo2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPo">
+      <soap12:operation soapAction="http://www.kingdee.com/GetPo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPoDetail">
+      <soap12:operation soapAction="http://www.kingdee.com/GetPoDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransfer2">
+      <soap12:operation soapAction="http://www.kingdee.com/GetTransfer2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransfer">
+      <soap12:operation soapAction="http://www.kingdee.com/GetTransfer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransferDelivery2">
+      <soap12:operation soapAction="http://www.kingdee.com/GetTransferDelivery2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransferDelivery">
+      <soap12:operation soapAction="http://www.kingdee.com/GetTransferDelivery" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransferDeliveryDetail">
+      <soap12:operation soapAction="http://www.kingdee.com/GetTransferDeliveryDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransferDetail">
+      <soap12:operation soapAction="http://www.kingdee.com/GetTransferDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOem2">
+      <soap12:operation soapAction="http://www.kingdee.com/GetOem2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOem">
+      <soap12:operation soapAction="http://www.kingdee.com/GetOem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOemDetail">
+      <soap12:operation soapAction="http://www.kingdee.com/GetOemDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWo2">
+      <soap12:operation soapAction="http://www.kingdee.com/GetWo2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWo">
+      <soap12:operation soapAction="http://www.kingdee.com/GetWo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWoDetail">
+      <soap12:operation soapAction="http://www.kingdee.com/GetWoDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProduce2">
+      <soap12:operation soapAction="http://www.kingdee.com/GetProduce2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProduce">
+      <soap12:operation soapAction="http://www.kingdee.com/GetProduce" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProduceDetail">
+      <soap12:operation soapAction="http://www.kingdee.com/GetProduceDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSale2">
+      <soap12:operation soapAction="http://www.kingdee.com/GetSale2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSale">
+      <soap12:operation soapAction="http://www.kingdee.com/GetSale" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSaleDetail">
+      <soap12:operation soapAction="http://www.kingdee.com/GetSaleDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaterialList">
+      <soap12:operation soapAction="http://www.kingdee.com/GetMaterialList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRm">
+      <soap12:operation soapAction="http://www.kingdee.com/GetRm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSemi">
+      <soap12:operation soapAction="http://www.kingdee.com/GetSemi" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPro">
+      <soap12:operation soapAction="http://www.kingdee.com/GetPro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EasOrder">
+    <wsdl:port name="EasOrderSoap" binding="tns:EasOrderSoap">
+      <soap:address location="http://localhost:32422/EasOrder.asmx" />
+    </wsdl:port>
+    <wsdl:port name="EasOrderSoap12" binding="tns:EasOrderSoap12">
+      <soap12:address location="http://localhost:32422/EasOrder.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
