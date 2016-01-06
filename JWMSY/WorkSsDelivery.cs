@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Globalization;
 using System.IO;
 using System.Security.Cryptography;
@@ -12,6 +13,7 @@ using System.Threading;
 using System.Windows.Forms;
 using System.Xml;
 using JWMSY.DLL;
+using DevExpress.XtraReports.UI;
 
 namespace JWMSY
 {
@@ -154,6 +156,7 @@ namespace JWMSY
                 dr.cCusName = xname;
                 dr.cCusAddress = addr;
                 dr.cCardNumber = KH;
+                dr.cWhCode = dtBody.Rows[i]["erpcode"].ToString();
                 sds.dSSDelivery.Rows.Add(dr);
             }
             var wf = new WmsFunction(BaseStructure.WmsCon);
@@ -161,7 +164,7 @@ namespace JWMSY
             {
                 var cmd = new SqlCommand
                 {
-                    CommandText = "insert into SS_Delivery(cOrderNumber,cInvCode,cInvName,cUnit,iQuantity,iScanQuantity,cCusName,cCusAddress,cCardNumber) values(@cOrderNumber,@cInvCode,@cInvName,@cUnit,@iQuantity,0,@cCusName,@cCusAddress,@cCardNumber)"
+                    CommandText = "insert into SS_Delivery(cOrderNumber,cInvCode,cInvName,cUnit,iQuantity,iScanQuantity,cCusName,cCusAddress,cCardNumber,cWhCode) values(@cOrderNumber,@cInvCode,@cInvName,@cUnit,@iQuantity,0,@cCusName,@cCusAddress,@cCardNumber,@cWhCode)"
                 };
                 cmd.Parameters.AddWithValue("@cOrderNumber", sds.dSSDelivery.Rows[i]["cOrderNumber"]);
                 cmd.Parameters.AddWithValue("@cInvCode", sds.dSSDelivery.Rows[i]["cInvCode"]);
@@ -171,6 +174,7 @@ namespace JWMSY
                 cmd.Parameters.AddWithValue("@cCusName", sds.dSSDelivery.Rows[i]["cCusName"]);
                 cmd.Parameters.AddWithValue("@cCusAddress", sds.dSSDelivery.Rows[i]["cCusAddress"]);
                 cmd.Parameters.AddWithValue("@cCardNumber", sds.dSSDelivery.Rows[i]["cCardNumber"]);
+                cmd.Parameters.AddWithValue("@cWhCode", sds.dSSDelivery.Rows[i]["cWhCode"]);
                 wf.ExecSqlCmd(cmd);
             }
             //写下载日志
@@ -266,17 +270,14 @@ namespace JWMSY
             if (string.IsNullOrEmpty(lblcOrderNumber.Text))
                 return true;
 
-            var bCmd = new SqlCommand("select * from SF_Order where cOrderNumber=@cOrderNumber");
+            var bCmd = new SqlCommand("select top 1 cWaveOrderNumber from SF_Order where cOrderNumber=@cOrderNumber");
             bCmd.Parameters.AddWithValue("@cOrderNumber", lblcOrderNumber.Text);
             var wf = new WmsFunction(BaseStructure.WmsCon);
-            var dt = wf.GetSqlTable(bCmd);
-            if (dt == null || dt.Rows.Count < 1)
+            var strcWaveOrderNumber = wf.ReturnFirstSingle(bCmd);
+            if (string.IsNullOrEmpty(strcWaveOrderNumber))
             {
-
                 return true;
-            }
-
-            lblcWaveOrderNumber.Text = dt.Rows[0]["cWaveOrderNumber"].ToString();
+            }lblcWaveOrderNumber.Text = strcWaveOrderNumber;
             return false;
         }
 
@@ -284,6 +285,8 @@ namespace JWMSY
         /// 产成品名称
         /// </summary>
         private string _cInvName;
+
+        private string _cWhCode;
 
         /// <summary>
         /// 理论重量
@@ -301,8 +304,8 @@ namespace JWMSY
         private void SaveOutWareHouse(string cSerialNumber, string cInvCode, string cInvName, int iQuantity, decimal iWeight, string cLotNo)
         {
             var wf = new WmsFunction(BaseStructure.WmsCon);
-            var sqLiteCmd = new SqlCommand("insert into SS_Detail(cSerialNumber,cBoxNumber,cOrderNumber,cInvCode,cInvName,iQuantity,cUser,iWeight,dDate,dScanTime,cLotNo) " +
-                                              "values(@cSerialNumber,@cBoxNumber,@cOrderNumber,@cInvCode,@cInvName,@iQuantity,@cUser,@iWeight,getdate(),getdate(),@cLotNo)");
+            var sqLiteCmd = new SqlCommand("insert into SS_Detail(cSerialNumber,cBoxNumber,cOrderNumber,cInvCode,cInvName,iQuantity,cUser,iWeight,dDate,dScanTime,cLotNo,cWhCode) " +
+                                              "values(@cSerialNumber,@cBoxNumber,@cOrderNumber,@cInvCode,@cInvName,@iQuantity,@cUser,@iWeight,getdate(),getdate(),@cLotNo,@cWhCode)");
             sqLiteCmd.Parameters.AddWithValue("@cSerialNumber", cSerialNumber);
             sqLiteCmd.Parameters.AddWithValue("@cBoxNumber", lblcBoxNumber.Text);
             sqLiteCmd.Parameters.AddWithValue("@cOrderNumber", lblcOrderNumber.Text);
@@ -312,6 +315,7 @@ namespace JWMSY
             sqLiteCmd.Parameters.AddWithValue("@cUser", BaseStructure.LoginName);
             sqLiteCmd.Parameters.AddWithValue("@iWeight", iWeight);
             sqLiteCmd.Parameters.AddWithValue("@cLotNo", cLotNo);
+            sqLiteCmd.Parameters.AddWithValue("@cWhCode", _cWhCode);
             wf.ExecSqlCmd(sqLiteCmd);
 
             var PlusCmd = new SqlCommand("update SS_Delivery set iScanQuantity=isnull(iScanQuantity,0)+@iQuantity where cOrderNumber=@cOrderNumber and cInvCode=@cInvCode ");
@@ -385,10 +389,31 @@ namespace JWMSY
             cmd.Parameters.AddWithValue("@cOperator", BaseStructure.LoginName);
             wf.ExecSqlCmd(cmd);
             BoolLoadWaveOrder();
+            BoolApproveOrder();
             GetSFOrderDetail(lblcWaveOrderNumber.Text);
             
         }
 
+
+
+        private void BoolApproveOrder()
+        {
+            if (string.IsNullOrEmpty(lblcOrderNumber.Text))
+                return;
+
+            var bCmd = new SqlCommand("select * from Wms_M_Eas where cOrderNumber=@cOrderNumber");
+            bCmd.Parameters.AddWithValue("@cOrderNumber", lblcOrderNumber.Text);
+            var wf = new WmsFunction(BaseStructure.WmsCon);
+            var bA = wf.BoolExistTable(bCmd);
+            if (bA)
+            {
+                tslblStatus.Text = @"已审核";
+            }
+            else
+            {
+                tslblStatus.Text = "";
+            }
+        }
 
         private void RefreshGrid(string cOrderNumber)
         {
@@ -491,7 +516,7 @@ namespace JWMSY
         private bool JudgeInvCode(string cInvCode)
         {
             var wf = new WmsFunction(BaseStructure.WmsCon);
-            var bOutAllCmd = new SqlCommand("select cInvCode,cInvName from SS_Delivery where cInvCode=@cInvCode and cOrderNumber=@cOrderNumber");
+            var bOutAllCmd = new SqlCommand("select cInvCode,cInvName,cWhCode from SS_Delivery where cInvCode=@cInvCode and cOrderNumber=@cOrderNumber");
             bOutAllCmd.Parameters.AddWithValue("@cInvCode", cInvCode);
             bOutAllCmd.Parameters.AddWithValue("@cOrderNumber", lblcOrderNumber.Text);
             var dt = wf.GetSqlTable(bOutAllCmd);
@@ -504,7 +529,7 @@ namespace JWMSY
 
             }
             _cInvName = dt.Rows[0]["cInvName"].ToString();
-            
+            _cWhCode = dt.Rows[0]["cWhCode"].ToString();
             return true;
         }
 
@@ -651,6 +676,13 @@ namespace JWMSY
             //    cBarCode = GetInventoryMapping(txtcBarCode.Text);
             //}
 
+            if (lblcBoxNumber.Text.Equals(bcMain.Text))
+            {
+                if(MessageBox.Show(@"当前正在使用虚拟整箱用箱条码，
+只有当不需要真实拼箱时才能使用虚拟箱条码，如果不是请点击否！",@"是否为整箱",MessageBoxButtons.YesNo,MessageBoxIcon.Warning,MessageBoxDefaultButton.Button2)!=DialogResult.Yes)
+                    return;
+            }
+
             
 
             if (!cBarCode.StartsWith("I*") || !cBarCode.Contains("*C*") || !cBarCode.Contains("*L*"))
@@ -753,6 +785,12 @@ namespace JWMSY
             tsgfMain.FormName = Text;
             tsgfMain.Constr = BaseStructure.WmsCon;
             tsgfMain.GetGridStyle(tsgfMain.FormId);
+
+            //获取当前所有打印机
+            for (var i = 0; i < PrinterSettings.InstalledPrinters.Count; i++)
+            {
+                cbxPrint.Items.Add(PrinterSettings.InstalledPrinters[i]);
+            }
         }
 
         /// <summary>
@@ -1156,51 +1194,122 @@ namespace JWMSY
         {
             var ckNo = cOrderNumber.ToUpper();
             var ckNoMd5 = GetMd5OrderService(ckNo);
-            var strOrder = string.Empty;
-            var strHeader = string.Empty;
-            var strBody = string.Empty;
             //通过WebService获取报单系统数据
             var js = new OrderService.WMS();
+            var iExist = js.IsExists(ckNo, ckNoMd5);
 
-            DataTable dtHeader;
-            DataTable dtBody;
-            try
+
+            if (iExist != 0) return false;
+            MessageBox.Show(@"此出库单号，已经被报单系统撤单，无法出库
+系统将清除此次所有子记录!", @"Warning");
+            return true;
+        }
+
+        private void btnPrintBoxDetail_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(lblcOrderNumber.Text)||string.IsNullOrEmpty(lblcBoxNumber.Text))
+                return;
+            var wf = new WmsFunction(BaseStructure.WmsCon);
+            var cmd = new SqlCommand("GetBoxDetailByBoxNumber") {CommandType = CommandType.StoredProcedure};
+
+            cmd.Parameters.AddWithValue("@cOrderNumber", lblcOrderNumber.Text);
+            cmd.Parameters.AddWithValue("@cBoxNumber", lblcBoxNumber.Text);
+            var dt =wf.GetSqlTable(cmd);
+            PrintDialog("print", dt, lblcBoxNumber.Text);
+        }
+
+
+        /// <summary>
+        /// 打印操作
+        /// </summary>
+        /// <param name="operation"></param>
+        /// <param name="dtSource"></param>
+        public void PrintDialog(string operation,DataTable dtSource,string cBoxNumber)
+        {
+
+            var xtreport = new XtraReport();
+            // _btApp = new BarTender.Application();
+            //判断当前打印模版路径是否存在
+            var temPath = Application.StartupPath + @"\Stencil\SSDeliveryBoxDetail.repx";
+
+            if (!File.Exists(temPath))
             {
-                strOrder = js.GetProductDetail2(ckNo, ckNoMd5);
-                if (!strOrder.Contains("<head>"))
+                MessageBox.Show(@"当前路径下的打印模版文件不存在!", @"异常", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                xtreport.ShowDesigner();
+                return;
+            }
+            xtreport.LoadLayout(temPath);
+            xtreport.PrinterName = cbxPrint.Text;
+            xtreport.RequestParameters = false;
+            xtreport.ShowPrintStatusDialog = false;
+            xtreport.ShowPrintMarginsWarning = false;
+            //模板赋值
+            for (var i = 0; i < uGridSsDelivery.DisplayLayout.Bands[0].Columns.Count; i++)
+            {
+                var cKey = uGridSsDelivery.DisplayLayout.Bands[0].Columns[i].Key;
+                string cValue;
+                if (uGridSsDelivery.Rows.Count>0)
                 {
-
-                    MessageBox.Show(@"此出库单号，已经被报单系统撤单，无法出库
-系统将清除此次所有子记录!", @"Warning");
-                    return true;
+                    cValue = uGridSsDelivery.Rows[0].Cells[i].Value.ToString();
                 }
-                strHeader = strOrder.Substring(strOrder.IndexOf("<head>"), strOrder.IndexOf("</head>") - strOrder.IndexOf("<head>") + 7);
-                strBody = strOrder.Remove(strOrder.IndexOf("<head>"), strOrder.IndexOf("</head>") - strOrder.IndexOf("<head>") + 7);
-                dtHeader = CXmlFileToDataSet(strHeader).Tables[0];
-                dtBody = CXmlFileToDataSet(strBody).Tables[0];
-
+                else
+                {
+                    cValue = "";
+                }
+                DLL.DllWorkPrintLabel.SetParametersValue(xtreport, cKey, cValue);
             }
-            catch (Exception ex)
+            DLL.DllWorkPrintLabel.SetParametersValue(xtreport, "cBoxNumber", cBoxNumber);
+            xtreport.DataSource = dtSource;
+            switch (operation)
             {
-
-                
-                return false;
+                case "print":
+                    xtreport.Print();
+                    break;
+                case "design":
+                    xtreport.ShowDesigner();
+                    break;
+                case "preview":
+                    xtreport.ShowPreview();
+                    break;
             }
 
+        }
 
-            if (dtBody == null || dtHeader == null)
+        private void tsbtnLotPrintBoxDetail_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(lblcOrderNumber.Text))
+                return;
+            var wf = new WmsFunction(BaseStructure.WmsCon);
+            var cmdBox = new SqlCommand("select cBoxNumber from SS_Detail where cOrderNumber=@cOrderNumber group by cBoxNumber ");
+            cmdBox.Parameters.AddWithValue("@cOrderNumber", lblcOrderNumber.Text);
+            var dtBox = wf.GetSqlTable(cmdBox);
+            if (dtBox == null || dtBox.Rows.Count < 1)
             {
-                return false;
+                return;
             }
-
-
-            if (dtBody.Rows.Count < 1 || dtHeader.Rows.Count < 1)
+            for (var i = 0; i < dtBox.Rows.Count; i++)
             {
-                MessageBox.Show(@"此出库单号，已经被报单系统撤单，无法出库
-系统将清除此次所有子记录!", @"Warning");
-                return true;
+                var cmd = new SqlCommand("GetBoxDetailByBoxNumber") { CommandType = CommandType.StoredProcedure };
+
+                cmd.Parameters.AddWithValue("@cOrderNumber", lblcOrderNumber.Text);
+                cmd.Parameters.AddWithValue("@cBoxNumber", dtBox.Rows[i]["cBoxNumber"].ToString());
+                var dt = wf.GetSqlTable(cmd);
+                PrintDialog("print", dt,lblcBoxNumber.Text);
             }
-            return false;
+
+        }
+
+        private void btnDesign_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(lblcOrderNumber.Text) || string.IsNullOrEmpty(lblcBoxNumber.Text))
+                return;
+            var wf = new WmsFunction(BaseStructure.WmsCon);
+            var cmd = new SqlCommand("GetBoxDetailByBoxNumber") { CommandType = CommandType.StoredProcedure };
+
+            cmd.Parameters.AddWithValue("@cOrderNumber", lblcOrderNumber.Text);
+            cmd.Parameters.AddWithValue("@cBoxNumber", lblcBoxNumber.Text);
+            var dt = wf.GetSqlTable(cmd);
+            PrintDialog("design", dt,lblcBoxNumber.Text);
         }
            
     }

@@ -131,7 +131,7 @@ SELECT AutoID, cOrderNumber, cInvCode, cInvName, cLotNo, cOrgOrderNumber, cCusNa
   <xs:element name="DataProductMain" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataProductMain" msprop:Generator_UserDSName="DataProductMain">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="SS_DeliveryReturn" msprop:Generator_TableClassName="SS_DeliveryReturnDataTable" msprop:Generator_TableVarName="tableSS_DeliveryReturn" msprop:Generator_TablePropName="SS_DeliveryReturn" msprop:Generator_RowDeletingName="SS_DeliveryReturnRowDeleting" msprop:Generator_RowChangingName="SS_DeliveryReturnRowChanging" msprop:Generator_RowEvHandlerName="SS_DeliveryReturnRowChangeEventHandler" msprop:Generator_RowDeletedName="SS_DeliveryReturnRowDeleted" msprop:Generator_UserTableName="SS_DeliveryReturn" msprop:Generator_RowChangedName="SS_DeliveryReturnRowChanged" msprop:Generator_RowEvArgName="SS_DeliveryReturnRowChangeEvent" msprop:Generator_RowClassName="SS_DeliveryReturnRow">
+        <xs:element name="SS_DeliveryReturn" msprop:Generator_TableClassName="SS_DeliveryReturnDataTable" msprop:Generator_TableVarName="tableSS_DeliveryReturn" msprop:Generator_RowChangedName="SS_DeliveryReturnRowChanged" msprop:Generator_TablePropName="SS_DeliveryReturn" msprop:Generator_RowDeletingName="SS_DeliveryReturnRowDeleting" msprop:Generator_RowChangingName="SS_DeliveryReturnRowChanging" msprop:Generator_RowEvHandlerName="SS_DeliveryReturnRowChangeEventHandler" msprop:Generator_RowDeletedName="SS_DeliveryReturnRowDeleted" msprop:Generator_RowClassName="SS_DeliveryReturnRow" msprop:Generator_UserTableName="SS_DeliveryReturn" msprop:Generator_RowEvArgName="SS_DeliveryReturnRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="AutoID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnAutoID" msprop:Generator_ColumnPropNameInRow="AutoID" msprop:Generator_ColumnPropNameInTable="AutoIDColumn" msprop:Generator_UserColumnName="AutoID" type="xs:long" />
@@ -193,6 +193,14 @@ SELECT AutoID, cOrderNumber, cInvCode, cInvName, cLotNo, cOrgOrderNumber, cCusNa
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataInput" msprop:Generator_TableClassName="DataInputDataTable" msprop:Generator_TableVarName="tableDataInput" msprop:Generator_TablePropName="DataInput" msprop:Generator_RowDeletingName="DataInputRowDeleting" msprop:Generator_RowChangingName="DataInputRowChanging" msprop:Generator_RowEvHandlerName="DataInputRowChangeEventHandler" msprop:Generator_RowDeletedName="DataInputRowDeleted" msprop:Generator_UserTableName="DataInput" msprop:Generator_RowChangedName="DataInputRowChanged" msprop:Generator_RowEvArgName="DataInputRowChangeEvent" msprop:Generator_RowClassName="DataInputRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="cOrderNumber" msprop:Generator_ColumnVarNameInTable="columncOrderNumber" msprop:Generator_ColumnPropNameInRow="cOrderNumber" msprop:Generator_ColumnPropNameInTable="cOrderNumberColumn" msprop:Generator_UserColumnName="cOrderNumber" type="xs:string" minOccurs="0" />
+              <xs:element name="cResult" msprop:Generator_ColumnVarNameInTable="columncResult" msprop:Generator_ColumnPropNameInRow="cResult" msprop:Generator_ColumnPropNameInTable="cResultColumn" msprop:Generator_UserColumnName="cResult" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

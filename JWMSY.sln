@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JWMSY", "JWMSY\JWMSY.csproj", "{B97A047D-C40A-4F21-BB3E-06082D22FA3B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataService", "DataService\DataService.csproj", "{50CC49E4-E4F7-462A-A340-7FF63B7AF3A4}"
@@ -12,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UDLB", "UDLB\UDLB.csproj", "{23FD1978-A059-40CF-9A21-2B224E0EF695}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoSync", "AutoSync\AutoSync.csproj", "{53E52908-A4EA-4FB4-A329-1ACF97CFB306}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderServices", "OrderServices\OrderServices.csproj", "{08FC9212-F5E2-4874-A2CF-B4F590B85976}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +47,10 @@ Global
 		{53E52908-A4EA-4FB4-A329-1ACF97CFB306}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53E52908-A4EA-4FB4-A329-1ACF97CFB306}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53E52908-A4EA-4FB4-A329-1ACF97CFB306}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08FC9212-F5E2-4874-A2CF-B4F590B85976}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08FC9212-F5E2-4874-A2CF-B4F590B85976}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08FC9212-F5E2-4874-A2CF-B4F590B85976}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08FC9212-F5E2-4874-A2CF-B4F590B85976}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

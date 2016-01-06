@@ -291,6 +291,10 @@
     </Compile>
     <Compile Include="DLL\DllWmsMain.cs" />
     <Compile Include="DLL\DllWorkPrintLabel.cs" />
+    <Compile Include="DLL\SDataSet.cs">
+      <DependentUpon>SDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DLL\SDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -305,6 +309,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsCompare.xsd</DependentUpon>
     </Compile>
+    <Compile Include="EASLoginProxyService.cs" />
     <Compile Include="PdaGetIntQuantity.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -399,6 +404,12 @@
     </Compile>
     <Compile Include="WorkDeleteFromTransfer.Designer.cs">
       <DependentUpon>WorkDeleteFromTransfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkLotReApprove.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkLotReApprove.Designer.cs">
+      <DependentUpon>WorkLotReApprove.cs</DependentUpon>
     </Compile>
     <Compile Include="WorkOemDelivery.cs">
       <SubType>Form</SubType>
@@ -778,6 +789,7 @@
     <Compile Include="Rpt_WmsAndEasCompareSaleDeliveryOrder.Designer.cs">
       <DependentUpon>Rpt_WmsAndEasCompareSaleDeliveryOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="WSWSYofotoFacadeSrvProxyService.cs" />
     <EmbeddedResource Include="AboutVersion.resx">
       <DependentUpon>AboutVersion.cs</DependentUpon>
     </EmbeddedResource>
@@ -830,6 +842,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WorkDeleteFromTransfer.resx">
       <DependentUpon>WorkDeleteFromTransfer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkLotReApprove.resx">
+      <DependentUpon>WorkLotReApprove.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WorkOemDelivery.resx">
       <DependentUpon>WorkOemDelivery.cs</DependentUpon>
@@ -1589,10 +1604,10 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>JWMSY_EasOrderService_EasOrder</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://test.yofoto.cn/wms.asmx">
+    <WebReferenceUrl Include="http://localhost:2831/wms.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\OrderService\</RelPath>
-      <UpdateFromURL>http://test.yofoto.cn/wms.asmx</UpdateFromURL>
+      <UpdateFromURL>http://localhost:2831/wms.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>

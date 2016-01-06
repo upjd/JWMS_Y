@@ -357,7 +357,7 @@ namespace DataService
         {
             var iof = new InterfaceOracleFunction(Properties.Settings.Default.EasCon);
             sibill.FID = iof.GetFID("CC3E933B");
-            sibill.FCREATORID="K7Li625bRC6r8uAH5mlIDRO33n8=";
+            sibill.FCREATORID = "9htALWzQRaGIR4lDJ2tNuRO33n8=";
             sibill.FCREATETIME=DateTime.Now;
             //sibill.FLASTUPDATETIME= ;
             //sibill.FLASTUPDATEUSERID="K7Li625bRC6r8uAH5mlIDRO33n8=";
@@ -408,8 +408,8 @@ namespace DataService
             sibill.FCOSTCENTERORGUNITID=null;
 
             sibill.FPaymentTypeID = "cd54aa9f-03a4-459c-9c5a-5489dce5f0676BCA0AB5";
-            sibill.FAUDITORID = "K7Li625bRC6r8uAH5mlIDRO33n8=";
-            sibill.FLASTUPDATEUSERID = "K7Li625bRC6r8uAH5mlIDRO33n8=";
+            sibill.FAUDITORID = "9htALWzQRaGIR4lDJ2tNuRO33n8=";
+            sibill.FLASTUPDATEUSERID = "9htALWzQRaGIR4lDJ2tNuRO33n8=";
             sibill.FLASTUPDATETIME = DateTime.Now;
             sibill.FAUDITTIME = DateTime.Now;
             sibill.FSTOCKERID = null;
@@ -790,9 +790,17 @@ where fparentid in ('1d2xZMr2TAidqncU9Sam48w+kzs=','fL0QaL95SkyRu0Osx071w8w+kzs=
                                 GenBillPara(ocmd);
                                 ocmd.ExecuteNonQuery();
                                 ocmd.CommandText = BillEntryCmdStr;
+                                //获取要导入行的仓库
+                                string cWhCode = string.Empty;
                                 for (var i = 0; i < dtSsDetail.Rows.Count; i++)
                                 {
                                     ocmd.Parameters.Clear();
+
+                                    cWhCode= dtSsDetail.Rows[i]["cWhCode"].ToString();
+                                    if (!string.IsNullOrEmpty(cWhCode))
+                                    {
+                                        _cWhareHouse = iof.GetWareHouse(cWhCode);
+                                    }
                                     var cInvCode = dtSsDetail.Rows[i]["cInvCode"].ToString();
                                     var cInvName = "";
                                     var iQuantity = dtSsDetail.Rows[i]["iQuantity"].ToString();
@@ -823,7 +831,7 @@ where fparentid in ('1d2xZMr2TAidqncU9Sam48w+kzs=','fL0QaL95SkyRu0Osx071w8w+kzs=
         {
             using (var con = new SqlConnection(Properties.Settings.Default.WmsCon))
             {
-                using (var cmd = new SqlCommand("select cInvCode,iQuantity,cLotNo from SS_Detail  where cOrderNumber=@cOrderNumber group by cInvCode,iQuantity,cLotNo", con))
+                using (var cmd = new SqlCommand("select cInvCode,iQuantity,cLotNo,cWhCode from SS_Detail  where cOrderNumber=@cOrderNumber group by cInvCode,iQuantity,cLotNo", con))
                 {
                     cmd.Parameters.AddWithValue("@cOrderNumber", cOrderNumber);
                     var da = new SqlDataAdapter(cmd);

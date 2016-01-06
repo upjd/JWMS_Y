@@ -114,6 +114,11 @@
             this.tsmiDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.uGridSsDelivery = new Infragistics.Win.UltraWinGrid.UltraGrid();
             this.spMain = new System.IO.Ports.SerialPort(this.components);
+            this.tsbtnLotPrintBoxDetail = new System.Windows.Forms.ToolStripButton();
+            this.btnPrintBoxDetail = new System.Windows.Forms.Button();
+            this.cbxPrint = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnDesign = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ugbxMain)).BeginInit();
             this.ugbxMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uteiWeight)).BeginInit();
@@ -125,6 +130,10 @@
             // 
             // ugbxMain
             // 
+            this.ugbxMain.Controls.Add(this.btnDesign);
+            this.ugbxMain.Controls.Add(this.cbxPrint);
+            this.ugbxMain.Controls.Add(this.label5);
+            this.ugbxMain.Controls.Add(this.btnPrintBoxDetail);
             this.ugbxMain.Controls.Add(this.label4);
             this.ugbxMain.Controls.Add(this.bcMain);
             this.ugbxMain.Controls.Add(this.btnSave);
@@ -208,7 +217,7 @@
             // 
             this.lblcBoxNumber.AutoSize = true;
             this.lblcBoxNumber.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblcBoxNumber.Location = new System.Drawing.Point(656, 73);
+            this.lblcBoxNumber.Location = new System.Drawing.Point(656, 67);
             this.lblcBoxNumber.Name = "lblcBoxNumber";
             this.lblcBoxNumber.Size = new System.Drawing.Size(0, 21);
             this.lblcBoxNumber.TabIndex = 8;
@@ -232,7 +241,8 @@
             this.tslbliRQuantity,
             this.toolStripSeparator5,
             this.tsbtnApprove,
-            this.tslblStatus});
+            this.tslblStatus,
+            this.tsbtnLotPrintBoxDetail});
             this.toolStrip1.Location = new System.Drawing.Point(3, 3);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(978, 25);
@@ -671,6 +681,52 @@
             // 
             this.spMain.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.spMain_DataReceived);
             // 
+            // tsbtnLotPrintBoxDetail
+            // 
+            this.tsbtnLotPrintBoxDetail.Image = global::JWMSY.Properties.Resources.print;
+            this.tsbtnLotPrintBoxDetail.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtnLotPrintBoxDetail.Name = "tsbtnLotPrintBoxDetail";
+            this.tsbtnLotPrintBoxDetail.Size = new System.Drawing.Size(100, 22);
+            this.tsbtnLotPrintBoxDetail.Text = "批打印装箱单";
+            this.tsbtnLotPrintBoxDetail.Click += new System.EventHandler(this.tsbtnLotPrintBoxDetail_Click);
+            // 
+            // btnPrintBoxDetail
+            // 
+            this.btnPrintBoxDetail.Location = new System.Drawing.Point(841, 121);
+            this.btnPrintBoxDetail.Name = "btnPrintBoxDetail";
+            this.btnPrintBoxDetail.Size = new System.Drawing.Size(98, 23);
+            this.btnPrintBoxDetail.TabIndex = 68;
+            this.btnPrintBoxDetail.Text = "打印当前装箱单";
+            this.btnPrintBoxDetail.UseVisualStyleBackColor = true;
+            this.btnPrintBoxDetail.Click += new System.EventHandler(this.btnPrintBoxDetail_Click);
+            // 
+            // cbxPrint
+            // 
+            this.cbxPrint.FormattingEnabled = true;
+            this.cbxPrint.Location = new System.Drawing.Point(641, 122);
+            this.cbxPrint.Name = "cbxPrint";
+            this.cbxPrint.Size = new System.Drawing.Size(194, 20);
+            this.cbxPrint.TabIndex = 70;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(573, 126);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(65, 12);
+            this.label5.TabIndex = 69;
+            this.label5.Text = "打 印 机：";
+            // 
+            // btnDesign
+            // 
+            this.btnDesign.Location = new System.Drawing.Point(940, 121);
+            this.btnDesign.Name = "btnDesign";
+            this.btnDesign.Size = new System.Drawing.Size(38, 23);
+            this.btnDesign.TabIndex = 71;
+            this.btnDesign.Text = "设计";
+            this.btnDesign.UseVisualStyleBackColor = true;
+            this.btnDesign.Click += new System.EventHandler(this.btnDesign_Click);
+            // 
             // WorkSsDelivery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -736,5 +792,10 @@
         private System.Windows.Forms.ToolStripLabel tslblStatus;
         private DevExpress.XtraEditors.BarCodeControl bcMain;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cbxPrint;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnPrintBoxDetail;
+        private System.Windows.Forms.ToolStripButton tsbtnLotPrintBoxDetail;
+        private System.Windows.Forms.Button btnDesign;
     }
 }
