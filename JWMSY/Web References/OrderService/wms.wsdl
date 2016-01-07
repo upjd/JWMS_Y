@@ -2,21 +2,6 @@
 <wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
-      <s:element name="GetBatchRunno">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="batchNo" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="keys" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="GetBatchRunnoResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetBatchRunnoResult" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
       <s:element name="GetProductDetail1">
         <s:complexType>
           <s:sequence>
@@ -32,18 +17,18 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="GetProductDetail2">
+      <s:element name="GetBatchRunno">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="ckNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="batchNo" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="keys" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="GetProductDetail2Response">
+      <s:element name="GetBatchRunnoResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetProductDetail2Result" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetBatchRunnoResult" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -62,25 +47,34 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetProductDetail2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ckNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="keys" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductDetail2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProductDetail2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
-  <wsdl:message name="GetBatchRunnoSoapIn">
-    <wsdl:part name="parameters" element="tns:GetBatchRunno" />
-  </wsdl:message>
-  <wsdl:message name="GetBatchRunnoSoapOut">
-    <wsdl:part name="parameters" element="tns:GetBatchRunnoResponse" />
-  </wsdl:message>
   <wsdl:message name="GetProductDetail1SoapIn">
     <wsdl:part name="parameters" element="tns:GetProductDetail1" />
   </wsdl:message>
   <wsdl:message name="GetProductDetail1SoapOut">
     <wsdl:part name="parameters" element="tns:GetProductDetail1Response" />
   </wsdl:message>
-  <wsdl:message name="GetProductDetail2SoapIn">
-    <wsdl:part name="parameters" element="tns:GetProductDetail2" />
+  <wsdl:message name="GetBatchRunnoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBatchRunno" />
   </wsdl:message>
-  <wsdl:message name="GetProductDetail2SoapOut">
-    <wsdl:part name="parameters" element="tns:GetProductDetail2Response" />
+  <wsdl:message name="GetBatchRunnoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBatchRunnoResponse" />
   </wsdl:message>
   <wsdl:message name="IsExistsSoapIn">
     <wsdl:part name="parameters" element="tns:IsExists" />
@@ -88,35 +82,32 @@
   <wsdl:message name="IsExistsSoapOut">
     <wsdl:part name="parameters" element="tns:IsExistsResponse" />
   </wsdl:message>
+  <wsdl:message name="GetProductDetail2SoapIn">
+    <wsdl:part name="parameters" element="tns:GetProductDetail2" />
+  </wsdl:message>
+  <wsdl:message name="GetProductDetail2SoapOut">
+    <wsdl:part name="parameters" element="tns:GetProductDetail2Response" />
+  </wsdl:message>
   <wsdl:portType name="WMSSoap">
-    <wsdl:operation name="GetBatchRunno">
-      <wsdl:input message="tns:GetBatchRunnoSoapIn" />
-      <wsdl:output message="tns:GetBatchRunnoSoapOut" />
-    </wsdl:operation>
     <wsdl:operation name="GetProductDetail1">
       <wsdl:input message="tns:GetProductDetail1SoapIn" />
       <wsdl:output message="tns:GetProductDetail1SoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetProductDetail2">
-      <wsdl:input message="tns:GetProductDetail2SoapIn" />
-      <wsdl:output message="tns:GetProductDetail2SoapOut" />
+    <wsdl:operation name="GetBatchRunno">
+      <wsdl:input message="tns:GetBatchRunnoSoapIn" />
+      <wsdl:output message="tns:GetBatchRunnoSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="IsExists">
       <wsdl:input message="tns:IsExistsSoapIn" />
       <wsdl:output message="tns:IsExistsSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetProductDetail2">
+      <wsdl:input message="tns:GetProductDetail2SoapIn" />
+      <wsdl:output message="tns:GetProductDetail2SoapOut" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WMSSoap" type="tns:WMSSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="GetBatchRunno">
-      <soap:operation soapAction="http://tempuri.org/GetBatchRunno" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="GetProductDetail1">
       <soap:operation soapAction="http://tempuri.org/GetProductDetail1" style="document" />
       <wsdl:input>
@@ -126,8 +117,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetProductDetail2">
-      <soap:operation soapAction="http://tempuri.org/GetProductDetail2" style="document" />
+    <wsdl:operation name="GetBatchRunno">
+      <soap:operation soapAction="http://tempuri.org/GetBatchRunno" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -144,18 +135,18 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetProductDetail2">
+      <soap:operation soapAction="http://tempuri.org/GetProductDetail2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="WMSSoap12" type="tns:WMSSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="GetBatchRunno">
-      <soap12:operation soapAction="http://tempuri.org/GetBatchRunno" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="GetProductDetail1">
       <soap12:operation soapAction="http://tempuri.org/GetProductDetail1" style="document" />
       <wsdl:input>
@@ -165,8 +156,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetProductDetail2">
-      <soap12:operation soapAction="http://tempuri.org/GetProductDetail2" style="document" />
+    <wsdl:operation name="GetBatchRunno">
+      <soap12:operation soapAction="http://tempuri.org/GetBatchRunno" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -183,13 +174,22 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetProductDetail2">
+      <soap12:operation soapAction="http://tempuri.org/GetProductDetail2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="WMS">
     <wsdl:port name="WMSSoap" binding="tns:WMSSoap">
-      <soap:address location="http://localhost:2831/wms.asmx" />
+      <soap:address location="http://test.yofoto.cn/wms.asmx" />
     </wsdl:port>
     <wsdl:port name="WMSSoap12" binding="tns:WMSSoap12">
-      <soap12:address location="http://localhost:2831/wms.asmx" />
+      <soap12:address location="http://test.yofoto.cn/wms.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
