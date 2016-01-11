@@ -43,7 +43,7 @@ namespace JWMSY
             var strBody = string.Empty;
             //通过WebService获取报单系统数据
             var js = new OrderService.WMS();
-
+            js.Url = Properties.Settings.Default.JWMSY_OrderService_WMS;
             DataTable dt;
             try
             {
@@ -155,7 +155,7 @@ namespace JWMSY
             var strBody = string.Empty;
             //通过WebService获取报单系统数据
             var js = new OrderService.WMS();
-
+            js.Url = Properties.Settings.Default.JWMSY_OrderService_WMS;
             DataTable dtHeader;
             DataTable dtBody;
             try
