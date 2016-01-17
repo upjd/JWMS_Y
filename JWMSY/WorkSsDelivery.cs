@@ -81,12 +81,29 @@ namespace JWMSY
             //先判断是否波次订单已经下载
             if (BoolLoadWaveOrder())
             {
-                MessageBox.Show(@"该单据未下载波次订单明细，
+                if (cbxWaveOrder.Checked)
+                {
+                    var wfWithoutWaveOrder = new WmsFunction(BaseStructure.WmsCon);
+                    var cmd = new SqlCommand
+                    {
+                        CommandText = "GenWaveOrder",
+                        CommandType = CommandType.StoredProcedure
+                    };
+                    cmd.Parameters.AddWithValue("@cWaveOrderNumber", txtcOrderNumber);
+                    cmd.Parameters.AddWithValue("@cOrderNumber", txtcOrderNumber);
+
+                    wfWithoutWaveOrder.ExecSqlCmd(cmd);
+                }
+                else
+                {
+                    MessageBox.Show(@"该单据未下载波次订单明细，
 请先下载波次订单明细", @"Warning");
-                tstxtcWaveOrderNumber.Focus();
-                txtcOrderNumber.Text = "";
-                lblcOrderNumber.Text = "";
-                return;
+                    tstxtcWaveOrderNumber.Focus();
+                    txtcOrderNumber.Text = "";
+                    lblcOrderNumber.Text = "";
+                    return;
+                }
+                
             }
             if (!BoolCanOkDownLoad())
             {
