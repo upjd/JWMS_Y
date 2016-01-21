@@ -207,7 +207,7 @@
       <HintPath>bin\Debug\dll_library\Infragistics2.Win.v12.1.dll</HintPath>
     </Reference>
     <Reference Include="Interop.LabelManager2">
-      <HintPath>..\SetupService\bin\Debug\dll_library\Interop.LabelManager2.dll</HintPath>
+      <HintPath>bin\Debug\dll_library\Interop.LabelManager2.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <Private>False</Private>
     </Reference>
@@ -291,14 +291,10 @@
     </Compile>
     <Compile Include="DLL\DllWmsMain.cs" />
     <Compile Include="DLL\DllWorkPrintLabel.cs" />
-    <Compile Include="DLL\SDataSet.cs">
-      <DependentUpon>SDataSet.xsd</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="DLL\SDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>SDataSet.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="dsCompare.cs">
       <DependentUpon>dsCompare.xsd</DependentUpon>

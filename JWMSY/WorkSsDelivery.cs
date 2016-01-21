@@ -89,8 +89,8 @@ namespace JWMSY
                         CommandText = "GenWaveOrder",
                         CommandType = CommandType.StoredProcedure
                     };
-                    cmd.Parameters.AddWithValue("@cWaveOrderNumber", txtcOrderNumber);
-                    cmd.Parameters.AddWithValue("@cOrderNumber", txtcOrderNumber);
+                    cmd.Parameters.AddWithValue("@cWaveOrderNumber", txtcOrderNumber.Text);
+                    cmd.Parameters.AddWithValue("@cOrderNumber", txtcOrderNumber.Text);
 
                     wfWithoutWaveOrder.ExecSqlCmd(cmd);
                 }
@@ -700,9 +700,9 @@ namespace JWMSY
                     return;
             }
 
-            
 
-            if (!cBarCode.StartsWith("I*") || !cBarCode.Contains("*C*") || !cBarCode.Contains("*L*"))
+
+            if (!cBarCode.Contains("I*") || !cBarCode.Contains("*C*") || !cBarCode.Contains("*L*"))
             {
                 MessageBox.Show(@"无效条码", @"Error");
                 txtcBarCode.Text = "";
@@ -710,7 +710,7 @@ namespace JWMSY
                 return;
             }
             //物料编码
-            var cInvCode = cBarCode.Substring(2, cBarCode.IndexOf("*C*") - 2);
+            var cInvCode = cBarCode.Substring(cBarCode.IndexOf("*I*") + 2, cBarCode.IndexOf("*C*") - 2 - cBarCode.IndexOf("*I*"));
             //产品序列号
             var cSerialNumber = cBarCode.Substring(cBarCode.IndexOf("*C*") + 3, cBarCode.IndexOf("*L*") - cBarCode.IndexOf("*C*") - 3);
 
