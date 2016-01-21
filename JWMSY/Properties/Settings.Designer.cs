@@ -50,7 +50,7 @@ namespace JWMSY.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:2370/BaseConService.asmx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:32422/BaseConService.asmx")]
         public string JWMSY_WmsService_BaseConService {
             get {
                 return ((string)(this["JWMSY_WmsService_BaseConService"]));
