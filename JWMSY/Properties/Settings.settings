@@ -9,7 +9,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="JWMSY_WmsService_BaseConService" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://localhost:2370/BaseConService.asmx</Value>
+      <Value Profile="(Default)">http://localhost:32422/BaseConService.asmx</Value>
     </Setting>
     <Setting Name="JWMSY_EasOrderService_EasOrder" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://localhost:32422/EasOrder.asmx</Value>

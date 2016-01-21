@@ -65,7 +65,7 @@ namespace DataService
         /// <returns></returns>
         public string GetWareHouse(string cInvCode)
         {
-            var cmd = new OracleCommand("select FID from T_BD_Warehouse where fNumber=:fNumber");
+            var cmd = new OracleCommand("select FID from T_BD_WAREHOUSE where fNumber=:fNumber");
             cmd.Parameters.Add(":fNumber", cInvCode);
             return ExecOracleScale(cmd, "获取仓库FID");
         }
