@@ -710,7 +710,7 @@ namespace JWMSY
                 return;
             }
             //物料编码
-            var cInvCode = cBarCode.Substring(cBarCode.IndexOf("*I*") + 2, cBarCode.IndexOf("*C*") - 2 - cBarCode.IndexOf("*I*"));
+            var cInvCode = cBarCode.Substring(cBarCode.IndexOf("I*") + 2, cBarCode.IndexOf("*C*") - 2 - cBarCode.IndexOf("I*"));
             //产品序列号
             var cSerialNumber = cBarCode.Substring(cBarCode.IndexOf("*C*") + 3, cBarCode.IndexOf("*L*") - cBarCode.IndexOf("*C*") - 3);
 
@@ -1156,14 +1156,14 @@ namespace JWMSY
             var logCmd = new SqlCommand("AddLogAction");
             logCmd.CommandType = CommandType.StoredProcedure;
             logCmd.Parameters.AddWithValue("@cFunction", "波次单下载");
-            logCmd.Parameters.AddWithValue("@cDescription", string.Format("{0}下载波次单：{1}", BaseStructure.LoginName, tstxtcWaveOrderNumber.Text) );
+            logCmd.Parameters.AddWithValue("@cDescription", string.Format("{0}下载波次单：{1}", BaseStructure.LoginName, cWaveOrder));
 
             wf.ExecSqlCmd(logCmd);
             lblcWaveOrderNumber.Text = cWaveOrder;
-            BoolLoadWaveOrder();
+            //BoolLoadWaveOrder();
             tstxtcWaveOrderNumber.Text = "";
             txtcOrderNumber.Focus();
-            GetSFOrderDetail(lblcWaveOrderNumber.Text);
+            GetSFOrderDetail(cWaveOrder);
         }
 
         private void tsbtnApprove_Click(object sender, EventArgs e)
