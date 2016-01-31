@@ -67,7 +67,20 @@ namespace DataService
         {
             var cmd = new OracleCommand("select FID from T_DB_WAREHOUSE where fNumber=:fNumber");
             cmd.Parameters.Add(":fNumber", cInvCode);
-            return ExecOracleScale(cmd, "获取仓库FID");
+            return ExecOracleScale(cmd, "获取仓库FID" + cInvCode);
+        }
+
+
+        /// <summary>
+        /// 获取对应BosType对应的FID
+        /// </summary>
+        /// <param name="cCusCode"></param>
+        /// <returns></returns>
+        public string GetCustomer(string cCusCode)
+        {
+            var cmd = new OracleCommand("select FID from  T_BD_Customer where fNumber=:fNumber");
+            cmd.Parameters.Add(":fNumber", cCusCode);
+            return ExecOracleScale(cmd, "获取客户FID" + cCusCode);
         }
 
         /// <summary>

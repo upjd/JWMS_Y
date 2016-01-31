@@ -26,6 +26,8 @@ namespace DataService
         /// 仓库
         /// </summary>
         private string _cWhareHouse;
+
+        private string _cCusomer;
        #region 写入销售主表语句
 
         private string BillCmdStr = "insert into T_IM_SaleIssueBill( " +
@@ -392,7 +394,8 @@ namespace DataService
             sibill.FISREVERSED=0;
             
             sibill.FISINITBILL=0;
-            sibill.FCUSTOMERID="riQAAAADPwC/DAQO";
+            sibill.FCUSTOMERID = string.IsNullOrEmpty(_cCusomer) ? "riQAAAADPwC/DAQO" : _cCusomer;
+            
             sibill.FCURRENCYID="dfd38d11-00fd-1000-e000-1ebdc0a8100dDEB58FDC";
             sibill.FEXCHANGERATE=1;
             //sibill.FMODIFIERID = ;
@@ -554,9 +557,18 @@ where fparentid in ('1d2xZMr2TAidqncU9Sam48w+kzs=','fL0QaL95SkyRu0Osx071w8w+kzs=
             sibillEntry.FINVENTORYID = null;
 
             //20160125
-            sibillEntry.FBALANCECUSTOMERID="riQAAAADPwC/DAQO";
-            sibillEntry.FPAYMENTCUSTOMERID = "riQAAAADPwC/DAQO";
-            sibillEntry.FORDERCUSTOMERID = "riQAAAADPwC/DAQO";
+            if (string.IsNullOrEmpty(_cCusomer))
+            {
+                sibillEntry.FBALANCECUSTOMERID = "riQAAAADPwC/DAQO";
+                sibillEntry.FPAYMENTCUSTOMERID = "riQAAAADPwC/DAQO";
+                sibillEntry.FORDERCUSTOMERID = "riQAAAADPwC/DAQO";
+            }
+            else
+            {
+                sibillEntry.FBALANCECUSTOMERID =_cCusomer;
+                sibillEntry.FPAYMENTCUSTOMERID =_cCusomer;
+                sibillEntry.FORDERCUSTOMERID = _cCusomer;
+            }
         }
 
         /*
@@ -685,8 +697,8 @@ where fparentid in ('1d2xZMr2TAidqncU9Sam48w+kzs=','fL0QaL95SkyRu0Osx071w8w+kzs=
             ocmd.Parameters.Add(":FLOCALNONTAXAMOUNT", sibillEntry.FLOCALNONTAXAMOUNT);
             ocmd.Parameters.Add(":FDREWQTY", sibillEntry.FDREWQTY);
             ocmd.Parameters.Add(":FASSISTPROPERTYID", sibillEntry.FASSISTPROPERTYID);
-            ocmd.Parameters.Add(":FMFG", sibillEntry.FMFG);
-            ocmd.Parameters.Add(":FEXP", sibillEntry.FEXP);
+            ocmd.Parameters.Add(":FMFG", DBNull.Value);
+            ocmd.Parameters.Add(":FEXP", DBNull.Value);
             ocmd.Parameters.Add(":FREMARK", sibillEntry.FREMARK);
             ocmd.Parameters.Add(":FREVERSEBASEQTY", sibillEntry.FREVERSEBASEQTY);
             ocmd.Parameters.Add(":FRETURNBASEQTY", sibillEntry.FRETURNBASEQTY);
@@ -762,9 +774,17 @@ where fparentid in ('1d2xZMr2TAidqncU9Sam48w+kzs=','fL0QaL95SkyRu0Osx071w8w+kzs=
             if (iCount == 1)
             {
                 sibill.FTRANSACTIONTYPEID = "DawAAAAPoAywCNyn";
+
                 dtSsDetail = GetImportDataTable(cOrderNumber);
                 //如果是销售出库则是固定仓库
                 _cWhareHouse = "riQAAAAALQy76fiu";
+
+                var cCusCode = GetCustomerAddress(cOrderNumber);
+                if (!string.IsNullOrEmpty(cCusCode))
+                {
+                    _cCusomer = iof.GetCustomer(cCusCode);
+                }
+
             }
             else
             {
@@ -865,6 +885,29 @@ where fparentid in ('1d2xZMr2TAidqncU9Sam48w+kzs=','fL0QaL95SkyRu0Osx071w8w+kzs=
                     var dt = new DataTable("SSDetail");
                     da.Fill(dt);
                     return dt;
+                }
+            }
+        }
+
+
+        private string GetCustomerAddress(string cOrderNumber)
+        {
+            using (var con = new SqlConnection(Properties.Settings.Default.WmsCon))
+            {
+                using (var cmd = new SqlCommand("select top 1 cCusAddress from SS_Delivery  where cOrderNumber=@cOrderNumber ", con))
+                {
+                    con.Open();
+                    cmd.Parameters.AddWithValue("@cOrderNumber", cOrderNumber);
+                    var dReturn = cmd.ExecuteScalar();
+                    if (dReturn == null || dReturn.ToString().IndexOf(".", StringComparison.Ordinal) < 0)
+                    {
+                        return string.Empty;
+                    }
+                    else
+                    {
+                        return dReturn.ToString()
+                            .Substring(0, dReturn.ToString().IndexOf(".", StringComparison.Ordinal));
+                    }
                 }
             }
         }

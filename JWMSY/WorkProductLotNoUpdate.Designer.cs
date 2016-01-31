@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             Infragistics.Win.Appearance appearance1 = new Infragistics.Win.Appearance();
             Infragistics.Win.UltraWinGrid.UltraGridBand ultraGridBand1 = new Infragistics.Win.UltraWinGrid.UltraGridBand("View_Bar_Product_Box_SerialNumber", -1);
             Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn8 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cSerialNumber");
@@ -39,8 +40,8 @@
             Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn13 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cInvName");
             Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn14 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cInvCode");
             Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn15 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cInvPackStd");
-            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn16 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cInvStd");
-            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn17 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cInvPackStyle");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn1 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cInvStd");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn2 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cInvPackStyle");
             Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn19 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cDefaultVendor");
             Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn20 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cMassUnit");
             Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn21 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("iMassDate");
@@ -55,6 +56,36 @@
             Infragistics.Win.Appearance appearance6 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance7 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
+            Infragistics.Win.UltraWinGrid.UltraGridBand ultraGridBand2 = new Infragistics.Win.UltraWinGrid.UltraGridBand("IT_Product", -1);
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn6 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("AutoID");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn7 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cInvCode");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn24 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cInvName");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn25 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cInvPackStd");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn26 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cInvStd");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn27 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cInvPackStyle");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn28 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cDefaultVendor");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn29 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cMassUnit");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn34 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("iMassDate");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn38 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cKeepRequire");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn39 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cProperty");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn40 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cMemo");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn41 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("bEnable");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn42 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("iBoxFormat");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn43 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("iWeight");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn44 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("iTaFormat");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn50 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("bLotMgr");
+            Infragistics.Win.Appearance appearance10 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance11 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance12 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance13 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance14 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance15 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance16 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance17 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance18 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance19 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance20 = new Infragistics.Win.Appearance();
             this.uGridProBoxBarCode = new Infragistics.Win.UltraWinGrid.UltraGrid();
             this.tsgfMain = new UpjdControlBox.ToolStripGridFunction();
             this.pageChange = new UpjdControlBox.PageChange();
@@ -68,8 +99,19 @@
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.tstxtLotNo = new System.Windows.Forms.ToolStripTextBox();
             this.tsbtnUpdate = new System.Windows.Forms.ToolStripButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.txtcInvCode = new Infragistics.Win.UltraWinGrid.UltraCombo();
+            this.iTProductBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataInventory = new JWMSY.DLL.DataInventory();
+            this.cbxOnlyUnUpdate = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.iT_ProductTableAdapter = new JWMSY.DLL.DataInventoryTableAdapters.IT_ProductTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.uGridProBoxBarCode)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtcInvCode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iTProductBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataInventory)).BeginInit();
             this.SuspendLayout();
             // 
             // uGridProBoxBarCode
@@ -95,10 +137,10 @@
             ultraGridColumn14.Header.VisiblePosition = 9;
             ultraGridColumn15.Header.Caption = "包装规格";
             ultraGridColumn15.Header.VisiblePosition = 10;
-            ultraGridColumn16.Header.Caption = "产品规格";
-            ultraGridColumn16.Header.VisiblePosition = 11;
-            ultraGridColumn17.Header.Caption = "包装形式";
-            ultraGridColumn17.Header.VisiblePosition = 12;
+            ultraGridColumn1.Header.Caption = "产品规格";
+            ultraGridColumn1.Header.VisiblePosition = 11;
+            ultraGridColumn2.Header.Caption = "包装形式";
+            ultraGridColumn2.Header.VisiblePosition = 12;
             ultraGridColumn19.Header.Caption = "供应商";
             ultraGridColumn19.Header.VisiblePosition = 13;
             ultraGridColumn20.Header.Caption = "单位";
@@ -125,8 +167,8 @@
             ultraGridColumn13,
             ultraGridColumn14,
             ultraGridColumn15,
-            ultraGridColumn16,
-            ultraGridColumn17,
+            ultraGridColumn1,
+            ultraGridColumn2,
             ultraGridColumn19,
             ultraGridColumn20,
             ultraGridColumn21,
@@ -179,9 +221,9 @@
             this.uGridProBoxBarCode.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
             this.uGridProBoxBarCode.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uGridProBoxBarCode.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uGridProBoxBarCode.Location = new System.Drawing.Point(0, 50);
+            this.uGridProBoxBarCode.Location = new System.Drawing.Point(0, 125);
             this.uGridProBoxBarCode.Name = "uGridProBoxBarCode";
-            this.uGridProBoxBarCode.Size = new System.Drawing.Size(930, 415);
+            this.uGridProBoxBarCode.Size = new System.Drawing.Size(930, 340);
             this.uGridProBoxBarCode.TabIndex = 33;
             this.uGridProBoxBarCode.UpdateMode = Infragistics.Win.UltraWinGrid.UpdateMode.OnCellChangeOrLostFocus;
             // 
@@ -191,7 +233,7 @@
             this.tsgfMain.Dock = System.Windows.Forms.DockStyle.Top;
             this.tsgfMain.FormId = null;
             this.tsgfMain.FormName = null;
-            this.tsgfMain.Location = new System.Drawing.Point(0, 25);
+            this.tsgfMain.Location = new System.Drawing.Point(0, 100);
             this.tsgfMain.Name = "tsgfMain";
             this.tsgfMain.Size = new System.Drawing.Size(930, 25);
             this.tsgfMain.TabIndex = 31;
@@ -227,7 +269,7 @@
             this.toolStripLabel3,
             this.tstxtLotNo,
             this.tsbtnUpdate});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 75);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(930, 25);
             this.toolStrip1.TabIndex = 30;
@@ -289,6 +331,166 @@
             this.tsbtnUpdate.Text = "执行更新";
             this.tsbtnUpdate.Click += new System.EventHandler(this.tsbtnUpdate_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.txtcInvCode);
+            this.panel1.Controls.Add(this.cbxOnlyUnUpdate);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(930, 75);
+            this.panel1.TabIndex = 34;
+            // 
+            // txtcInvCode
+            // 
+            this.txtcInvCode.AutoCompleteMode = Infragistics.Win.AutoCompleteMode.Suggest;
+            this.txtcInvCode.AutoSuggestFilterMode = Infragistics.Win.AutoSuggestFilterMode.Contains;
+            this.txtcInvCode.DataSource = this.iTProductBindingSource;
+            appearance9.BackColor = System.Drawing.SystemColors.Window;
+            appearance9.BorderColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtcInvCode.DisplayLayout.Appearance = appearance9;
+            ultraGridColumn6.Header.VisiblePosition = 0;
+            ultraGridColumn7.Header.Caption = "产品编码";
+            ultraGridColumn7.Header.VisiblePosition = 1;
+            ultraGridColumn24.Header.Caption = "产品名称";
+            ultraGridColumn24.Header.VisiblePosition = 2;
+            ultraGridColumn25.Header.Caption = "包装规格";
+            ultraGridColumn25.Header.VisiblePosition = 3;
+            ultraGridColumn26.Header.Caption = "产品规格";
+            ultraGridColumn26.Header.VisiblePosition = 4;
+            ultraGridColumn27.Header.Caption = "包装形式";
+            ultraGridColumn27.Header.VisiblePosition = 5;
+            ultraGridColumn28.Header.Caption = "默认供应商";
+            ultraGridColumn28.Header.VisiblePosition = 6;
+            ultraGridColumn29.Header.Caption = "保质期单位";
+            ultraGridColumn29.Header.VisiblePosition = 8;
+            ultraGridColumn34.Header.Caption = "保质期";
+            ultraGridColumn34.Header.VisiblePosition = 7;
+            ultraGridColumn38.Header.Caption = "贮存条件";
+            ultraGridColumn38.Header.VisiblePosition = 9;
+            ultraGridColumn39.Header.Caption = "特性";
+            ultraGridColumn39.Header.VisiblePosition = 10;
+            ultraGridColumn40.Header.Caption = "备注";
+            ultraGridColumn40.Header.VisiblePosition = 11;
+            ultraGridColumn41.Header.VisiblePosition = 12;
+            ultraGridColumn41.Hidden = true;
+            ultraGridColumn42.Header.VisiblePosition = 13;
+            ultraGridColumn43.Header.VisiblePosition = 14;
+            ultraGridColumn44.Header.VisiblePosition = 15;
+            ultraGridColumn50.Header.VisiblePosition = 16;
+            ultraGridBand2.Columns.AddRange(new object[] {
+            ultraGridColumn6,
+            ultraGridColumn7,
+            ultraGridColumn24,
+            ultraGridColumn25,
+            ultraGridColumn26,
+            ultraGridColumn27,
+            ultraGridColumn28,
+            ultraGridColumn29,
+            ultraGridColumn34,
+            ultraGridColumn38,
+            ultraGridColumn39,
+            ultraGridColumn40,
+            ultraGridColumn41,
+            ultraGridColumn42,
+            ultraGridColumn43,
+            ultraGridColumn44,
+            ultraGridColumn50});
+            this.txtcInvCode.DisplayLayout.BandsSerializer.Add(ultraGridBand2);
+            this.txtcInvCode.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.txtcInvCode.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            appearance10.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            appearance10.BackColor2 = System.Drawing.SystemColors.ControlDark;
+            appearance10.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
+            appearance10.BorderColor = System.Drawing.SystemColors.Window;
+            this.txtcInvCode.DisplayLayout.GroupByBox.Appearance = appearance10;
+            appearance11.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.txtcInvCode.DisplayLayout.GroupByBox.BandLabelAppearance = appearance11;
+            this.txtcInvCode.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            appearance12.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            appearance12.BackColor2 = System.Drawing.SystemColors.Control;
+            appearance12.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
+            appearance12.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.txtcInvCode.DisplayLayout.GroupByBox.PromptAppearance = appearance12;
+            this.txtcInvCode.DisplayLayout.MaxColScrollRegions = 1;
+            this.txtcInvCode.DisplayLayout.MaxRowScrollRegions = 1;
+            appearance13.BackColor = System.Drawing.SystemColors.Window;
+            appearance13.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtcInvCode.DisplayLayout.Override.ActiveCellAppearance = appearance13;
+            appearance14.BackColor = System.Drawing.SystemColors.Highlight;
+            appearance14.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.txtcInvCode.DisplayLayout.Override.ActiveRowAppearance = appearance14;
+            this.txtcInvCode.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.txtcInvCode.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
+            appearance15.BackColor = System.Drawing.SystemColors.Window;
+            this.txtcInvCode.DisplayLayout.Override.CardAreaAppearance = appearance15;
+            appearance16.BorderColor = System.Drawing.Color.Silver;
+            appearance16.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
+            this.txtcInvCode.DisplayLayout.Override.CellAppearance = appearance16;
+            this.txtcInvCode.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
+            this.txtcInvCode.DisplayLayout.Override.CellPadding = 0;
+            appearance17.BackColor = System.Drawing.SystemColors.Control;
+            appearance17.BackColor2 = System.Drawing.SystemColors.ControlDark;
+            appearance17.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
+            appearance17.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
+            appearance17.BorderColor = System.Drawing.SystemColors.Window;
+            this.txtcInvCode.DisplayLayout.Override.GroupByRowAppearance = appearance17;
+            appearance18.TextHAlignAsString = "Left";
+            this.txtcInvCode.DisplayLayout.Override.HeaderAppearance = appearance18;
+            this.txtcInvCode.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
+            this.txtcInvCode.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
+            appearance19.BackColor = System.Drawing.SystemColors.Window;
+            appearance19.BorderColor = System.Drawing.Color.Silver;
+            this.txtcInvCode.DisplayLayout.Override.RowAppearance = appearance19;
+            this.txtcInvCode.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+            appearance20.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.txtcInvCode.DisplayLayout.Override.TemplateAddRowAppearance = appearance20;
+            this.txtcInvCode.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.txtcInvCode.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.txtcInvCode.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy;
+            this.txtcInvCode.DisplayMember = "cInvCode";
+            this.txtcInvCode.LimitToList = true;
+            this.txtcInvCode.Location = new System.Drawing.Point(123, 26);
+            this.txtcInvCode.Name = "txtcInvCode";
+            this.txtcInvCode.Size = new System.Drawing.Size(194, 22);
+            this.txtcInvCode.TabIndex = 82;
+            this.txtcInvCode.ValueMember = "cInvCode";
+            // 
+            // iTProductBindingSource
+            // 
+            this.iTProductBindingSource.DataMember = "IT_Product";
+            this.iTProductBindingSource.DataSource = this.dataInventory;
+            // 
+            // dataInventory
+            // 
+            this.dataInventory.DataSetName = "DataInventory";
+            this.dataInventory.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // cbxOnlyUnUpdate
+            // 
+            this.cbxOnlyUnUpdate.AutoSize = true;
+            this.cbxOnlyUnUpdate.Location = new System.Drawing.Point(357, 29);
+            this.cbxOnlyUnUpdate.Name = "cbxOnlyUnUpdate";
+            this.cbxOnlyUnUpdate.Size = new System.Drawing.Size(156, 16);
+            this.cbxOnlyUnUpdate.TabIndex = 1;
+            this.cbxOnlyUnUpdate.Text = "只更新未更新过的序列号";
+            this.cbxOnlyUnUpdate.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(64, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "产品编码";
+            // 
+            // iT_ProductTableAdapter
+            // 
+            this.iT_ProductTableAdapter.ClearBeforeFill = true;
+            // 
             // WorkProductLotNoUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -296,8 +498,9 @@
             this.ClientSize = new System.Drawing.Size(930, 492);
             this.Controls.Add(this.uGridProBoxBarCode);
             this.Controls.Add(this.tsgfMain);
-            this.Controls.Add(this.pageChange);
             this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.pageChange);
+            this.Controls.Add(this.panel1);
             this.Icon = global::JWMSY.Properties.Resources.scanicon;
             this.Name = "WorkProductLotNoUpdate";
             this.Text = "按范围更新委外-产成品批号";
@@ -305,6 +508,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.uGridProBoxBarCode)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtcInvCode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iTProductBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataInventory)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -325,5 +533,12 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel3;
         private System.Windows.Forms.ToolStripTextBox tstxtLotNo;
         private System.Windows.Forms.ToolStripButton tsbtnUpdate;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.CheckBox cbxOnlyUnUpdate;
+        private System.Windows.Forms.Label label1;
+        private Infragistics.Win.UltraWinGrid.UltraCombo txtcInvCode;
+        private System.Windows.Forms.BindingSource iTProductBindingSource;
+        private DLL.DataInventory dataInventory;
+        private DLL.DataInventoryTableAdapters.IT_ProductTableAdapter iT_ProductTableAdapter;
     }
 }
