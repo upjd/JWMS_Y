@@ -363,7 +363,10 @@ namespace DataService
             //sibill.FLASTUPDATEUSERID="K7Li625bRC6r8uAH5mlIDRO33n8=";
             sibill.FCONTROLUNITID="riQAAAAAAD7M567U";
             sibill.FNUMBER = cNewEasOrder;
-            sibill.FBIZDATE=DateTime.Now;
+            var dDate = iof.ReturnBizDate();
+
+            sibill.FBIZDATE = dDate;
+
             sibill.FHANDLERID="00000000-0000-0000-0000-00000000000013B7DE7F";
             sibill.FDESCRIPTION="0";
             sibill.FHASEFFECTED= 0;
@@ -536,6 +539,7 @@ where fparentid in ('1d2xZMr2TAidqncU9Sam48w+kzs=','fL0QaL95SkyRu0Osx071w8w+kzs=
             sibillEntry.FORDERPRICE = 0;
             sibillEntry.FTAXPRICE = 0;
             //修改值 2015-10-12
+
             sibillEntry.FSOURCEBILLID = null;
             sibillEntry.FSOURCEBILLNUMBER = null;
             sibillEntry.FSOURCEBILLENTRYID = null;
@@ -548,6 +552,11 @@ where fparentid in ('1d2xZMr2TAidqncU9Sam48w+kzs=','fL0QaL95SkyRu0Osx071w8w+kzs=
             //sibillEntry.FCONFIRMDATE = null;
             //sibillEntry.FBIZDATE = null;
             sibillEntry.FINVENTORYID = null;
+
+            //20160125
+            sibillEntry.FBALANCECUSTOMERID="riQAAAADPwC/DAQO";
+            sibillEntry.FPAYMENTCUSTOMERID = "riQAAAADPwC/DAQO";
+            sibillEntry.FORDERCUSTOMERID = "riQAAAADPwC/DAQO";
         }
 
         /*
