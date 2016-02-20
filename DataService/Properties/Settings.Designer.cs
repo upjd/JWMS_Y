@@ -54,5 +54,14 @@ namespace DataService.Properties {
                 return ((string)(this["EasCon"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2016-01-23")]
+        public string CloseDate {
+            get {
+                return ((string)(this["CloseDate"]));
+            }
+        }
     }
 }

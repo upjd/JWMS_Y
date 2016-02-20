@@ -181,6 +181,12 @@ namespace JWMSY
 
         private void PrinterDone()
         {
+            var strDate = DllWmsMain.GetPrintLog(_cGuid);
+            if (!string.IsNullOrEmpty(strDate))
+            {
+                MessageBox.Show(@"已经打印过，不允许再打印! 打印时间:" + strDate, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             var dt = GetPrintTable();
             DllWorkPrintLabel.ProPrintCodeSoft(dt, _cTempletFileName, _cPrinter);
         }
@@ -338,6 +344,12 @@ namespace JWMSY
         {
             if (!string.IsNullOrEmpty(lblTitleMain.lblAutoID.Text))
             {
+                var strDate = DllWmsMain.GetPrintLog(_cGuid);
+                if (!string.IsNullOrEmpty(strDate))
+                {
+                    MessageBox.Show(@"已经打印过，不允许修改! 打印时间:"+strDate, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 SetControlEnable();//启用所有输入框和保存按钮
             }
             else

@@ -32,22 +32,23 @@
             Infragistics.Win.UltraWinEditors.EditorButton editorButton1 = new Infragistics.Win.UltraWinEditors.EditorButton();
             Infragistics.Win.Appearance appearance1 = new Infragistics.Win.Appearance();
             Infragistics.Win.UltraWinGrid.UltraGridBand ultraGridBand1 = new Infragistics.Win.UltraWinGrid.UltraGridBand("IT_Product", -1);
-            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn1 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("AutoID");
-            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn2 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cInvCode");
-            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn24 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cInvName");
-            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn27 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cInvPackStd");
-            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn28 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cInvStd");
-            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn29 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cInvPackStyle");
-            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn38 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cDefaultVendor");
-            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn39 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cMassUnit");
-            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn40 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("iMassDate");
-            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn41 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cKeepRequire");
-            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn42 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cProperty");
-            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn43 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cMemo");
-            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn44 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("bEnable");
-            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn6 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("iBoxFormat");
-            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn7 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("iWeight");
-            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn18 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("iTaFormat");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn25 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("AutoID");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn26 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cInvCode");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn30 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cInvName");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn31 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cInvPackStd");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn32 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cInvStd");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn33 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cInvPackStyle");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn34 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cDefaultVendor");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn35 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cMassUnit");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn36 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("iMassDate");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn37 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cKeepRequire");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn45 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cProperty");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn46 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cMemo");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn47 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("bEnable");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn48 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("iBoxFormat");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn49 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("iWeight");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn50 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("iTaFormat");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn51 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("bLotMgr");
             Infragistics.Win.Appearance appearance2 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance3 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance4 = new Infragistics.Win.Appearance();
@@ -322,51 +323,53 @@
             appearance1.BackColor = System.Drawing.SystemColors.Window;
             appearance1.BorderColor = System.Drawing.SystemColors.InactiveCaption;
             this.txtcInvCode.DisplayLayout.Appearance = appearance1;
-            ultraGridColumn1.Header.VisiblePosition = 0;
-            ultraGridColumn2.Header.Caption = "产品编码";
-            ultraGridColumn2.Header.VisiblePosition = 1;
-            ultraGridColumn24.Header.Caption = "产品名称";
-            ultraGridColumn24.Header.VisiblePosition = 2;
-            ultraGridColumn27.Header.Caption = "包装规格";
-            ultraGridColumn27.Header.VisiblePosition = 3;
-            ultraGridColumn28.Header.Caption = "产品规格";
-            ultraGridColumn28.Header.VisiblePosition = 4;
-            ultraGridColumn29.Header.Caption = "包装形式";
-            ultraGridColumn29.Header.VisiblePosition = 5;
-            ultraGridColumn38.Header.Caption = "默认供应商";
-            ultraGridColumn38.Header.VisiblePosition = 6;
-            ultraGridColumn39.Header.Caption = "保质期单位";
-            ultraGridColumn39.Header.VisiblePosition = 8;
-            ultraGridColumn40.Header.Caption = "保质期";
-            ultraGridColumn40.Header.VisiblePosition = 7;
-            ultraGridColumn41.Header.Caption = "贮存条件";
-            ultraGridColumn41.Header.VisiblePosition = 9;
-            ultraGridColumn42.Header.Caption = "特性";
-            ultraGridColumn42.Header.VisiblePosition = 10;
-            ultraGridColumn43.Header.Caption = "备注";
-            ultraGridColumn43.Header.VisiblePosition = 11;
-            ultraGridColumn44.Header.VisiblePosition = 12;
-            ultraGridColumn44.Hidden = true;
-            ultraGridColumn6.Header.VisiblePosition = 13;
-            ultraGridColumn7.Header.VisiblePosition = 14;
-            ultraGridColumn18.Header.VisiblePosition = 15;
+            ultraGridColumn25.Header.VisiblePosition = 0;
+            ultraGridColumn26.Header.Caption = "产品编码";
+            ultraGridColumn26.Header.VisiblePosition = 1;
+            ultraGridColumn30.Header.Caption = "产品名称";
+            ultraGridColumn30.Header.VisiblePosition = 2;
+            ultraGridColumn31.Header.Caption = "包装规格";
+            ultraGridColumn31.Header.VisiblePosition = 3;
+            ultraGridColumn32.Header.Caption = "产品规格";
+            ultraGridColumn32.Header.VisiblePosition = 4;
+            ultraGridColumn33.Header.Caption = "包装形式";
+            ultraGridColumn33.Header.VisiblePosition = 5;
+            ultraGridColumn34.Header.Caption = "默认供应商";
+            ultraGridColumn34.Header.VisiblePosition = 6;
+            ultraGridColumn35.Header.Caption = "保质期单位";
+            ultraGridColumn35.Header.VisiblePosition = 8;
+            ultraGridColumn36.Header.Caption = "保质期";
+            ultraGridColumn36.Header.VisiblePosition = 7;
+            ultraGridColumn37.Header.Caption = "贮存条件";
+            ultraGridColumn37.Header.VisiblePosition = 9;
+            ultraGridColumn45.Header.Caption = "特性";
+            ultraGridColumn45.Header.VisiblePosition = 10;
+            ultraGridColumn46.Header.Caption = "备注";
+            ultraGridColumn46.Header.VisiblePosition = 11;
+            ultraGridColumn47.Header.VisiblePosition = 12;
+            ultraGridColumn47.Hidden = true;
+            ultraGridColumn48.Header.VisiblePosition = 13;
+            ultraGridColumn49.Header.VisiblePosition = 14;
+            ultraGridColumn50.Header.VisiblePosition = 15;
+            ultraGridColumn51.Header.VisiblePosition = 16;
             ultraGridBand1.Columns.AddRange(new object[] {
-            ultraGridColumn1,
-            ultraGridColumn2,
-            ultraGridColumn24,
-            ultraGridColumn27,
-            ultraGridColumn28,
-            ultraGridColumn29,
-            ultraGridColumn38,
-            ultraGridColumn39,
-            ultraGridColumn40,
-            ultraGridColumn41,
-            ultraGridColumn42,
-            ultraGridColumn43,
-            ultraGridColumn44,
-            ultraGridColumn6,
-            ultraGridColumn7,
-            ultraGridColumn18});
+            ultraGridColumn25,
+            ultraGridColumn26,
+            ultraGridColumn30,
+            ultraGridColumn31,
+            ultraGridColumn32,
+            ultraGridColumn33,
+            ultraGridColumn34,
+            ultraGridColumn35,
+            ultraGridColumn36,
+            ultraGridColumn37,
+            ultraGridColumn45,
+            ultraGridColumn46,
+            ultraGridColumn47,
+            ultraGridColumn48,
+            ultraGridColumn49,
+            ultraGridColumn50,
+            ultraGridColumn51});
             this.txtcInvCode.DisplayLayout.BandsSerializer.Add(ultraGridBand1);
             this.txtcInvCode.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
             this.txtcInvCode.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;

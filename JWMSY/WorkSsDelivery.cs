@@ -76,11 +76,27 @@ namespace JWMSY
                     ApproveOrder();
                 }
             }
-                
+            //通过WebService获取报单系统数据
+            var js = new OrderService.WMS();
+            js.Url = Properties.Settings.Default.JWMSY_OrderService_WMS;
+            var ckNo = txtcOrderNumber.Text.ToUpper();
+            var ckNoMd5 = GetMd5OrderService(ckNo);
+
+
+
             lblcOrderNumber.Text = txtcOrderNumber.Text.ToUpper();
             //先判断是否波次订单已经下载
             if (BoolLoadWaveOrder())
             {
+                var iExist = js.IsExists(ckNo, ckNoMd5);
+
+
+                if (iExist != 0)
+                {
+                    MessageBox.Show(@"此出库单号不存在报单系统!", @"Warning");
+                    return;
+                }
+                
                 if (cbxWaveOrder.Checked)
                 {
                     var wfWithoutWaveOrder = new WmsFunction(BaseStructure.WmsCon);
@@ -110,17 +126,14 @@ namespace JWMSY
                 txtcBarCode.Focus();
                 return;
             }
-            var ckNo = txtcOrderNumber.Text.ToUpper();
-            var ckNoMd5 = GetMd5OrderService(ckNo);
+            
 
            
 
             var strOrder = string.Empty;
             var strHeader = string.Empty;
             var strBody = string.Empty;
-            //通过WebService获取报单系统数据
-            var js = new OrderService.WMS();
-            js.Url = Properties.Settings.Default.JWMSY_OrderService_WMS;
+           
             DataTable dtHeader;
             DataTable dtBody;
             try
@@ -700,9 +713,10 @@ namespace JWMSY
                     return;
             }
 
-
-
-            if (!cBarCode.Contains("I*") || !cBarCode.Contains("*C*") || !cBarCode.Contains("*L*"))
+            if (cBarCode.Length == 12 || cBarCode.Length == 14)
+            {
+                cBarCode = DllWmsMain.GetBarCodeBySerialNumber(cBarCode);
+            }if (!cBarCode.Contains("I*") || !cBarCode.Contains("*C*") || !cBarCode.Contains("*L*"))
             {
                 MessageBox.Show(@"无效条码", @"Error");
                 txtcBarCode.Text = "";

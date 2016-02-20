@@ -242,6 +242,7 @@ namespace JWMSY.DLL
                 doc.Printer.Name = cPrinter;
                 if (dt != null && dt.Rows.Count > 0)
                 {
+                    DllWmsMain.RecordPrintLog(dt.Rows[0]["cGuid"].ToString());
                     foreach (DataRow dr in dt.Rows)
                     {
                         var cSerialNumber = dr["cSerialNumber"].ToString();
@@ -303,6 +304,8 @@ namespace JWMSY.DLL
                 doc.Printer.Name = cPrinter;
                 if (dt != null && dt.Rows.Count > 0)
                 {
+
+                    DllWmsMain.RecordPrintLog(dt.Rows[0]["cGuid"].ToString());
                     foreach (DataRow dr in dt.Rows)
                     {
                         //codesoft模板中标签变量

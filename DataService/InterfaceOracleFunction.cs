@@ -41,7 +41,18 @@ namespace DataService
         /// <returns></returns>
         public DateTime ReturnBizDate()
         {
-            var dDate = DateTime.Now.Day >= 23 ? new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddMonths(1) : DateTime.Now.Date;
+            var cDate = Properties.Settings.Default.CloseDate;
+            DateTime dCloseDate;
+            int iCloseDate;
+            if (DateTime.TryParse(cDate, out dCloseDate))
+            {
+                iCloseDate = dCloseDate.Day;
+            }
+            else
+            {
+                iCloseDate = 23;
+            }
+            var dDate = DateTime.Now.Day >= iCloseDate ? new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddMonths(1) : DateTime.Now.Date;
             return dDate;
         }
 

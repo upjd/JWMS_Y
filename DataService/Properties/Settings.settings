@@ -22,5 +22,8 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">DATA SOURCE=(DESCRIPTION =(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = 172.16.18.212)(PORT = 1521)))(CONNECT_DATA =(SERVICE_NAME = orcl)));PASSWORD=eas750;USER ID=eas750</Value>
     </Setting>
+    <Setting Name="CloseDate" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">2016-01-23</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -8,6 +8,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using JWMSY.DLL;
 
 namespace JWMSY
 {
@@ -71,6 +72,8 @@ namespace JWMSY
             var wf = new WmsFunction(BaseStructure.WmsCon);
             wf.ExecSqlCmd(cmd);
             pageChange.GetRecord();
+
+            DllWmsMain.RecordLogAction(@"成品更新批号", BaseStructure.LoginName + " 更新了" + pageChange.WhereStr + "范围的批号"+tstxtLotNo.Text);
         }
 
         private void WorkProductLotNoUpdate_Load(object sender, EventArgs e)

@@ -140,6 +140,7 @@
             ultraGridColumn1.DataType = typeof(bool);
             ultraGridColumn1.DefaultCellValue = false;
             ultraGridColumn1.Header.Caption = "选择";
+            ultraGridColumn1.Header.CheckBoxVisibility = Infragistics.Win.UltraWinGrid.HeaderCheckBoxVisibility.Always;
             ultraGridColumn1.Header.VisiblePosition = 0;
             ultraGridColumn1.Style = Infragistics.Win.UltraWinGrid.ColumnStyle.CheckBox;
             ultraGridColumn1.Width = 74;

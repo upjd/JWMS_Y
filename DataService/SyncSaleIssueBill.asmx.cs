@@ -697,8 +697,8 @@ where fparentid in ('1d2xZMr2TAidqncU9Sam48w+kzs=','fL0QaL95SkyRu0Osx071w8w+kzs=
             ocmd.Parameters.Add(":FLOCALNONTAXAMOUNT", sibillEntry.FLOCALNONTAXAMOUNT);
             ocmd.Parameters.Add(":FDREWQTY", sibillEntry.FDREWQTY);
             ocmd.Parameters.Add(":FASSISTPROPERTYID", sibillEntry.FASSISTPROPERTYID);
-            ocmd.Parameters.Add(":FMFG", DBNull.Value);
-            ocmd.Parameters.Add(":FEXP", DBNull.Value);
+            ocmd.Parameters.Add(":FMFG", sibillEntry.FMFG);
+            ocmd.Parameters.Add(":FEXP", sibillEntry.FEXP);
             ocmd.Parameters.Add(":FREMARK", sibillEntry.FREMARK);
             ocmd.Parameters.Add(":FREVERSEBASEQTY", sibillEntry.FREVERSEBASEQTY);
             ocmd.Parameters.Add(":FRETURNBASEQTY", sibillEntry.FRETURNBASEQTY);
