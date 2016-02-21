@@ -168,7 +168,7 @@ namespace AutoSync
                     case "采购收货":
                         try
                         {
-                            var cResult=sPoStore.SyncPurReceivalBill(cOrderNumber, cEasNewOrder, cGuid, 1);
+                            var cResult=sPoStore.SyncPurReceivalBill(cOrderNumber, cEasNewOrder, cGuid, 0);
                             
                             if (cResult.Equals("OK"))
                             {
@@ -184,6 +184,28 @@ namespace AutoSync
                         catch (Exception ex)
                         {
                             VLogError(@"采购收货", ex.Message);
+                            iSumFail = iSumFail + 1;
+                        }
+                        break;
+                    case "OEM委外":
+                        try
+                        {
+                            var cResult = sPoStore.SyncPurReceivalBill(cOrderNumber, cEasNewOrder, cGuid, 1);
+
+                            if (cResult.Equals("OK"))
+                            {
+                                UpdateState(cGuid);
+                                iSumSucces = iSumSucces + 1;
+                            }
+                            else
+                            {
+                                VLogError(@"OEM委外", cResult);
+                            }
+
+                        }
+                        catch (Exception ex)
+                        {
+                            VLogError(@"OEM委外", ex.Message);
                             iSumFail = iSumFail + 1;
                         }
                         break;

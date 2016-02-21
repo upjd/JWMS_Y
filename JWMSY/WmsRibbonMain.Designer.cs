@@ -832,7 +832,7 @@
             ultraStatusPanel4.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
             ultraStatusPanel4.Key = "tssbtnVersion";
             ultraStatusPanel4.Style = Infragistics.Win.UltraWinStatusBar.PanelStyle.Button;
-            ultraStatusPanel4.Text = "V1.5.1";
+            ultraStatusPanel4.Text = "V1.5.2";
             ultraStatusPanel4.Width = 120;
             appearance69.TextHAlignAsString = "Right";
             ultraStatusPanel5.Appearance = appearance69;

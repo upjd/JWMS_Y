@@ -509,7 +509,15 @@ namespace JWMSY
         private bool JudgeBarCode(string cSerialNumber)
         {
             var wf = new WmsFunction(BaseStructure.WmsCon);
-            var bDeliveryCmd = new SqlCommand("select cInvCode,cInvName from SS_Detail where cSerialNumber=@cSerialNumber");
+
+            var bReturnCmd = new SqlCommand("select cSerialNumber from Pro_ReturnDetail where cSerialNumber is not null and cSerialNumber=@cSerialNumber");
+            bReturnCmd.Parameters.AddWithValue("@cSerialNumber", cSerialNumber);
+
+            if (wf.BoolExistTable(bReturnCmd))
+            {
+                return true;
+            }
+            var bDeliveryCmd = new SqlCommand("select cInvCode,cInvName from SS_Detail where cSerialNumber=@cSerialNumber ");
             bDeliveryCmd.Parameters.AddWithValue("@cSerialNumber", cSerialNumber);
             if (wf.BoolExistTable(bDeliveryCmd))
             {

@@ -35,6 +35,8 @@ namespace DataService
         /// </summary>
         private string _storageUnit;
 
+        private int _fpurchasetype=0;
+
         string BillCmdStr = "Insert into T_IM_PurReceivalBill(" +
                                "FID," +
                                "FCREATORID," +
@@ -282,7 +284,7 @@ namespace DataService
         /// <param name="cOrderNumber">单据号</param>
         /// <param name="cEasNewOrder"></param>
         /// <param name="cGuid">单据GUID</param>
-        /// <param name="iCount">行数</param>
+        /// <param name="iCount">fpurchasetype 表示是委外还是采购</param>
         /// <returns></returns>
         [WebMethod]
         public string SyncPurReceivalBill(string cOrderNumber,string cEasNewOrder, string cGuid, int iCount)
@@ -291,6 +293,7 @@ namespace DataService
             if (dtRmStore.Rows.Count < 1)
                 return "无内容";
             var cUserName = dtRmStore.Rows[0]["cUser"].ToString();
+            _fpurchasetype = iCount;
             using (var ocon = new OracleConnection(Properties.Settings.Default.EasCon))
             {
                 ocon.Open();
@@ -519,7 +522,7 @@ namespace DataService
             _receivalBill.FSUPPLIERID = iof.GetSupplyByOrderNumber(cOrderNumber);
             _receivalBill.FCONVERTMODE = 0;
             _receivalBill.FISCENTRALBALANCE = 0;
-            _receivalBill.FPURCHASETYPE = 0;
+            _receivalBill.FPURCHASETYPE = _fpurchasetype;
             _receivalBill.FMONTH = int.Parse(DateTime.Now.ToString("yyyyMM"));
             _receivalBill.FDAY = int.Parse(DateTime.Now.ToString("yyyyMMdd"));
 
