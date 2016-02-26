@@ -91,7 +91,7 @@ namespace JWMSY
                 var iExist = js.IsExists(ckNo, ckNoMd5);
 
 
-                if (iExist != 0)
+                if (iExist == 0)
                 {
                     MessageBox.Show(@"此出库单号不存在报单系统!", @"Warning");
                     return;
