@@ -556,6 +556,7 @@ namespace JWMSY
                 tw.WriteLine("{0} {1}", cSerial, miDt.Rows[i]["cSerialNumber"]);
             }
             tw.Close();
+            DllWmsMain.RecordPrintLog(_cGuid);
             MessageBox.Show(@"导出成功");
         }
 

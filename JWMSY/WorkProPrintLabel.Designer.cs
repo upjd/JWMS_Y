@@ -717,7 +717,7 @@
             this.bibtnUpdate});
             this.ribbon.LargeImages = this.imageCollection2;
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 85;
+            this.ribbon.MaxItemId = 90;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage});

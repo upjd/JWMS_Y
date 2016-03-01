@@ -766,6 +766,8 @@ namespace JWMSY
 
             if (cSerialNumber.StartsWith("ZZ"))
             {
+                if (!JudgeBarCode(cSerialNumber))
+                    return;
                 //此处添加如果是周转箱扫描，则查询取得它的真实批号
                 cLotNo = GetProductBoxLotNo(cSerialNumber);
                 using (var pgq = new PdaGetIntQuantity(cInvCode, _cInvName, cLotNo, false, iRemainQuantity, _TheoryiWeight, _iBoxFormat,cSerialNumber))
@@ -1296,9 +1298,13 @@ namespace JWMSY
                 {
                     cValue = "";
                 }
-                DLL.DllWorkPrintLabel.SetParametersValue(xtreport, cKey, cValue);
+                DllWorkPrintLabel.SetParametersValue(xtreport, cKey, cValue);
             }
-            DLL.DllWorkPrintLabel.SetParametersValue(xtreport, "cBoxNumber", cBoxNumber);
+
+            var iBoxWeight=DllWmsMain.GetBoxWeight(cBoxNumber);
+            DllWorkPrintLabel.SetParametersValue(xtreport, "cBoxNumber", cBoxNumber);
+            DllWorkPrintLabel.SetParametersValue(xtreport, "iBoxWeight", iBoxWeight);
+
             xtreport.DataSource = dtSource;
             switch (operation)
             {
@@ -1345,7 +1351,7 @@ namespace JWMSY
                 return;
             var wf = new WmsFunction(BaseStructure.WmsCon);
             var cmd = new SqlCommand("GetBoxDetailByBoxNumber") { CommandType = CommandType.StoredProcedure };
-
+            
             cmd.Parameters.AddWithValue("@cOrderNumber", lblcOrderNumber.Text);
             cmd.Parameters.AddWithValue("@cBoxNumber", lblcBoxNumber.Text);
             var dt = wf.GetSqlTable(cmd);

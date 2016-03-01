@@ -73,6 +73,17 @@ namespace JWMSY.DLL
                 return wf.ReturnFirstSingle(logCmd);
             }
         }
+
+
+        public static string GetBoxWeight(string cBoxNumber)
+        {
+            using (var cmd = new SqlCommand(@"select isnull(iWeight,0) from SS_Box where cBoxNumber=@cBoxNumber"))
+            {
+                cmd.Parameters.AddWithValue("@cBoxNumber", cBoxNumber);
+                var wf = new WmsFunction(BaseStructure.WmsCon);
+                return wf.ReturnFirstSingle(cmd);
+            }
+        }
          
     }
 }
