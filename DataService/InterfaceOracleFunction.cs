@@ -449,6 +449,20 @@ namespace DataService
 
 
         /// <summary>
+        /// 获取供应商
+        /// </summary>
+        /// <param name="cOrdernumber"></param>
+        /// <returns></returns>
+        public string GetSupplyByOemOrderNumber(string cOrdernumber)
+        {
+            var cmdstr = "select FSupplierID from T_SM_SubContractOrder where fNumber=:fNumber";
+            var cmd = new OracleCommand(cmdstr);
+            cmd.Parameters.Add(":fNumber", cOrdernumber);
+            return ExecOracleScale(cmd, "获取供应商" + cOrdernumber);
+        }
+
+
+        /// <summary>
         /// 获取供应商操作员对应ID
         /// </summary>
         /// <param name="cUserName"></param>

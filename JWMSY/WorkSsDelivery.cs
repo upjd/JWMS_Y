@@ -14,6 +14,7 @@ using System.Windows.Forms;
 using System.Xml;
 using JWMSY.DLL;
 using DevExpress.XtraReports.UI;
+using JWMSY.dsReportTableAdapters;
 
 namespace JWMSY
 {
@@ -369,9 +370,10 @@ namespace JWMSY
             selectCmd.Parameters.AddWithValue("@cOrderNumber", lblcOrderNumber.Text);
 
             uGridSsDeliveryDetail.DataSource = wf.GetSqlTable(selectCmd);
-           
 
-            var selectDeliveryCmd = new SqlCommand("select * from SS_Delivery where cOrderNumber=@cOrderNumber order by autoid desc");
+
+            var selectDeliveryCmd = new SqlCommand("GetRefreshGridData");
+            selectDeliveryCmd.CommandType = CommandType.StoredProcedure;
             selectDeliveryCmd.Parameters.AddWithValue("@cOrderNumber", lblcOrderNumber.Text);
             uGridSsDelivery.DataSource = wf.GetSqlTable(selectDeliveryCmd);
 
@@ -959,8 +961,13 @@ namespace JWMSY
             var wf = new WmsFunction(BaseStructure.WmsCon);
             if (wf.ExecSqlCmd(cmd))
             {
-                MessageBox.Show(@"箱重量更新成功");
-                lblcBoxNumber.Text = "";
+                if (
+                    MessageBox.Show(@"箱重量更新成功,是否立即打印装箱单", @"是否立即打印装箱单", MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+                        MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+                {
+                    OneKeyPrintBoxDetail();
+                }
+                
             }
             else
             {
@@ -1251,12 +1258,18 @@ namespace JWMSY
         {
             if (string.IsNullOrEmpty(lblcOrderNumber.Text)||string.IsNullOrEmpty(lblcBoxNumber.Text))
                 return;
+            OneKeyPrintBoxDetail();
+            lblcBoxNumber.Text = "";
+        }
+
+        private void OneKeyPrintBoxDetail()
+        {
             var wf = new WmsFunction(BaseStructure.WmsCon);
             var cmd = new SqlCommand("GetBoxDetailByBoxNumber") {CommandType = CommandType.StoredProcedure};
 
             cmd.Parameters.AddWithValue("@cOrderNumber", lblcOrderNumber.Text);
             cmd.Parameters.AddWithValue("@cBoxNumber", lblcBoxNumber.Text);
-            var dt =wf.GetSqlTable(cmd);
+            var dt = wf.GetSqlTable(cmd);
             PrintDialog("print", dt, lblcBoxNumber.Text);
         }
 
@@ -1340,7 +1353,7 @@ namespace JWMSY
                 cmd.Parameters.AddWithValue("@cOrderNumber", lblcOrderNumber.Text);
                 cmd.Parameters.AddWithValue("@cBoxNumber", dtBox.Rows[i]["cBoxNumber"].ToString());
                 var dt = wf.GetSqlTable(cmd);
-                PrintDialog("print", dt,lblcBoxNumber.Text);
+                PrintDialog("print", dt, dtBox.Rows[i]["cBoxNumber"].ToString());
             }
 
         }
@@ -1356,6 +1369,85 @@ namespace JWMSY
             cmd.Parameters.AddWithValue("@cBoxNumber", lblcBoxNumber.Text);
             var dt = wf.GetSqlTable(cmd);
             PrintDialog("design", dt,lblcBoxNumber.Text);
+        }
+
+        private void btnDesignOrderPrint_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(lblcOrderNumber.Text) )
+                return;
+            //var dsOrderReport =new dsReport();
+            //var daBox = new View_SSDeliveryBoxAdapter();
+            //daBox.Connection.ConnectionString = BaseStructure.WmsCon;
+
+            //var daDetail = new View_SSDeliveryBoxDetailTableAdapter();
+            //daDetail.Connection.ConnectionString = BaseStructure.WmsCon;
+
+
+            //daBox.Fill(dsOrderReport.View_SSDeliveryBox, lblcOrderNumber.Text);
+
+            //daDetail.Fill(dsOrderReport.View_SSDeliveryBoxDetail, lblcOrderNumber.Text);
+            var wf = new WmsFunction(BaseStructure.WmsCon);
+            var cmd = new SqlCommand("GetSSdetailToReport") { CommandType = CommandType.StoredProcedure };
+
+            cmd.Parameters.AddWithValue("@cOrderNumber", lblcOrderNumber.Text);
+            var dt = wf.GetSqlTable(cmd);
+            PrintOrderDialog("design", dt, lblcOrderNumber.Text);
+        }
+        /// <summary>
+        /// 打印操作
+        /// </summary>
+        /// <param name="operation"></param>
+        /// <param name="dtSource"></param>
+        public void PrintOrderDialog(string operation, DataTable dtSource, string cOrderNumber)
+        {
+
+            var xtreport = new XtraReport();
+            // _btApp = new BarTender.Application();
+            //判断当前打印模版路径是否存在
+            var temPath = Application.StartupPath + @"\Stencil\SSDeliveryOrder.repx";
+
+            if (!File.Exists(temPath))
+            {
+                MessageBox.Show(@"当前路径下的打印模版文件不存在!", @"异常", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                xtreport.ShowDesigner();
+                return;}
+            xtreport.LoadLayout(temPath);
+            xtreport.PrinterName = cbxPrint.Text;
+            xtreport.RequestParameters = false;
+            xtreport.ShowPrintStatusDialog = false;
+            xtreport.ShowPrintMarginsWarning = false;
+            //模板赋值
+            for (var i = 0; i < uGridSsDelivery.DisplayLayout.Bands[0].Columns.Count; i++)
+            {
+                var cKey = uGridSsDelivery.DisplayLayout.Bands[0].Columns[i].Key;
+                string cValue;
+                if (uGridSsDelivery.Rows.Count > 0)
+                {
+                    cValue = uGridSsDelivery.Rows[0].Cells[i].Value.ToString();
+                }
+                else
+                {
+                    cValue = "";
+                }
+                DllWorkPrintLabel.SetParametersValue(xtreport, cKey, cValue);
+            }
+
+            DllWorkPrintLabel.SetParametersValue(xtreport, "cOrderNumber", cOrderNumber);
+
+            xtreport.DataSource = dtSource;
+            switch (operation)
+            {
+                case "print":
+                    xtreport.Print();
+                    break;
+                case "design":
+                    xtreport.ShowDesigner();
+                    break;
+                case "preview":
+                    xtreport.ShowPreview();
+                    break;
+            }
+
         }
            
     }

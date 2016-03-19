@@ -506,20 +506,44 @@ namespace DataService
             //制单人
             var cUserId = iof.GetUserIDbyUserName(cUserName);
             _receivalBill.FCREATORID = string.IsNullOrEmpty(cUserId) ? "K7Li625bRC6r8uAH5mlIDRO33n8=" : cUserId;
-            _storageUnit = iof.GetControlIDByOrderNumber(cOrderNumber, "T_SM_PurOrder");
+            if (_fpurchasetype == 0)
+            {
+                _storageUnit = iof.GetControlIDByOrderNumber(cOrderNumber, "T_SM_PurOrder");
+            }
+            else
+            {
+                _storageUnit = iof.GetControlIDByOrderNumber(cOrderNumber, "T_SM_SubContractOrder");
+            }
             _receivalBill.FCREATETIME = DateTime.Now;
             _receivalBill.FCONTROLUNITID = _storageUnit;
             _receivalBill.FNUMBER = cNewEasOrder;
 
             _receivalBill.FBIZDATE = DateTime.Now;
             _receivalBill.FBASESTATUS = 1;
-            _receivalBill.FBIZTYPEID = "d8e80652-0106-1000-e000-04c5c0a812202407435C";
-            _receivalBill.FSOURCEBILLTYPEID = "510b6503-0105-1000-e000-010bc0a812fd463ED552";
-            _receivalBill.FBILLTYPEID = "50957179-0105-1000-e000-0157c0a812fd463ED552";
+            if (_fpurchasetype == 0)
+            {
+                _receivalBill.FBIZTYPEID = "d8e80652-0106-1000-e000-04c5c0a812202407435C";
+                _receivalBill.FSOURCEBILLTYPEID = "510b6503-0105-1000-e000-010bc0a812fd463ED552";
+                _receivalBill.FBILLTYPEID = "50957179-0105-1000-e000-0157c0a812fd463ED552";
+            }
+            else
+            {
+                _receivalBill.FBIZTYPEID = "1x7KMBq4mUmpj58T4jNPqiQHQ1w=";
+                _receivalBill.FSOURCEBILLTYPEID = "kvQieV/4TJ+1ipJVFBlPx0Y+1VI=";
+                _receivalBill.FBILLTYPEID = "50957179-0105-1000-e000-0157c0a812fd463ED552";
+            }
+            
             _receivalBill.FSTORAGEORGUNITID = _storageUnit;
             _receivalBill.FTRANSACTIONTYPEID = "DawAAAAPoAWwCNyn";
             _receivalBill.FISINITBILL = 0;
-            _receivalBill.FSUPPLIERID = iof.GetSupplyByOrderNumber(cOrderNumber);
+            if (_fpurchasetype == 0)
+            {
+                _receivalBill.FSUPPLIERID = iof.GetSupplyByOrderNumber(cOrderNumber);
+            }
+            else
+            {
+                _receivalBill.FSUPPLIERID = iof.GetSupplyByOemOrderNumber(cOrderNumber);
+            }
             _receivalBill.FCONVERTMODE = 0;
             _receivalBill.FISCENTRALBALANCE = 0;
             _receivalBill.FPURCHASETYPE = _fpurchasetype;
@@ -539,17 +563,36 @@ namespace DataService
             _receivalEntry.FID = iof.GetFID("A8919E76");
             _receivalEntry.FSEQ = iRowIndex;
             _receivalEntry.FMATERIALID = iof.GetInvCode(cInvCode);
-            _receivalEntry.FSOURCEBILLID = iof.GetSourIDByOrderNumber(cOrderNumber, "T_SM_PurOrder");
-            _receivalEntry.FSOURCEBILLNUMBER = cOrderNumber;
-            _receivalEntry.FSOURCEBILLTYPEID = "510b6503-0105-1000-e000-010bc0a812fd463ED552";
-            _receivalEntry.FSOURCEBILLENTRYID = iof.GetEntrySourIDByOrderNumber(_receivalEntry.FSOURCEBILLID, _receivalEntry.FMATERIALID, "T_SM_PurOrderEntry");
-            var cSeq = iof.GetEntrySeqByEntryFid(_receivalEntry.FSOURCEBILLENTRYID, "T_SM_PurOrderEntry");
-            int iSeq;
-            if (!int.TryParse(cSeq, out iSeq))
+            if (_fpurchasetype == 0)
             {
-                iSeq = 1;
+                _receivalEntry.FSOURCEBILLID = iof.GetSourIDByOrderNumber(cOrderNumber, "T_SM_PurOrder");
+                _receivalEntry.FSOURCEBILLNUMBER = cOrderNumber;
+                _receivalEntry.FSOURCEBILLTYPEID = "510b6503-0105-1000-e000-010bc0a812fd463ED552";
+                _receivalEntry.FSOURCEBILLENTRYID = iof.GetEntrySourIDByOrderNumber(_receivalEntry.FSOURCEBILLID, _receivalEntry.FMATERIALID, "T_SM_PurOrderEntry");
+                var cSeq = iof.GetEntrySeqByEntryFid(_receivalEntry.FSOURCEBILLENTRYID, "T_SM_PurOrderEntry");
+                int iSeq;
+                if (!int.TryParse(cSeq, out iSeq))
+                {
+                    iSeq = 1;
+                }
+                _receivalEntry.FSOURCEBILLENTRYSEQ = iSeq;
             }
-            _receivalEntry.FSOURCEBILLENTRYSEQ =iSeq ;
+            else
+            {
+
+                _receivalEntry.FSOURCEBILLID = iof.GetSourIDByOrderNumber(cOrderNumber, "T_SM_SubContractOrder");
+                _receivalEntry.FSOURCEBILLNUMBER = cOrderNumber;
+                _receivalEntry.FSOURCEBILLTYPEID = "510b6503-0105-1000-e000-010bc0a812fd463ED552";
+                _receivalEntry.FSOURCEBILLENTRYID = iof.GetEntrySourIDByOrderNumber(_receivalEntry.FSOURCEBILLID, _receivalEntry.FMATERIALID, "T_SM_SubContractOrderEntry");
+                var cSeq = iof.GetEntrySeqByEntryFid(_receivalEntry.FSOURCEBILLENTRYID, "T_SM_SubContractOrderEntry");
+                int iSeq;
+                if (!int.TryParse(cSeq, out iSeq))
+                {
+                    iSeq = 1;
+                }
+                _receivalEntry.FSOURCEBILLENTRYSEQ = iSeq;
+            }
+            
             _receivalEntry.FASSCOEFFICIENT = 0;
             _receivalEntry.FBASESTATUS = 2;
 
@@ -601,7 +644,15 @@ namespace DataService
             _receivalEntry.FREVERSEBASEQTY = 0;
             _receivalEntry.FRECEIPTBASEQTY = 0;
             _receivalEntry.FRETURNBASEQTY = 0;
-            var cPrice = iof.GetEntryPriceByEntryFid(_receivalEntry.FSOURCEBILLENTRYID, "T_SM_PurOrderEntry");
+            string cPrice=string.Empty;
+            if (_fpurchasetype == 0)
+            {
+                cPrice = iof.GetEntryPriceByEntryFid(_receivalEntry.FSOURCEBILLENTRYID, "T_SM_PurOrderEntry");
+            }
+            else
+            {
+                cPrice = iof.GetEntryPriceByEntryFid(_receivalEntry.FSOURCEBILLENTRYID, "T_SM_SubContractOrderEntry");
+            }
             decimal iPrice;
             if (!decimal.TryParse(cPrice, out iPrice))
             {

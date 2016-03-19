@@ -34,7 +34,8 @@ namespace JWMSY
         private void tsbtnAnalysis_Click(object sender, EventArgs e)
         {
             //清除原数据
-            TruncateTmpTable();var cWaveOrder = tstxtcWaveOrderNumber.Text.ToUpper();
+            TruncateTmpTable();
+            var cWaveOrder = tstxtcWaveOrderNumber.Text.ToUpper();
             var cWaveNumberMd5 = GetMd5OrderService(cWaveOrder);
 
 
@@ -389,8 +390,10 @@ namespace JWMSY
         {
             using (var con = new SqlConnection(BaseStructure.WmsCon))
             {
-                using(var cmd=new SqlCommand("select cInvCode,Max(cInvName) cInvName,sum(iQuantity) iQuantity from Tmp_OrderList where cGuid=@cGuid group by cInvCode  order by cInvname"))
+                using (var cmd = new SqlCommand("GetOrderList"))
                 {
+                    cmd.CommandType=CommandType.StoredProcedure;
+
                     cmd.Parameters.AddWithValue("@cGuid", cGuid);
                     cmd.Connection = con;
                     var da=new SqlDataAdapter(cmd);
@@ -441,7 +444,7 @@ namespace JWMSY
         {
             using (var con = new SqlConnection(BaseStructure.WmsCon))
             {
-                using (var cmd = new SqlCommand("select cOrderNumber from Tmp_OrderList where cGuid=@cGuid group by cOrderNumber"))
+                using (var cmd = new SqlCommand("select cOrderNumber from Tmp_OrderList where cGuid=@cGuid group by cOrderNumber order by cOrderNumber"))
                 {
                     cmd.Parameters.AddWithValue("@cGuid", cGuid);
                     cmd.Connection = con;

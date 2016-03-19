@@ -294,27 +294,27 @@ namespace AutoSync
                             iSumFail = iSumFail + 1;
                         }
                         break;
-                    case "销售出库":
-                        try
-                        {
-                            var cResult = sSaleDelivery.SyncOrder(cOrderNumber, cOrderNumber, cGuid, 1);
+                    //case "销售出库":
+                    //    try
+                    //    {
+                    //        var cResult = sSaleDelivery.SyncOrder(cOrderNumber, cOrderNumber, cGuid, 1);
 
-                            if (cResult.Equals("OK"))
-                            {
-                                UpdateState(cGuid);
-                                iSumSucces = iSumSucces + 1;
-                            }
-                            else
-                            {
-                                VLogError(@"完工入库", cResult);
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            VLogError(@"采购收货", ex.Message);
-                            iSumFail = iSumFail + 1;
-                        }
-                        break;
+                    //        if (cResult.Equals("OK"))
+                    //        {
+                    //            UpdateState(cGuid);
+                    //            iSumSucces = iSumSucces + 1;
+                    //        }
+                    //        else
+                    //        {
+                    //            VLogError(@"销售出库", cResult);
+                    //        }
+                    //    }
+                    //    catch (Exception ex)
+                    //    {
+                    //        VLogError(@"销售出库", ex.Message);
+                    //        iSumFail = iSumFail + 1;
+                    //    }
+                    //    break;
                 }
             }
             timerExec.Enabled = true;

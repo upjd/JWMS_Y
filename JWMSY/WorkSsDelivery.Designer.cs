@@ -71,6 +71,9 @@
             Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn30 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("dDate");
             Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn46 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cUser");
             Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn47 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cGuid");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn8 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("iBox");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn9 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("iOdd");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn10 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("iTa");
             Infragistics.Win.Appearance appearance11 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance12 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance13 = new Infragistics.Win.Appearance();
@@ -79,6 +82,7 @@
             Infragistics.Win.Appearance appearance16 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance17 = new Infragistics.Win.Appearance();
             this.ugbxMain = new Infragistics.Win.Misc.UltraGroupBox();
+            this.cbxWaveOrder = new System.Windows.Forms.CheckBox();
             this.btnDesign = new System.Windows.Forms.Button();
             this.cbxPrint = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -119,7 +123,8 @@
             this.tsmiDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.uGridSsDelivery = new Infragistics.Win.UltraWinGrid.UltraGrid();
             this.spMain = new System.IO.Ports.SerialPort(this.components);
-            this.cbxWaveOrder = new System.Windows.Forms.CheckBox();
+            this.btnDesignOrderPrint = new System.Windows.Forms.Button();
+            this.btnPrintOrder = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ugbxMain)).BeginInit();
             this.ugbxMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uteiWeight)).BeginInit();
@@ -131,6 +136,8 @@
             // 
             // ugbxMain
             // 
+            this.ugbxMain.Controls.Add(this.btnDesignOrderPrint);
+            this.ugbxMain.Controls.Add(this.btnPrintOrder);
             this.ugbxMain.Controls.Add(this.cbxWaveOrder);
             this.ugbxMain.Controls.Add(this.btnDesign);
             this.ugbxMain.Controls.Add(this.cbxPrint);
@@ -152,13 +159,23 @@
             this.ugbxMain.Dock = System.Windows.Forms.DockStyle.Top;
             this.ugbxMain.Location = new System.Drawing.Point(0, 0);
             this.ugbxMain.Name = "ugbxMain";
-            this.ugbxMain.Size = new System.Drawing.Size(984, 150);
+            this.ugbxMain.Size = new System.Drawing.Size(984, 176);
             this.ugbxMain.TabIndex = 17;
             this.ugbxMain.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.XP;
             // 
+            // cbxWaveOrder
+            // 
+            this.cbxWaveOrder.AutoSize = true;
+            this.cbxWaveOrder.Location = new System.Drawing.Point(530, 43);
+            this.cbxWaveOrder.Name = "cbxWaveOrder";
+            this.cbxWaveOrder.Size = new System.Drawing.Size(84, 16);
+            this.cbxWaveOrder.TabIndex = 72;
+            this.cbxWaveOrder.Text = "无波次出库";
+            this.cbxWaveOrder.UseVisualStyleBackColor = true;
+            // 
             // btnDesign
             // 
-            this.btnDesign.Location = new System.Drawing.Point(940, 121);
+            this.btnDesign.Location = new System.Drawing.Point(867, 129);
             this.btnDesign.Name = "btnDesign";
             this.btnDesign.Size = new System.Drawing.Size(38, 23);
             this.btnDesign.TabIndex = 71;
@@ -169,15 +186,15 @@
             // cbxPrint
             // 
             this.cbxPrint.FormattingEnabled = true;
-            this.cbxPrint.Location = new System.Drawing.Point(641, 122);
+            this.cbxPrint.Location = new System.Drawing.Point(768, 99);
             this.cbxPrint.Name = "cbxPrint";
-            this.cbxPrint.Size = new System.Drawing.Size(194, 20);
+            this.cbxPrint.Size = new System.Drawing.Size(139, 20);
             this.cbxPrint.TabIndex = 70;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(573, 126);
+            this.label5.Location = new System.Drawing.Point(697, 103);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 12);
             this.label5.TabIndex = 69;
@@ -185,7 +202,7 @@
             // 
             // btnPrintBoxDetail
             // 
-            this.btnPrintBoxDetail.Location = new System.Drawing.Point(841, 121);
+            this.btnPrintBoxDetail.Location = new System.Drawing.Point(768, 129);
             this.btnPrintBoxDetail.Name = "btnPrintBoxDetail";
             this.btnPrintBoxDetail.Size = new System.Drawing.Size(98, 23);
             this.btnPrintBoxDetail.TabIndex = 68;
@@ -463,7 +480,7 @@
             this.tsgfMain.Dock = System.Windows.Forms.DockStyle.Top;
             this.tsgfMain.FormId = null;
             this.tsgfMain.FormName = null;
-            this.tsgfMain.Location = new System.Drawing.Point(0, 323);
+            this.tsgfMain.Location = new System.Drawing.Point(0, 349);
             this.tsgfMain.Name = "tsgfMain";
             this.tsgfMain.Size = new System.Drawing.Size(984, 25);
             this.tsgfMain.TabIndex = 31;
@@ -585,7 +602,7 @@
             this.uGridSsDeliveryDetail.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
             this.uGridSsDeliveryDetail.Dock = System.Windows.Forms.DockStyle.Top;
             this.uGridSsDeliveryDetail.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uGridSsDeliveryDetail.Location = new System.Drawing.Point(0, 150);
+            this.uGridSsDeliveryDetail.Location = new System.Drawing.Point(0, 176);
             this.uGridSsDeliveryDetail.Name = "uGridSsDeliveryDetail";
             this.uGridSsDeliveryDetail.Size = new System.Drawing.Size(984, 173);
             this.uGridSsDeliveryDetail.TabIndex = 30;
@@ -611,6 +628,7 @@
             // 
             // uGridSsDelivery
             // 
+            this.uGridSsDelivery.DataMember = null;
             appearance10.BackColor = System.Drawing.Color.White;
             this.uGridSsDelivery.DisplayLayout.Appearance = appearance10;
             ultraGridColumn23.CellActivation = Infragistics.Win.UltraWinGrid.Activation.ActivateOnly;
@@ -625,8 +643,8 @@
             ultraGridColumn31.Width = 81;
             ultraGridColumn32.CellActivation = Infragistics.Win.UltraWinGrid.Activation.ActivateOnly;
             ultraGridColumn32.Header.Caption = "产品名称";
-            ultraGridColumn32.Header.VisiblePosition = 5;
-            ultraGridColumn32.Width = 255;
+            ultraGridColumn32.Header.VisiblePosition = 7;
+            ultraGridColumn32.Width = 180;
             ultraGridColumn41.CellActivation = Infragistics.Win.UltraWinGrid.Activation.ActivateOnly;
             ultraGridColumn41.Header.Caption = "单位";
             ultraGridColumn41.Header.VisiblePosition = 3;
@@ -637,26 +655,32 @@
             ultraGridColumn29.Width = 70;
             ultraGridColumn42.CellActivation = Infragistics.Win.UltraWinGrid.Activation.ActivateOnly;
             ultraGridColumn42.Header.Caption = "已扫数";
-            ultraGridColumn42.Header.VisiblePosition = 6;
+            ultraGridColumn42.Header.VisiblePosition = 8;
             ultraGridColumn42.Width = 106;
             ultraGridColumn43.CellActivation = Infragistics.Win.UltraWinGrid.Activation.ActivateOnly;
             ultraGridColumn43.Header.Caption = "客户名称";
-            ultraGridColumn43.Header.VisiblePosition = 7;
+            ultraGridColumn43.Header.VisiblePosition = 9;
             ultraGridColumn44.CellActivation = Infragistics.Win.UltraWinGrid.Activation.ActivateOnly;
             ultraGridColumn44.Header.Caption = "收货地址";
-            ultraGridColumn44.Header.VisiblePosition = 8;
+            ultraGridColumn44.Header.VisiblePosition = 10;
             ultraGridColumn45.CellActivation = Infragistics.Win.UltraWinGrid.Activation.ActivateOnly;
             ultraGridColumn45.Header.Caption = "收货卡号";
-            ultraGridColumn45.Header.VisiblePosition = 9;
+            ultraGridColumn45.Header.VisiblePosition = 11;
             ultraGridColumn30.CellActivation = Infragistics.Win.UltraWinGrid.Activation.ActivateOnly;
             ultraGridColumn30.Header.Caption = "生产日期";
-            ultraGridColumn30.Header.VisiblePosition = 10;
+            ultraGridColumn30.Header.VisiblePosition = 12;
             ultraGridColumn46.CellActivation = Infragistics.Win.UltraWinGrid.Activation.ActivateOnly;
             ultraGridColumn46.Header.Caption = "操作员";
-            ultraGridColumn46.Header.VisiblePosition = 11;
+            ultraGridColumn46.Header.VisiblePosition = 13;
             ultraGridColumn47.CellActivation = Infragistics.Win.UltraWinGrid.Activation.ActivateOnly;
-            ultraGridColumn47.Header.VisiblePosition = 12;
+            ultraGridColumn47.Header.VisiblePosition = 14;
             ultraGridColumn47.Hidden = true;
+            ultraGridColumn8.Header.Caption = "箱数";
+            ultraGridColumn8.Header.VisiblePosition = 5;
+            ultraGridColumn9.Header.Caption = "零头";
+            ultraGridColumn9.Header.VisiblePosition = 6;
+            ultraGridColumn10.Header.Caption = "中包数";
+            ultraGridColumn10.Header.VisiblePosition = 15;
             ultraGridBand2.Columns.AddRange(new object[] {
             ultraGridColumn23,
             ultraGridColumn40,
@@ -670,7 +694,10 @@
             ultraGridColumn45,
             ultraGridColumn30,
             ultraGridColumn46,
-            ultraGridColumn47});
+            ultraGridColumn47,
+            ultraGridColumn8,
+            ultraGridColumn9,
+            ultraGridColumn10});
             this.uGridSsDelivery.DisplayLayout.BandsSerializer.Add(ultraGridBand2);
             this.uGridSsDelivery.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.True;
             this.uGridSsDelivery.DisplayLayout.GroupByBox.Prompt = "如需按照某个列进行分类汇总请把列名拖动到此处";
@@ -717,9 +744,9 @@
             this.uGridSsDelivery.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
             this.uGridSsDelivery.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uGridSsDelivery.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uGridSsDelivery.Location = new System.Drawing.Point(0, 348);
+            this.uGridSsDelivery.Location = new System.Drawing.Point(0, 374);
             this.uGridSsDelivery.Name = "uGridSsDelivery";
-            this.uGridSsDelivery.Size = new System.Drawing.Size(984, 214);
+            this.uGridSsDelivery.Size = new System.Drawing.Size(984, 188);
             this.uGridSsDelivery.TabIndex = 32;
             this.uGridSsDelivery.Text = "拣货记录";
             this.uGridSsDelivery.UpdateMode = Infragistics.Win.UltraWinGrid.UpdateMode.OnCellChangeOrLostFocus;
@@ -729,15 +756,24 @@
             // 
             this.spMain.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.spMain_DataReceived);
             // 
-            // cbxWaveOrder
+            // btnDesignOrderPrint
             // 
-            this.cbxWaveOrder.AutoSize = true;
-            this.cbxWaveOrder.Location = new System.Drawing.Point(530, 43);
-            this.cbxWaveOrder.Name = "cbxWaveOrder";
-            this.cbxWaveOrder.Size = new System.Drawing.Size(84, 16);
-            this.cbxWaveOrder.TabIndex = 72;
-            this.cbxWaveOrder.Text = "无波次出库";
-            this.cbxWaveOrder.UseVisualStyleBackColor = true;
+            this.btnDesignOrderPrint.Location = new System.Drawing.Point(429, 129);
+            this.btnDesignOrderPrint.Name = "btnDesignOrderPrint";
+            this.btnDesignOrderPrint.Size = new System.Drawing.Size(98, 23);
+            this.btnDesignOrderPrint.TabIndex = 74;
+            this.btnDesignOrderPrint.Text = "设计出库单";
+            this.btnDesignOrderPrint.UseVisualStyleBackColor = true;
+            this.btnDesignOrderPrint.Click += new System.EventHandler(this.btnDesignOrderPrint_Click);
+            // 
+            // btnPrintOrder
+            // 
+            this.btnPrintOrder.Location = new System.Drawing.Point(252, 129);
+            this.btnPrintOrder.Name = "btnPrintOrder";
+            this.btnPrintOrder.Size = new System.Drawing.Size(98, 23);
+            this.btnPrintOrder.TabIndex = 73;
+            this.btnPrintOrder.Text = "打印出库单";
+            this.btnPrintOrder.UseVisualStyleBackColor = true;
             // 
             // WorkSsDelivery
             // 
@@ -810,5 +846,7 @@
         private System.Windows.Forms.ToolStripButton tsbtnLotPrintBoxDetail;
         private System.Windows.Forms.Button btnDesign;
         private System.Windows.Forms.CheckBox cbxWaveOrder;
+        private System.Windows.Forms.Button btnDesignOrderPrint;
+        private System.Windows.Forms.Button btnPrintOrder;
     }
 }
