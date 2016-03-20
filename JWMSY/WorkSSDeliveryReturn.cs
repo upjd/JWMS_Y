@@ -20,7 +20,7 @@ namespace JWMSY
 
         private void WorkSSDeliveryReturn_Load(object sender, EventArgs e)
         {
-            GetReturnHistory();
+            sS_DeliveryReturnTableAdapter.Connection.ConnectionString = BaseStructure.WmsCon;GetReturnHistory();
             GetWareHouse();
         }
 
@@ -73,7 +73,35 @@ namespace JWMSY
                 return;
             }
 
+            
+
+
+
             var cBarCode = txtcBarCode.Text;
+            var dtOrder = JudgeBarcodeIsOrder(cBarCode);
+            //判断是否是扫描了单据条码
+            if (dtOrder!=null&&dtOrder.Rows.Count>0)
+            {
+                for (var i = 0; i < dtOrder.Rows.Count; i++)
+                {
+                    var nRow = dataProductMain.SS_DeliveryReturn.NewSS_DeliveryReturnRow();
+                    nRow.cCusName = "";
+                    nRow.cInvCode = dtOrder.Rows[i]["cInvCode"].ToString();
+                    nRow.cInvName = dtOrder.Rows[i]["cInvName"].ToString();
+                    nRow.cLotNo = dtOrder.Rows[i]["cLotNo"].ToString();
+                    nRow.cMemo = "";
+                    nRow.cOperator = BaseStructure.LoginName;
+                    nRow.cOrgOrderNumber = cBarCode;
+                    nRow.dAddTime = DateTime.Now;
+                    nRow.iQuantity = int.Parse(dtOrder.Rows[i]["iQuantity"].ToString());
+                    nRow.cOrderNumber = lblcOrderNumber.Text;
+
+                    dataProductMain.SS_DeliveryReturn.Rows.Add(nRow);
+                }
+
+                return;
+            }
+
             //此处取消扫描的商品码功能
             if (txtcBarCode.Text.Length == 13)
             {
@@ -116,6 +144,14 @@ namespace JWMSY
 
         }
 
+
+        private DataTable JudgeBarcodeIsOrder(string cOrderNumber)
+        {
+            var wf=new WmsFunction(BaseStructure.WmsCon);
+            var cmd = new SqlCommand("select * from SS_Detail where cOrderNumber=@cOrderNumber");
+            cmd.Parameters.AddWithValue("@cOrderNumber", cOrderNumber);
+            return wf.GetSqlTable(cmd);
+        }
 
         /// <summary>
         /// 根据扫描的周转箱序列号取得该的周转箱的批号
@@ -249,7 +285,8 @@ namespace JWMSY
                 return;
             if (string.IsNullOrEmpty(lblcOrderNumber.Text))
                 return;
-            if (string.IsNullOrEmpty(cbxWarehouse.Value.ToString()))
+
+            if (cbxWarehouse.Value==null||string.IsNullOrEmpty(cbxWarehouse.Value.ToString()))
             {
                 MessageBox.Show(@"请先选择仓库！");
                 return;

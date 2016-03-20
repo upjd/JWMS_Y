@@ -82,6 +82,8 @@
             Infragistics.Win.Appearance appearance16 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance17 = new Infragistics.Win.Appearance();
             this.ugbxMain = new Infragistics.Win.Misc.UltraGroupBox();
+            this.btnDesignOrderPrint = new System.Windows.Forms.Button();
+            this.btnPrintOrder = new System.Windows.Forms.Button();
             this.cbxWaveOrder = new System.Windows.Forms.CheckBox();
             this.btnDesign = new System.Windows.Forms.Button();
             this.cbxPrint = new System.Windows.Forms.ComboBox();
@@ -123,8 +125,6 @@
             this.tsmiDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.uGridSsDelivery = new Infragistics.Win.UltraWinGrid.UltraGrid();
             this.spMain = new System.IO.Ports.SerialPort(this.components);
-            this.btnDesignOrderPrint = new System.Windows.Forms.Button();
-            this.btnPrintOrder = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ugbxMain)).BeginInit();
             this.ugbxMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uteiWeight)).BeginInit();
@@ -162,6 +162,26 @@
             this.ugbxMain.Size = new System.Drawing.Size(984, 176);
             this.ugbxMain.TabIndex = 17;
             this.ugbxMain.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.XP;
+            // 
+            // btnDesignOrderPrint
+            // 
+            this.btnDesignOrderPrint.Location = new System.Drawing.Point(429, 129);
+            this.btnDesignOrderPrint.Name = "btnDesignOrderPrint";
+            this.btnDesignOrderPrint.Size = new System.Drawing.Size(98, 23);
+            this.btnDesignOrderPrint.TabIndex = 74;
+            this.btnDesignOrderPrint.Text = "设计出库单";
+            this.btnDesignOrderPrint.UseVisualStyleBackColor = true;
+            this.btnDesignOrderPrint.Click += new System.EventHandler(this.btnDesignOrderPrint_Click);
+            // 
+            // btnPrintOrder
+            // 
+            this.btnPrintOrder.Location = new System.Drawing.Point(252, 129);
+            this.btnPrintOrder.Name = "btnPrintOrder";
+            this.btnPrintOrder.Size = new System.Drawing.Size(98, 23);
+            this.btnPrintOrder.TabIndex = 73;
+            this.btnPrintOrder.Text = "打印出库单";
+            this.btnPrintOrder.UseVisualStyleBackColor = true;
+            this.btnPrintOrder.Click += new System.EventHandler(this.btnPrintOrder_Click);
             // 
             // cbxWaveOrder
             // 
@@ -628,7 +648,6 @@
             // 
             // uGridSsDelivery
             // 
-            this.uGridSsDelivery.DataMember = null;
             appearance10.BackColor = System.Drawing.Color.White;
             this.uGridSsDelivery.DisplayLayout.Appearance = appearance10;
             ultraGridColumn23.CellActivation = Infragistics.Win.UltraWinGrid.Activation.ActivateOnly;
@@ -755,25 +774,6 @@
             // spMain
             // 
             this.spMain.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.spMain_DataReceived);
-            // 
-            // btnDesignOrderPrint
-            // 
-            this.btnDesignOrderPrint.Location = new System.Drawing.Point(429, 129);
-            this.btnDesignOrderPrint.Name = "btnDesignOrderPrint";
-            this.btnDesignOrderPrint.Size = new System.Drawing.Size(98, 23);
-            this.btnDesignOrderPrint.TabIndex = 74;
-            this.btnDesignOrderPrint.Text = "设计出库单";
-            this.btnDesignOrderPrint.UseVisualStyleBackColor = true;
-            this.btnDesignOrderPrint.Click += new System.EventHandler(this.btnDesignOrderPrint_Click);
-            // 
-            // btnPrintOrder
-            // 
-            this.btnPrintOrder.Location = new System.Drawing.Point(252, 129);
-            this.btnPrintOrder.Name = "btnPrintOrder";
-            this.btnPrintOrder.Size = new System.Drawing.Size(98, 23);
-            this.btnPrintOrder.TabIndex = 73;
-            this.btnPrintOrder.Text = "打印出库单";
-            this.btnPrintOrder.UseVisualStyleBackColor = true;
             // 
             // WorkSsDelivery
             // 

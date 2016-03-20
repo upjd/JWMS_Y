@@ -1449,6 +1449,29 @@ namespace JWMSY
             }
 
         }
+
+        private void btnPrintOrder_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(lblcOrderNumber.Text))
+                return;
+            //var dsOrderReport =new dsReport();
+            //var daBox = new View_SSDeliveryBoxAdapter();
+            //daBox.Connection.ConnectionString = BaseStructure.WmsCon;
+
+            //var daDetail = new View_SSDeliveryBoxDetailTableAdapter();
+            //daDetail.Connection.ConnectionString = BaseStructure.WmsCon;
+
+
+            //daBox.Fill(dsOrderReport.View_SSDeliveryBox, lblcOrderNumber.Text);
+
+            //daDetail.Fill(dsOrderReport.View_SSDeliveryBoxDetail, lblcOrderNumber.Text);
+            var wf = new WmsFunction(BaseStructure.WmsCon);
+            var cmd = new SqlCommand("GetSSdetailToReport") { CommandType = CommandType.StoredProcedure };
+
+            cmd.Parameters.AddWithValue("@cOrderNumber", lblcOrderNumber.Text);
+            var dt = wf.GetSqlTable(cmd);
+            PrintOrderDialog("print", dt, lblcOrderNumber.Text);
+        }
            
     }
 }
