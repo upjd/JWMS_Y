@@ -894,6 +894,8 @@ namespace JWMSY.DLL {
             
             private global::System.Data.DataColumn columnbLotMgr;
             
+            private global::System.Data.DataColumn columniBoxWeight;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public IT_ProductDataTable() {
@@ -1065,6 +1067,14 @@ namespace JWMSY.DLL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn iBoxWeightColumn {
+                get {
+                    return this.columniBoxWeight;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1116,7 +1126,8 @@ namespace JWMSY.DLL {
                         int iBoxFormat, 
                         int iWeight, 
                         int iTaFormat, 
-                        bool bLotMgr) {
+                        bool bLotMgr, 
+                        decimal iBoxWeight) {
                 IT_ProductRow rowIT_ProductRow = ((IT_ProductRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1135,7 +1146,8 @@ namespace JWMSY.DLL {
                         iBoxFormat,
                         iWeight,
                         iTaFormat,
-                        bLotMgr};
+                        bLotMgr,
+                        iBoxWeight};
                 rowIT_ProductRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowIT_ProductRow);
                 return rowIT_ProductRow;
@@ -1182,6 +1194,7 @@ namespace JWMSY.DLL {
                 this.columniWeight = base.Columns["iWeight"];
                 this.columniTaFormat = base.Columns["iTaFormat"];
                 this.columnbLotMgr = base.Columns["bLotMgr"];
+                this.columniBoxWeight = base.Columns["iBoxWeight"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1221,6 +1234,8 @@ namespace JWMSY.DLL {
                 base.Columns.Add(this.columniTaFormat);
                 this.columnbLotMgr = new global::System.Data.DataColumn("bLotMgr", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnbLotMgr);
+                this.columniBoxWeight = new global::System.Data.DataColumn("iBoxWeight", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columniBoxWeight);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnAutoID}, true));
                 this.columnAutoID.AutoIncrement = true;
@@ -3267,6 +3282,22 @@ namespace JWMSY.DLL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal iBoxWeight {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableIT_Product.iBoxWeightColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“IT_Product”中列“iBoxWeight”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableIT_Product.iBoxWeightColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IscInvCodeNull() {
                 return this.IsNull(this.tableIT_Product.cInvCodeColumn);
             }
@@ -3455,6 +3486,18 @@ namespace JWMSY.DLL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetbLotMgrNull() {
                 this[this.tableIT_Product.bLotMgrColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsiBoxWeightNull() {
+                return this.IsNull(this.tableIT_Product.iBoxWeightColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetiBoxWeightNull() {
+                this[this.tableIT_Product.iBoxWeightColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -5537,6 +5580,7 @@ SELECT AutoID, cInvCode, cInvName, cInvPackStd, cInvStd, cInvPackStyle, cDefault
             tableMapping.ColumnMappings.Add("iWeight", "iWeight");
             tableMapping.ColumnMappings.Add("iTaFormat", "iTaFormat");
             tableMapping.ColumnMappings.Add("bLotMgr", "bLotMgr");
+            tableMapping.ColumnMappings.Add("iBoxWeight", "iBoxWeight");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -5559,7 +5603,8 @@ SELECT AutoID, cInvCode, cInvName, cInvPackStd, cInvStd, cInvPackStyle, cDefault
                 "xFormat)) AND ((@IsNull_iWeight = 1 AND [iWeight] IS NULL) OR ([iWeight] = @Orig" +
                 "inal_iWeight)) AND ((@IsNull_iTaFormat = 1 AND [iTaFormat] IS NULL) OR ([iTaForm" +
                 "at] = @Original_iTaFormat)) AND ((@IsNull_bLotMgr = 1 AND [bLotMgr] IS NULL) OR " +
-                "([bLotMgr] = @Original_bLotMgr)))";
+                "([bLotMgr] = @Original_bLotMgr)) AND ((@IsNull_iBoxWeight = 1 AND [iBoxWeight] I" +
+                "S NULL) OR ([iBoxWeight] = @Original_iBoxWeight)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AutoID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AutoID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_cInvCode", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cInvCode", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -5594,10 +5639,12 @@ SELECT AutoID, cInvCode, cInvName, cInvPackStd, cInvStd, cInvPackStyle, cDefault
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_iTaFormat", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "iTaFormat", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_bLotMgr", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bLotMgr", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_bLotMgr", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bLotMgr", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_iBoxWeight", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "iBoxWeight", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_iBoxWeight", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 4, "iBoxWeight", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [IT_Product] ([cInvCode], [cInvName], [cInvPackStd], [cInvStd], [cInvPackStyle], [cDefaultVendor], [cMassUnit], [iMassDate], [cKeepRequire], [cProperty], [cMemo], [bEnable], [iBoxFormat], [iWeight], [iTaFormat], [bLotMgr]) VALUES (@cInvCode, @cInvName, @cInvPackStd, @cInvStd, @cInvPackStyle, @cDefaultVendor, @cMassUnit, @iMassDate, @cKeepRequire, @cProperty, @cMemo, @bEnable, @iBoxFormat, @iWeight, @iTaFormat, @bLotMgr);
-SELECT AutoID, cInvCode, cInvName, cInvPackStd, cInvStd, cInvPackStyle, cDefaultVendor, cMassUnit, iMassDate, cKeepRequire, cProperty, cMemo, bEnable, iBoxFormat, iWeight, iTaFormat, bLotMgr FROM IT_Product WHERE (AutoID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [IT_Product] ([cInvCode], [cInvName], [cInvPackStd], [cInvStd], [cInvPackStyle], [cDefaultVendor], [cMassUnit], [iMassDate], [cKeepRequire], [cProperty], [cMemo], [bEnable], [iBoxFormat], [iWeight], [iTaFormat], [bLotMgr], [iBoxWeight]) VALUES (@cInvCode, @cInvName, @cInvPackStd, @cInvStd, @cInvPackStyle, @cDefaultVendor, @cMassUnit, @iMassDate, @cKeepRequire, @cProperty, @cMemo, @bEnable, @iBoxFormat, @iWeight, @iTaFormat, @bLotMgr, @iBoxWeight);
+SELECT AutoID, cInvCode, cInvName, cInvPackStd, cInvStd, cInvPackStyle, cDefaultVendor, cMassUnit, iMassDate, cKeepRequire, cProperty, cMemo, bEnable, iBoxFormat, iWeight, iTaFormat, bLotMgr, iBoxWeight FROM IT_Product WHERE (AutoID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cInvCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cInvCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cInvName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cInvName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5615,6 +5662,7 @@ SELECT AutoID, cInvCode, cInvName, cInvPackStd, cInvStd, cInvPackStyle, cDefault
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@iWeight", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "iWeight", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@iTaFormat", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "iTaFormat", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bLotMgr", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bLotMgr", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@iBoxWeight", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 4, "iBoxWeight", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [IT_Product] SET [cInvCode] = @cInvCode, [cInvName] = @cInvName, [cInvPack" +
@@ -5622,29 +5670,31 @@ SELECT AutoID, cInvCode, cInvName, cInvPackStd, cInvStd, cInvPackStyle, cDefault
                 "efaultVendor] = @cDefaultVendor, [cMassUnit] = @cMassUnit, [iMassDate] = @iMassD" +
                 "ate, [cKeepRequire] = @cKeepRequire, [cProperty] = @cProperty, [cMemo] = @cMemo," +
                 " [bEnable] = @bEnable, [iBoxFormat] = @iBoxFormat, [iWeight] = @iWeight, [iTaFor" +
-                "mat] = @iTaFormat, [bLotMgr] = @bLotMgr WHERE (([AutoID] = @Original_AutoID) AND" +
-                " ((@IsNull_cInvCode = 1 AND [cInvCode] IS NULL) OR ([cInvCode] = @Original_cInvC" +
-                "ode)) AND ((@IsNull_cInvName = 1 AND [cInvName] IS NULL) OR ([cInvName] = @Origi" +
-                "nal_cInvName)) AND ((@IsNull_cInvPackStd = 1 AND [cInvPackStd] IS NULL) OR ([cIn" +
-                "vPackStd] = @Original_cInvPackStd)) AND ((@IsNull_cInvStd = 1 AND [cInvStd] IS N" +
-                "ULL) OR ([cInvStd] = @Original_cInvStd)) AND ((@IsNull_cInvPackStyle = 1 AND [cI" +
-                "nvPackStyle] IS NULL) OR ([cInvPackStyle] = @Original_cInvPackStyle)) AND ((@IsN" +
-                "ull_cDefaultVendor = 1 AND [cDefaultVendor] IS NULL) OR ([cDefaultVendor] = @Ori" +
-                "ginal_cDefaultVendor)) AND ((@IsNull_cMassUnit = 1 AND [cMassUnit] IS NULL) OR (" +
-                "[cMassUnit] = @Original_cMassUnit)) AND ((@IsNull_iMassDate = 1 AND [iMassDate] " +
-                "IS NULL) OR ([iMassDate] = @Original_iMassDate)) AND ((@IsNull_cKeepRequire = 1 " +
-                "AND [cKeepRequire] IS NULL) OR ([cKeepRequire] = @Original_cKeepRequire)) AND ((" +
-                "@IsNull_cProperty = 1 AND [cProperty] IS NULL) OR ([cProperty] = @Original_cProp" +
-                "erty)) AND ((@IsNull_cMemo = 1 AND [cMemo] IS NULL) OR ([cMemo] = @Original_cMem" +
-                "o)) AND ((@IsNull_bEnable = 1 AND [bEnable] IS NULL) OR ([bEnable] = @Original_b" +
-                "Enable)) AND ((@IsNull_iBoxFormat = 1 AND [iBoxFormat] IS NULL) OR ([iBoxFormat]" +
-                " = @Original_iBoxFormat)) AND ((@IsNull_iWeight = 1 AND [iWeight] IS NULL) OR ([" +
-                "iWeight] = @Original_iWeight)) AND ((@IsNull_iTaFormat = 1 AND [iTaFormat] IS NU" +
-                "LL) OR ([iTaFormat] = @Original_iTaFormat)) AND ((@IsNull_bLotMgr = 1 AND [bLotM" +
-                "gr] IS NULL) OR ([bLotMgr] = @Original_bLotMgr)));\r\nSELECT AutoID, cInvCode, cIn" +
-                "vName, cInvPackStd, cInvStd, cInvPackStyle, cDefaultVendor, cMassUnit, iMassDate" +
-                ", cKeepRequire, cProperty, cMemo, bEnable, iBoxFormat, iWeight, iTaFormat, bLotM" +
-                "gr FROM IT_Product WHERE (AutoID = @AutoID)";
+                "mat] = @iTaFormat, [bLotMgr] = @bLotMgr, [iBoxWeight] = @iBoxWeight WHERE (([Aut" +
+                "oID] = @Original_AutoID) AND ((@IsNull_cInvCode = 1 AND [cInvCode] IS NULL) OR (" +
+                "[cInvCode] = @Original_cInvCode)) AND ((@IsNull_cInvName = 1 AND [cInvName] IS N" +
+                "ULL) OR ([cInvName] = @Original_cInvName)) AND ((@IsNull_cInvPackStd = 1 AND [cI" +
+                "nvPackStd] IS NULL) OR ([cInvPackStd] = @Original_cInvPackStd)) AND ((@IsNull_cI" +
+                "nvStd = 1 AND [cInvStd] IS NULL) OR ([cInvStd] = @Original_cInvStd)) AND ((@IsNu" +
+                "ll_cInvPackStyle = 1 AND [cInvPackStyle] IS NULL) OR ([cInvPackStyle] = @Origina" +
+                "l_cInvPackStyle)) AND ((@IsNull_cDefaultVendor = 1 AND [cDefaultVendor] IS NULL)" +
+                " OR ([cDefaultVendor] = @Original_cDefaultVendor)) AND ((@IsNull_cMassUnit = 1 A" +
+                "ND [cMassUnit] IS NULL) OR ([cMassUnit] = @Original_cMassUnit)) AND ((@IsNull_iM" +
+                "assDate = 1 AND [iMassDate] IS NULL) OR ([iMassDate] = @Original_iMassDate)) AND" +
+                " ((@IsNull_cKeepRequire = 1 AND [cKeepRequire] IS NULL) OR ([cKeepRequire] = @Or" +
+                "iginal_cKeepRequire)) AND ((@IsNull_cProperty = 1 AND [cProperty] IS NULL) OR ([" +
+                "cProperty] = @Original_cProperty)) AND ((@IsNull_cMemo = 1 AND [cMemo] IS NULL) " +
+                "OR ([cMemo] = @Original_cMemo)) AND ((@IsNull_bEnable = 1 AND [bEnable] IS NULL)" +
+                " OR ([bEnable] = @Original_bEnable)) AND ((@IsNull_iBoxFormat = 1 AND [iBoxForma" +
+                "t] IS NULL) OR ([iBoxFormat] = @Original_iBoxFormat)) AND ((@IsNull_iWeight = 1 " +
+                "AND [iWeight] IS NULL) OR ([iWeight] = @Original_iWeight)) AND ((@IsNull_iTaForm" +
+                "at = 1 AND [iTaFormat] IS NULL) OR ([iTaFormat] = @Original_iTaFormat)) AND ((@I" +
+                "sNull_bLotMgr = 1 AND [bLotMgr] IS NULL) OR ([bLotMgr] = @Original_bLotMgr)) AND" +
+                " ((@IsNull_iBoxWeight = 1 AND [iBoxWeight] IS NULL) OR ([iBoxWeight] = @Original" +
+                "_iBoxWeight)));\r\nSELECT AutoID, cInvCode, cInvName, cInvPackStd, cInvStd, cInvPa" +
+                "ckStyle, cDefaultVendor, cMassUnit, iMassDate, cKeepRequire, cProperty, cMemo, b" +
+                "Enable, iBoxFormat, iWeight, iTaFormat, bLotMgr, iBoxWeight FROM IT_Product WHER" +
+                "E (AutoID = @AutoID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cInvCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cInvCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cInvName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cInvName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5662,6 +5712,7 @@ SELECT AutoID, cInvCode, cInvName, cInvPackStd, cInvStd, cInvPackStyle, cDefault
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@iWeight", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "iWeight", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@iTaFormat", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "iTaFormat", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bLotMgr", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bLotMgr", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@iBoxWeight", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 4, "iBoxWeight", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AutoID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AutoID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_cInvCode", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cInvCode", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_cInvCode", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cInvCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -5695,6 +5746,8 @@ SELECT AutoID, cInvCode, cInvName, cInvPackStd, cInvStd, cInvPackStyle, cDefault
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_iTaFormat", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "iTaFormat", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_bLotMgr", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bLotMgr", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_bLotMgr", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bLotMgr", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_iBoxWeight", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "iBoxWeight", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_iBoxWeight", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 4, "iBoxWeight", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AutoID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "AutoID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -5712,7 +5765,7 @@ SELECT AutoID, cInvCode, cInvName, cInvPackStd, cInvStd, cInvPackStyle, cDefault
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT   AutoID, cInvCode, cInvName, cInvPackStd, cInvStd, cInvPackStyle, cDefaultVendor, cMassUnit, iMassDate, 
-                cKeepRequire, cProperty, cMemo, bEnable, iBoxFormat, iWeight, iTaFormat,bLotMgr
+                cKeepRequire, cProperty, cMemo, bEnable, iBoxFormat, iWeight, iTaFormat, bLotMgr, iBoxWeight
 FROM      IT_Product
 WHERE   (bEnable = @bEnable)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
@@ -5805,7 +5858,8 @@ WHERE   (bEnable = @bEnable)";
                     global::System.Nullable<int> Original_iBoxFormat, 
                     global::System.Nullable<int> Original_iWeight, 
                     global::System.Nullable<int> Original_iTaFormat, 
-                    global::System.Nullable<bool> Original_bLotMgr) {
+                    global::System.Nullable<bool> Original_bLotMgr, 
+                    global::System.Nullable<decimal> Original_iBoxWeight) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_AutoID));
             if ((Original_cInvCode == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -5935,6 +5989,14 @@ WHERE   (bEnable = @bEnable)";
                 this.Adapter.DeleteCommand.Parameters[31].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[32].Value = global::System.DBNull.Value;
             }
+            if ((Original_iBoxWeight.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[33].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[34].Value = ((decimal)(Original_iBoxWeight.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[33].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[34].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5971,7 +6033,8 @@ WHERE   (bEnable = @bEnable)";
                     global::System.Nullable<int> iBoxFormat, 
                     global::System.Nullable<int> iWeight, 
                     global::System.Nullable<int> iTaFormat, 
-                    global::System.Nullable<bool> bLotMgr) {
+                    global::System.Nullable<bool> bLotMgr, 
+                    global::System.Nullable<decimal> iBoxWeight) {
             if ((cInvCode == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -6068,6 +6131,12 @@ WHERE   (bEnable = @bEnable)";
             else {
                 this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
+            if ((iBoxWeight.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[16].Value = ((decimal)(iBoxWeight.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6105,6 +6174,7 @@ WHERE   (bEnable = @bEnable)";
                     global::System.Nullable<int> iWeight, 
                     global::System.Nullable<int> iTaFormat, 
                     global::System.Nullable<bool> bLotMgr, 
+                    global::System.Nullable<decimal> iBoxWeight, 
                     int Original_AutoID, 
                     string Original_cInvCode, 
                     string Original_cInvName, 
@@ -6122,6 +6192,7 @@ WHERE   (bEnable = @bEnable)";
                     global::System.Nullable<int> Original_iWeight, 
                     global::System.Nullable<int> Original_iTaFormat, 
                     global::System.Nullable<bool> Original_bLotMgr, 
+                    global::System.Nullable<decimal> Original_iBoxWeight, 
                     int AutoID) {
             if ((cInvCode == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -6219,136 +6290,150 @@ WHERE   (bEnable = @bEnable)";
             else {
                 this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Original_AutoID));
-            if ((Original_cInvCode == null)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+            if ((iBoxWeight.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((decimal)(iBoxWeight.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_cInvCode));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_AutoID));
+            if ((Original_cInvCode == null)) {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_cInvCode));
             }
             if ((Original_cInvName == null)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_cInvName));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_cInvName));
             }
             if ((Original_cInvPackStd == null)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_cInvPackStd));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_cInvPackStd));
             }
             if ((Original_cInvStd == null)) {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_cInvStd));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_cInvStd));
             }
             if ((Original_cInvPackStyle == null)) {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_cInvPackStyle));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_cInvPackStyle));
             }
             if ((Original_cDefaultVendor == null)) {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(Original_cDefaultVendor));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Original_cDefaultVendor));
             }
             if ((Original_cMassUnit == null)) {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(Original_cMassUnit));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Original_cMassUnit));
             }
             if ((Original_iMassDate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((int)(Original_iMassDate.Value));
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((int)(Original_iMassDate.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
             }
             if ((Original_cKeepRequire == null)) {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(Original_cKeepRequire));
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((string)(Original_cKeepRequire));
             }
             if ((Original_cProperty == null)) {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[36].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((string)(Original_cProperty));
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((string)(Original_cProperty));
             }
             if ((Original_cMemo == null)) {
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[38].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[39].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((string)(Original_cMemo));
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((string)(Original_cMemo));
             }
             if ((Original_bEnable.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[40].Value = ((bool)(Original_bEnable.Value));
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((bool)(Original_bEnable.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[40].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[41].Value = global::System.DBNull.Value;
             }
             if ((Original_iBoxFormat.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((int)(Original_iBoxFormat.Value));
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((int)(Original_iBoxFormat.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[42].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[43].Value = global::System.DBNull.Value;
             }
             if ((Original_iWeight.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[44].Value = ((int)(Original_iWeight.Value));
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((int)(Original_iWeight.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[44].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[45].Value = global::System.DBNull.Value;
             }
             if ((Original_iTaFormat.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[46].Value = ((int)(Original_iTaFormat.Value));
+                this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((int)(Original_iTaFormat.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[46].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[47].Value = global::System.DBNull.Value;
             }
             if ((Original_bLotMgr.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[48].Value = ((bool)(Original_bLotMgr.Value));
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[49].Value = ((bool)(Original_bLotMgr.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[48].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[49].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[49].Value = ((int)(AutoID));
+            if ((Original_iBoxWeight.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[51].Value = ((decimal)(Original_iBoxWeight.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[51].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[52].Value = ((int)(AutoID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6386,6 +6471,7 @@ WHERE   (bEnable = @bEnable)";
                     global::System.Nullable<int> iWeight, 
                     global::System.Nullable<int> iTaFormat, 
                     global::System.Nullable<bool> bLotMgr, 
+                    global::System.Nullable<decimal> iBoxWeight, 
                     int Original_AutoID, 
                     string Original_cInvCode, 
                     string Original_cInvName, 
@@ -6402,8 +6488,9 @@ WHERE   (bEnable = @bEnable)";
                     global::System.Nullable<int> Original_iBoxFormat, 
                     global::System.Nullable<int> Original_iWeight, 
                     global::System.Nullable<int> Original_iTaFormat, 
-                    global::System.Nullable<bool> Original_bLotMgr) {
-            return this.Update(cInvCode, cInvName, cInvPackStd, cInvStd, cInvPackStyle, cDefaultVendor, cMassUnit, iMassDate, cKeepRequire, cProperty, cMemo, bEnable, iBoxFormat, iWeight, iTaFormat, bLotMgr, Original_AutoID, Original_cInvCode, Original_cInvName, Original_cInvPackStd, Original_cInvStd, Original_cInvPackStyle, Original_cDefaultVendor, Original_cMassUnit, Original_iMassDate, Original_cKeepRequire, Original_cProperty, Original_cMemo, Original_bEnable, Original_iBoxFormat, Original_iWeight, Original_iTaFormat, Original_bLotMgr, Original_AutoID);
+                    global::System.Nullable<bool> Original_bLotMgr, 
+                    global::System.Nullable<decimal> Original_iBoxWeight) {
+            return this.Update(cInvCode, cInvName, cInvPackStd, cInvStd, cInvPackStyle, cDefaultVendor, cMassUnit, iMassDate, cKeepRequire, cProperty, cMemo, bEnable, iBoxFormat, iWeight, iTaFormat, bLotMgr, iBoxWeight, Original_AutoID, Original_cInvCode, Original_cInvName, Original_cInvPackStd, Original_cInvStd, Original_cInvPackStyle, Original_cDefaultVendor, Original_cMassUnit, Original_iMassDate, Original_cKeepRequire, Original_cProperty, Original_cMemo, Original_bEnable, Original_iBoxFormat, Original_iWeight, Original_iTaFormat, Original_bLotMgr, Original_iBoxWeight, Original_AutoID);
         }
     }
     

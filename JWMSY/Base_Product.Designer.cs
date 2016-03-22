@@ -48,6 +48,8 @@
             Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn2 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("iBoxFormat");
             Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn3 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("iWeight");
             Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn4 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("iTaFormat");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn5 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("bLotMgr");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn6 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("iBoxWeight");
             Infragistics.Win.Appearance appearance2 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance3 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance4 = new Infragistics.Win.Appearance();
@@ -304,6 +306,10 @@
             ultraGridColumn3.Header.VisiblePosition = 14;
             ultraGridColumn4.Header.Caption = "中包规格";
             ultraGridColumn4.Header.VisiblePosition = 15;
+            ultraGridColumn5.Header.Caption = "是否批次管理";
+            ultraGridColumn5.Header.VisiblePosition = 16;
+            ultraGridColumn6.Header.Caption = "周转箱重量";
+            ultraGridColumn6.Header.VisiblePosition = 17;
             ultraGridBand1.Columns.AddRange(new object[] {
             ultraGridColumn1,
             ultraGridColumn8,
@@ -320,7 +326,9 @@
             ultraGridColumn20,
             ultraGridColumn2,
             ultraGridColumn3,
-            ultraGridColumn4});
+            ultraGridColumn4,
+            ultraGridColumn5,
+            ultraGridColumn6});
             this.uGridRawMaterial.DisplayLayout.BandsSerializer.Add(ultraGridBand1);
             this.uGridRawMaterial.DisplayLayout.GroupByBox.Prompt = "如需按照某个列进行分类汇总请把列名拖动到此处";
             this.uGridRawMaterial.DisplayLayout.MaxColScrollRegions = 1;

@@ -28,6 +28,8 @@ namespace DataService
         private string _cWhareHouse;
 
         private string _cCusomer;
+
+        private bool _bReturn ;
        #region 写入销售主表语句
 
         private string BillCmdStr = "insert into T_IM_SaleIssueBill( " +
@@ -377,7 +379,15 @@ namespace DataService
             sibill.FSOURCEFUNCTION="310";
             //sibill.FAUDITTIME="15-1月 -15 03.48.56.424000000 下午";
             sibill.FBASESTATUS=2;
-            sibill.FBIZTYPEID="d8e80652-010e-1000-e000-04c5c0a812202407435C";
+            if (_bReturn)
+            {
+                sibill.FBIZTYPEID = "d8e80652-0110-1000-e000-04c5c0a812202407435C";
+            }
+            else
+            {
+                sibill.FBIZTYPEID = "d8e80652-010e-1000-e000-04c5c0a812202407435C";
+            }
+            
             sibill.FSOURCEBILLTYPEID="0";
             sibill.FBILLTYPEID="50957179-0105-1000-e000-015bc0a812fd463ED552";
             sibill.FYEAR = int.Parse(DateTime.Now.ToString("yyyy"));
@@ -790,6 +800,7 @@ where fparentid in ('1d2xZMr2TAidqncU9Sam48w+kzs=','fL0QaL95SkyRu0Osx071w8w+kzs=
             {
                 sibill.FTRANSACTIONTYPEID = "DawAAAAPoA2wCNyn";
                 dtSsDetail = GetImportReturnDataTable(cOrderNumber);
+                _bReturn = true;
                 //退货则使用FNumber查询库存
                 _cWhareHouse = iof.GetWareHouse(cGuid);
             }

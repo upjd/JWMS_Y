@@ -90,8 +90,8 @@ namespace JWMSY.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.0.173;Initial Catalog=JWMSY_2015;Persist Security Info=True;U" +
-            "ser ID=sa;Password=kingdee")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(local);Initial Catalog=JWMSY_2015;Persist Security Info=True;User ID" +
+            "=sa;Password=4000212099")]
         public string DataCon {
             get {
                 return ((string)(this["DataCon"]));
