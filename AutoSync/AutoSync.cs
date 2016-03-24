@@ -331,7 +331,7 @@ namespace AutoSync
 
         private DataTable GetNoUpdateData()
         {
-            var cmd = new SqlCommand("select * from Wms_M_Eas where isnull(bEnable,0)=0");
+            var cmd = new SqlCommand("select * from Wms_M_Eas where (ctype!='销售出库' or cType!='销售退货') and isnull(bEnable,0)=0");
             var sfun = new SyncFunction(_wmsCon);
             return sfun.GetSqlTable(cmd);
         }
