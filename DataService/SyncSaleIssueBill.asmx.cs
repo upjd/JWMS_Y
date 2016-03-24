@@ -889,7 +889,8 @@ where fparentid in ('1d2xZMr2TAidqncU9Sam48w+kzs=','fL0QaL95SkyRu0Osx071w8w+kzs=
         {
             using (var con = new SqlConnection(Properties.Settings.Default.WmsCon))
             {
-                using (var cmd = new SqlCommand("select cInvCode,iQuantity,cLotNo,'' cWhCode from SS_DeliveryReturn  where cOrderNumber=@cOrderNumber group by cInvCode,iQuantity,cLotNo", con))
+                //using (var cmd = new SqlCommand("select cInvCode,iQuantity,cLotNo,'' cWhCode from SS_DeliveryReturn  where cOrderNumber=@cOrderNumber group by cInvCode,iQuantity,cLotNo", con))
+                using (var cmd = new SqlCommand("select cInvCode,sum(iQuantity) as iQuantity,cLotNo,'' cWhCode from SS_DeliveryReturn  where cOrderNumber=@cOrderNumber group by cInvCode,cLotNo", con))
                 {
                     cmd.Parameters.AddWithValue("@cOrderNumber", cOrderNumber);
                     var da = new SqlDataAdapter(cmd);
