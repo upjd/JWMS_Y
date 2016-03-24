@@ -38,6 +38,8 @@
             Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn24 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("dAddTime");
             Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn1 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cSate");
             Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn25 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("ReUpdate", 0);
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn3 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("bSelect", 1);
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn4 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("cResult", 2);
             Infragistics.Win.Appearance appearance2 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance3 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance4 = new Infragistics.Win.Appearance();
@@ -57,11 +59,13 @@
             this.biExit = new DevExpress.XtraBars.BarButtonItem();
             this.biSearch = new DevExpress.XtraBars.BarButtonItem();
             this.bbiRefresh = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiLotApprove = new DevExpress.XtraBars.BarButtonItem();
             this.ImgCollection32 = new DevExpress.Utils.ImageCollection(this.components);
             this.ribbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgSystem = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgExport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgSearch = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rpgDeal = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.pageListMain = new UpjdControlBox.PageList();
             ((System.ComponentModel.ISupportInitialize)(this.uGridProBoxBarCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
@@ -71,7 +75,6 @@
             // 
             // uGridProBoxBarCode
             // 
-            this.uGridProBoxBarCode.DataMember = null;
             appearance1.BackColor = System.Drawing.Color.White;
             this.uGridProBoxBarCode.DisplayLayout.Appearance = appearance1;
             ultraGridColumn2.CellActivation = Infragistics.Win.UltraWinGrid.Activation.ActivateOnly;
@@ -79,27 +82,37 @@
             ultraGridColumn2.Hidden = true;
             ultraGridColumn6.CellActivation = Infragistics.Win.UltraWinGrid.Activation.ActivateOnly;
             ultraGridColumn6.Header.Caption = "波次单号";
-            ultraGridColumn6.Header.VisiblePosition = 1;
+            ultraGridColumn6.Header.VisiblePosition = 2;
             ultraGridColumn6.Width = 217;
             ultraGridColumn7.CellActivation = Infragistics.Win.UltraWinGrid.Activation.ActivateOnly;
             ultraGridColumn7.Header.Caption = "订单号";
-            ultraGridColumn7.Header.VisiblePosition = 2;
+            ultraGridColumn7.Header.VisiblePosition = 3;
             ultraGridColumn7.Width = 295;
             ultraGridColumn18.CellActivation = Infragistics.Win.UltraWinGrid.Activation.ActivateOnly;
             ultraGridColumn18.Header.Caption = "已导入";
-            ultraGridColumn18.Header.VisiblePosition = 3;
+            ultraGridColumn18.Header.VisiblePosition = 4;
             ultraGridColumn24.CellActivation = Infragistics.Win.UltraWinGrid.Activation.ActivateOnly;
             ultraGridColumn24.Header.Caption = "新增时间";
-            ultraGridColumn24.Header.VisiblePosition = 4;
+            ultraGridColumn24.Header.VisiblePosition = 5;
             ultraGridColumn1.CellActivation = Infragistics.Win.UltraWinGrid.Activation.ActivateOnly;
             ultraGridColumn1.Header.Caption = "状态";
-            ultraGridColumn1.Header.VisiblePosition = 5;
+            ultraGridColumn1.Header.VisiblePosition = 6;
             ultraGridColumn25.ButtonDisplayStyle = Infragistics.Win.UltraWinGrid.ButtonDisplayStyle.Always;
             ultraGridColumn25.DefaultCellValue = "重新导入";
             ultraGridColumn25.Header.Caption = "重导";
-            ultraGridColumn25.Header.VisiblePosition = 6;
+            ultraGridColumn25.Header.VisiblePosition = 7;
             ultraGridColumn25.NullText = "重新导入";
             ultraGridColumn25.Style = Infragistics.Win.UltraWinGrid.ColumnStyle.Button;
+            ultraGridColumn3.DataType = typeof(bool);
+            ultraGridColumn3.DefaultCellValue = false;
+            ultraGridColumn3.Header.Caption = "选择";
+            ultraGridColumn3.Header.CheckBoxVisibility = Infragistics.Win.UltraWinGrid.HeaderCheckBoxVisibility.Always;
+            ultraGridColumn3.Header.VisiblePosition = 1;
+            ultraGridColumn3.Style = Infragistics.Win.UltraWinGrid.ColumnStyle.CheckBox;
+            ultraGridColumn3.Width = 67;
+            ultraGridColumn4.CellActivation = Infragistics.Win.UltraWinGrid.Activation.ActivateOnly;
+            ultraGridColumn4.Header.Caption = "批导结果";
+            ultraGridColumn4.Header.VisiblePosition = 8;
             ultraGridBand1.Columns.AddRange(new object[] {
             ultraGridColumn2,
             ultraGridColumn6,
@@ -107,7 +120,9 @@
             ultraGridColumn18,
             ultraGridColumn24,
             ultraGridColumn1,
-            ultraGridColumn25});
+            ultraGridColumn25,
+            ultraGridColumn3,
+            ultraGridColumn4});
             this.uGridProBoxBarCode.DisplayLayout.BandsSerializer.Add(ultraGridBand1);
             this.uGridProBoxBarCode.DisplayLayout.GroupByBox.Prompt = "如需按照某个列进行分类汇总请把列名拖动到此处";
             this.uGridProBoxBarCode.DisplayLayout.MaxColScrollRegions = 1;
@@ -152,10 +167,10 @@
             this.uGridProBoxBarCode.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
             this.uGridProBoxBarCode.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
             this.uGridProBoxBarCode.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uGridProBoxBarCode.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uGridProBoxBarCode.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uGridProBoxBarCode.Location = new System.Drawing.Point(0, 123);
             this.uGridProBoxBarCode.Name = "uGridProBoxBarCode";
-            this.uGridProBoxBarCode.Size = new System.Drawing.Size(984, 412);
+            this.uGridProBoxBarCode.Size = new System.Drawing.Size(984, 457);
             this.uGridProBoxBarCode.TabIndex = 40;
             this.uGridProBoxBarCode.UpdateMode = Infragistics.Win.UltraWinGrid.UpdateMode.OnCellChangeOrLostFocus;
             this.uGridProBoxBarCode.ClickCellButton += new Infragistics.Win.UltraWinGrid.CellEventHandler(this.uGridProBoxBarCode_ClickCellButton);
@@ -166,9 +181,9 @@
             this.tsgfMain.Dock = System.Windows.Forms.DockStyle.Top;
             this.tsgfMain.FormId = null;
             this.tsgfMain.FormName = null;
-            this.tsgfMain.Location = new System.Drawing.Point(0, 98);
+            this.tsgfMain.Location = new System.Drawing.Point(0, 96);
             this.tsgfMain.Name = "tsgfMain";
-            this.tsgfMain.Size = new System.Drawing.Size(984, 25);
+            this.tsgfMain.Size = new System.Drawing.Size(984, 27);
             this.tsgfMain.TabIndex = 39;
             this.tsgfMain.UGrid = this.uGridProBoxBarCode;
             // 
@@ -185,10 +200,11 @@
             this.biPrint,
             this.biExit,
             this.biSearch,
-            this.bbiRefresh});
+            this.bbiRefresh,
+            this.bbiLotApprove});
             this.ribbon.LargeImages = this.ImgCollection32;
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 70;
+            this.ribbon.MaxItemId = 71;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage});
@@ -196,7 +212,7 @@
             this.ribbon.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbon.ShowCategoryInCaption = false;
             this.ribbon.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
-            this.ribbon.Size = new System.Drawing.Size(984, 98);
+            this.ribbon.Size = new System.Drawing.Size(984, 96);
             this.ribbon.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             // 
             // ImgCollection16
@@ -266,6 +282,14 @@
             this.bbiRefresh.Name = "bbiRefresh";
             this.bbiRefresh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiRefresh_ItemClick);
             // 
+            // bbiLotApprove
+            // 
+            this.bbiLotApprove.Caption = "批量审核导入";
+            this.bbiLotApprove.Id = 70;
+            this.bbiLotApprove.LargeImageIndex = 8;
+            this.bbiLotApprove.Name = "bbiLotApprove";
+            this.bbiLotApprove.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiLotApprove_ItemClick);
+            // 
             // ImgCollection32
             // 
             this.ImgCollection32.ImageSize = new System.Drawing.Size(32, 32);
@@ -298,7 +322,8 @@
             this.ribbonPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rpgSystem,
             this.rpgExport,
-            this.rpgSearch});
+            this.rpgSearch,
+            this.rpgDeal});
             this.ribbonPage.Name = "ribbonPage";
             this.ribbonPage.Text = "菜单选项";
             // 
@@ -323,6 +348,12 @@
             this.rpgSearch.Name = "rpgSearch";
             this.rpgSearch.Text = "查询";
             // 
+            // rpgDeal
+            // 
+            this.rpgDeal.ItemLinks.Add(this.bbiLotApprove);
+            this.rpgDeal.Name = "rpgDeal";
+            this.rpgDeal.Text = "操作";
+            // 
             // pageListMain
             // 
             this.pageListMain.Condition = "View_SFOrderAndWmsEAS";
@@ -330,14 +361,14 @@
             this.pageListMain.CountPage = 0;
             this.pageListMain.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pageListMain.ID = "uid";
-            this.pageListMain.Location = new System.Drawing.Point(0, 535);
+            this.pageListMain.Location = new System.Drawing.Point(0, 580);
             this.pageListMain.Name = "pageListMain";
             this.pageListMain.PageIndex = 1;
             this.pageListMain.PageSize = 100;
             this.pageListMain.RecordCount = 0;
             this.pageListMain.Relation = "View_SFOrderAndWmsEAS on spkid=uid";
             this.pageListMain.SelectParam = "*";
-            this.pageListMain.Size = new System.Drawing.Size(984, 27);
+            this.pageListMain.Size = new System.Drawing.Size(984, 29);
             this.pageListMain.Sortparam = "dAddTime desc";
             this.pageListMain.TabIndex = 42;
             this.pageListMain.UGrid = this.uGridProBoxBarCode;
@@ -345,9 +376,9 @@
             // 
             // Rpt_SFOrderWmsEas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 562);
+            this.ClientSize = new System.Drawing.Size(984, 609);
             this.Controls.Add(this.uGridProBoxBarCode);
             this.Controls.Add(this.pageListMain);
             this.Controls.Add(this.tsgfMain);
@@ -383,5 +414,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgExport;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgSearch;
         private UpjdControlBox.PageList pageListMain;
+        private DevExpress.XtraBars.BarButtonItem bbiLotApprove;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgDeal;
     }
 }

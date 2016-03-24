@@ -79,10 +79,12 @@ namespace JWMSY
             if (cSerialNumber.StartsWith("ZZ"))
             {
                 txtiNum.Text = _iBoxFormat.ToString();
+                txtiNum.Enabled = false;
             }
             else
             {
                 txtiNum.Text = iRemainQuantity.ToString();
+                txtiNum.Text = "1";
             }
 
             txtiNum.TextChanged += txtiNum_TextChanged;

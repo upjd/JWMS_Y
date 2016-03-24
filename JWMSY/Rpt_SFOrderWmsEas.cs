@@ -84,5 +84,33 @@ namespace JWMSY
             pageListMain.Constr = BaseStructure.WmsCon;
             pageListMain.GetRecord();
         }
+        
+        private void bbiLotApprove_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            uGridProBoxBarCode.UpdateData();
+            for(var i=0;i<uGridProBoxBarCode.Rows.Count;i++)
+            {
+                if((bool)uGridProBoxBarCode.Rows[i].Cells["bSelect"].Value)
+                {
+                    var cOrderNumber = uGridProBoxBarCode.Rows[i].Cells["cOrderNumber"].Value.ToString();
+                    var cState = uGridProBoxBarCode.Rows[i].Cells["cState"].Value.ToString();
+                    if (!cState.Equals("完成"))
+                    {
+                        uGridProBoxBarCode.Rows[i].Cells["cResult"].Value = "Error：必需是完成的单据才允许导入EAS";
+                        continue;
+                    }
+                    var wf = new WmsFunction(BaseStructure.WmsCon);
+                    var lotCmd = new SqlCommand("GenerateWmsEas") { CommandType = CommandType.StoredProcedure };
+                    lotCmd.Parameters.AddWithValue("@cOrderNumber", cOrderNumber);
+                    lotCmd.Parameters.AddWithValue("@cType", "销售出库");
+                    lotCmd.Parameters.AddWithValue("@cGuid", Guid.NewGuid());
+                    lotCmd.Parameters.AddWithValue("@bReUpdate", 1);
+                    if (wf.ExecSqlCmd(lotCmd))
+                    {
+                        uGridProBoxBarCode.Rows[i].Cells["cResult"].Value = @"写入中间表成功";
+                    }
+                }
+            }
+        }
     }
 }
