@@ -167,10 +167,10 @@
             this.uGridProBoxBarCode.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
             this.uGridProBoxBarCode.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
             this.uGridProBoxBarCode.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uGridProBoxBarCode.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uGridProBoxBarCode.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uGridProBoxBarCode.Location = new System.Drawing.Point(0, 123);
             this.uGridProBoxBarCode.Name = "uGridProBoxBarCode";
-            this.uGridProBoxBarCode.Size = new System.Drawing.Size(984, 457);
+            this.uGridProBoxBarCode.Size = new System.Drawing.Size(984, 412);
             this.uGridProBoxBarCode.TabIndex = 40;
             this.uGridProBoxBarCode.UpdateMode = Infragistics.Win.UltraWinGrid.UpdateMode.OnCellChangeOrLostFocus;
             this.uGridProBoxBarCode.ClickCellButton += new Infragistics.Win.UltraWinGrid.CellEventHandler(this.uGridProBoxBarCode_ClickCellButton);
@@ -181,9 +181,9 @@
             this.tsgfMain.Dock = System.Windows.Forms.DockStyle.Top;
             this.tsgfMain.FormId = null;
             this.tsgfMain.FormName = null;
-            this.tsgfMain.Location = new System.Drawing.Point(0, 96);
+            this.tsgfMain.Location = new System.Drawing.Point(0, 98);
             this.tsgfMain.Name = "tsgfMain";
-            this.tsgfMain.Size = new System.Drawing.Size(984, 27);
+            this.tsgfMain.Size = new System.Drawing.Size(984, 25);
             this.tsgfMain.TabIndex = 39;
             this.tsgfMain.UGrid = this.uGridProBoxBarCode;
             // 
@@ -204,7 +204,7 @@
             this.bbiLotApprove});
             this.ribbon.LargeImages = this.ImgCollection32;
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 71;
+            this.ribbon.MaxItemId = 72;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage});
@@ -212,7 +212,7 @@
             this.ribbon.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbon.ShowCategoryInCaption = false;
             this.ribbon.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
-            this.ribbon.Size = new System.Drawing.Size(984, 96);
+            this.ribbon.Size = new System.Drawing.Size(984, 98);
             this.ribbon.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             // 
             // ImgCollection16
@@ -361,14 +361,14 @@
             this.pageListMain.CountPage = 0;
             this.pageListMain.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pageListMain.ID = "uid";
-            this.pageListMain.Location = new System.Drawing.Point(0, 580);
+            this.pageListMain.Location = new System.Drawing.Point(0, 535);
             this.pageListMain.Name = "pageListMain";
             this.pageListMain.PageIndex = 1;
             this.pageListMain.PageSize = 100;
             this.pageListMain.RecordCount = 0;
             this.pageListMain.Relation = "View_SFOrderAndWmsEAS on spkid=uid";
             this.pageListMain.SelectParam = "*";
-            this.pageListMain.Size = new System.Drawing.Size(984, 29);
+            this.pageListMain.Size = new System.Drawing.Size(984, 27);
             this.pageListMain.Sortparam = "dAddTime desc";
             this.pageListMain.TabIndex = 42;
             this.pageListMain.UGrid = this.uGridProBoxBarCode;
@@ -376,9 +376,9 @@
             // 
             // Rpt_SFOrderWmsEas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 609);
+            this.ClientSize = new System.Drawing.Size(984, 562);
             this.Controls.Add(this.uGridProBoxBarCode);
             this.Controls.Add(this.pageListMain);
             this.Controls.Add(this.tsgfMain);

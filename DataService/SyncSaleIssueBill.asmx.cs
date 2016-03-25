@@ -372,7 +372,7 @@ namespace DataService
             sibill.FBIZDATE = dDate;
 
             sibill.FHANDLERID="00000000-0000-0000-0000-00000000000013B7DE7F";
-            sibill.FDESCRIPTION="0";
+            //sibill.FDESCRIPTION="0";
             sibill.FHASEFFECTED= 0;
             //sibill.FAUDITORID="K7Li625bRC6r8uAH5mlIDRO33n8=";
             sibill.FSOURCEBILLID="0";
@@ -536,6 +536,18 @@ where fparentid in ('1d2xZMr2TAidqncU9Sam48w+kzs=','fL0QaL95SkyRu0Osx071w8w+kzs=
             sibillEntry.FLOCALNONTAXAMOUNT = 0;
             sibillEntry.FDREWQTY = 0;
             sibillEntry.FASSISTPROPERTYID = "0";
+            if(!string.IsNullOrEmpty(sibillEntry.FLOT))
+            {
+                var cFMFG = iof.GetProductDate(sibillEntry.FMATERIALID, sibillEntry.FLOT);
+                var cFEXP = iof.GetProductExpDate(sibillEntry.FMATERIALID, sibillEntry.FLOT);
+                DateTime dFm, dFe;
+                if (!string.IsNullOrEmpty(cFMFG) && DateTime.TryParse(cFMFG, out dFm))
+                    sibillEntry.FMFG = dFm;
+                if (!string.IsNullOrEmpty(cFEXP) && DateTime.TryParse(cFEXP, out dFe))
+                    sibillEntry.FMFG = dFe;
+            }
+            
+
             //生产日期、失效日期不传
             //sibillEntry.FMFG = DateTime.Now; ;
             //sibillEntry.FEXP = DateTime.Now; ;
@@ -776,7 +788,7 @@ where fparentid in ('1d2xZMr2TAidqncU9Sam48w+kzs=','fL0QaL95SkyRu0Osx071w8w+kzs=
         /// <param name="iCount">行数</param>
         /// <returns></returns>
         [WebMethod]
-        public string SyncOrder(string cOrderNumber, string cEasNewOrder, string cGuid, int iCount)
+        public string SyncOrder(string cOrderNumber, string cEasNewOrder, string cGuid, int iCount,string cMemo)
         {
             DataTable dtSsDetail;
             var iof = new InterfaceOracleFunction(Properties.Settings.Default.EasCon);
@@ -804,7 +816,10 @@ where fparentid in ('1d2xZMr2TAidqncU9Sam48w+kzs=','fL0QaL95SkyRu0Osx071w8w+kzs=
                 //退货则使用FNumber查询库存
                 _cWhareHouse = iof.GetWareHouse(cGuid);
             }
-            
+            //备注字段
+            sibill.FDESCRIPTION = cMemo;
+
+
             if (dtSsDetail.Rows.Count < 1)
                 return "无内容";
             using (var ocon = new OracleConnection(Properties.Settings.Default.EasCon))
@@ -823,7 +838,7 @@ where fparentid in ('1d2xZMr2TAidqncU9Sam48w+kzs=','fL0QaL95SkyRu0Osx071w8w+kzs=
                                 ocmd.CommandText = "select FNUMBER from T_IM_SaleIssueBill where FNUMBER=:FNUMBER";
                                 ocmd.Parameters.Add(":FNUMBER", cEasNewOrder);
                                 if (ocmd.ExecuteReader().Read())
-                                    return "OK";
+                                    return "单据已经存在";
                                 ocmd.Parameters.Clear();
 
                                 ocmd.CommandText = BillCmdStr;
@@ -890,7 +905,7 @@ where fparentid in ('1d2xZMr2TAidqncU9Sam48w+kzs=','fL0QaL95SkyRu0Osx071w8w+kzs=
             using (var con = new SqlConnection(Properties.Settings.Default.WmsCon))
             {
                 //using (var cmd = new SqlCommand("select cInvCode,iQuantity,cLotNo,'' cWhCode from SS_DeliveryReturn  where cOrderNumber=@cOrderNumber group by cInvCode,iQuantity,cLotNo", con))
-                using (var cmd = new SqlCommand("select cInvCode,sum(iQuantity) as iQuantity,cLotNo,'' cWhCode from SS_DeliveryReturn  where cOrderNumber=@cOrderNumber group by cInvCode,cLotNo", con))
+                using (var cmd = new SqlCommand("select cInvCode,-sum(iQuantity) as iQuantity,cLotNo,'' cWhCode from SS_DeliveryReturn  where cOrderNumber=@cOrderNumber group by cInvCode,cLotNo", con))
                 {
                     cmd.Parameters.AddWithValue("@cOrderNumber", cOrderNumber);
                     var da = new SqlDataAdapter(cmd);

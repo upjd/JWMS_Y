@@ -45,6 +45,8 @@
             this.dataInputBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataProductMain = new JWMSY.DLL.DataProductMain();
             this.panelTop = new System.Windows.Forms.Panel();
+            this.txtUrl = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.txtDataCenter = new System.Windows.Forms.TextBox();
             this.txtPwd = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -130,9 +132,9 @@
             this.uGridOutBox.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
             this.uGridOutBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uGridOutBox.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uGridOutBox.Location = new System.Drawing.Point(0, 242);
+            this.uGridOutBox.Location = new System.Drawing.Point(0, 288);
             this.uGridOutBox.Name = "uGridOutBox";
-            this.uGridOutBox.Size = new System.Drawing.Size(984, 320);
+            this.uGridOutBox.Size = new System.Drawing.Size(984, 274);
             this.uGridOutBox.TabIndex = 30;
             this.uGridOutBox.UpdateMode = Infragistics.Win.UltraWinGrid.UpdateMode.OnCellChangeOrLostFocus;
             // 
@@ -148,6 +150,8 @@
             // 
             // panelTop
             // 
+            this.panelTop.Controls.Add(this.txtUrl);
+            this.panelTop.Controls.Add(this.label4);
             this.panelTop.Controls.Add(this.txtDataCenter);
             this.panelTop.Controls.Add(this.txtPwd);
             this.panelTop.Controls.Add(this.label3);
@@ -158,19 +162,36 @@
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 98);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(984, 121);
+            this.panelTop.Size = new System.Drawing.Size(984, 167);
             this.panelTop.TabIndex = 29;
+            // 
+            // txtUrl
+            // 
+            this.txtUrl.Location = new System.Drawing.Point(257, 51);
+            this.txtUrl.Name = "txtUrl";
+            this.txtUrl.Size = new System.Drawing.Size(608, 21);
+            this.txtUrl.TabIndex = 8;
+            this.txtUrl.Text = "192.168.1.202:7888";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(119, 55);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(137, 12);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "EAS 审核WebService地址";
             // 
             // txtDataCenter
             // 
-            this.txtDataCenter.Location = new System.Drawing.Point(638, 10);
+            this.txtDataCenter.Location = new System.Drawing.Point(685, 17);
             this.txtDataCenter.Name = "txtDataCenter";
             this.txtDataCenter.Size = new System.Drawing.Size(180, 21);
             this.txtDataCenter.TabIndex = 6;
             // 
             // txtPwd
             // 
-            this.txtPwd.Location = new System.Drawing.Point(421, 10);
+            this.txtPwd.Location = new System.Drawing.Point(468, 17);
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.Size = new System.Drawing.Size(100, 21);
             this.txtPwd.TabIndex = 5;
@@ -178,7 +199,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(564, 14);
+            this.label3.Location = new System.Drawing.Point(611, 21);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 12);
             this.label3.TabIndex = 4;
@@ -187,7 +208,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(353, 14);
+            this.label2.Location = new System.Drawing.Point(400, 21);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 12);
             this.label2.TabIndex = 3;
@@ -196,7 +217,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(166, 14);
+            this.label1.Location = new System.Drawing.Point(213, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 12);
             this.label1.TabIndex = 2;
@@ -204,17 +225,17 @@
             // 
             // txtUser
             // 
-            this.txtUser.Location = new System.Drawing.Point(212, 10);
+            this.txtUser.Location = new System.Drawing.Point(259, 17);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(100, 21);
             this.txtUser.TabIndex = 1;
             // 
             // txtInput
             // 
-            this.txtInput.Location = new System.Drawing.Point(97, 38);
+            this.txtInput.Location = new System.Drawing.Point(97, 89);
             this.txtInput.Multiline = true;
             this.txtInput.Name = "txtInput";
-            this.txtInput.Size = new System.Drawing.Size(791, 74);
+            this.txtInput.Size = new System.Drawing.Size(791, 72);
             this.txtInput.TabIndex = 0;
             // 
             // ribbon
@@ -303,7 +324,7 @@
             // pgBarMain
             // 
             this.pgBarMain.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pgBarMain.Location = new System.Drawing.Point(0, 219);
+            this.pgBarMain.Location = new System.Drawing.Point(0, 265);
             this.pgBarMain.Name = "pgBarMain";
             this.pgBarMain.Size = new System.Drawing.Size(984, 23);
             this.pgBarMain.TabIndex = 32;
@@ -356,5 +377,7 @@
         private DLL.DataProductMain dataProductMain;
         private DevExpress.XtraBars.BarListItem barListItem1;
         private System.Windows.Forms.ProgressBar pgBarMain;
+        private System.Windows.Forms.TextBox txtUrl;
+        private System.Windows.Forms.Label label4;
     }
 }

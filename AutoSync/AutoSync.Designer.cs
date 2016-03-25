@@ -422,7 +422,7 @@
             this.Icon = global::AutoSync.Properties.Resources.Mine;
             this.MaximizeBox = false;
             this.Name = "AutoSync";
-            this.Text = "自动同步";
+            this.Text = "自动同步--非销售出库";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AutoSync_FormClosing);
             this.Load += new System.EventHandler(this.AutoSync_Load);
             this.SizeChanged += new System.EventHandler(this.AutoSync_SizeChanged);

@@ -150,7 +150,6 @@
             // txtcMemo
             // 
             this.txtcMemo.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtcMemo.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.txtcMemo.Location = new System.Drawing.Point(435, 179);
             this.txtcMemo.Name = "txtcMemo";
             this.txtcMemo.Size = new System.Drawing.Size(456, 26);

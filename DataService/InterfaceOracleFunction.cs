@@ -428,10 +428,40 @@ namespace DataService
         /// <returns></returns>
         public string GetBLotById(string cFMaterialID)
         {
-            var cmdstr = "select FIsLotNumber from T_BD_MaterialInventory where FMaterialID=:FMaterialID";
+            var cmdstr = "select FIsLotNumber from T_BD_MaterialInventory where FMaterialID=:FMaterialID and forgunit='riQAAAAAAD7M567U'";
             var cmd = new OracleCommand(cmdstr);
             cmd.Parameters.Add(":FMaterialID", cFMaterialID);
             return ExecOracleScale(cmd, "获取批次管理" + cFMaterialID);
+        }
+
+
+        /// <summary>
+        /// 获取生产日期
+        /// </summary>
+        /// <param name="cFMaterialID"></param>
+        /// <returns></returns>
+        public string GetProductDate(string cFMaterialID, string FLOT)
+        {
+            var cmdstr = "select FMFG from T_IM_DateOfMinDurability where FMaterialID =:FMaterialID AND FLOT =:FLOT AND FCONTROLUNITID = 'riQAAAAAAD7M567U'";
+            var cmd = new OracleCommand(cmdstr);
+            cmd.Parameters.Add(":FMaterialID", cFMaterialID);
+            cmd.Parameters.Add(":FLOT", FLOT);
+            return ExecOracleScale(cmd, "获取生产日期" + cFMaterialID + FLOT);
+        }
+
+
+        /// <summary>
+        /// 获取失效日期
+        /// </summary>
+        /// <param name="cFMaterialID"></param>
+        /// <returns></returns>
+        public string GetProductExpDate(string cFMaterialID, string FLOT)
+        {
+            var cmdstr = "select FEXP from T_IM_DateOfMinDurability where FMaterialID =:FMaterialID AND FLOT =:FLOT AND FCONTROLUNITID = 'riQAAAAAAD7M567U'";
+            var cmd = new OracleCommand(cmdstr);
+            cmd.Parameters.Add(":FMaterialID", cFMaterialID);
+            cmd.Parameters.Add(":FLOT", FLOT);
+            return ExecOracleScale(cmd, "获取失效" + cFMaterialID);
         }
 
         /// <summary>

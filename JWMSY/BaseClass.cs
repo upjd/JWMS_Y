@@ -34,8 +34,7 @@ namespace JWMSY
                 using (var cmd=new SqlCommand {Connection = con})
                 {
                     cmd.CommandText = "select * from View_BUserRole where (cCode=@cCode or cName=@cCode) and cPwd=@cPwd";
-                    cmd.Parameters.AddWithValue("@cCode", uName);
-                    cmd.Parameters.AddWithValue("@cPwd", WmsFunction.GetMd5Hash(uPassword));
+                    cmd.Parameters.AddWithValue("@cCode", uName);cmd.Parameters.AddWithValue("@cPwd", WmsFunction.GetMd5Hash(uPassword));
                     con.Open();
                     using (var dr = cmd.ExecuteReader(CommandBehavior.CloseConnection))
                     {

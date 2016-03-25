@@ -43,7 +43,7 @@ namespace JWMSY
         private void bbiRefresh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             pageListMain.WhereStr = "";
-            pageListMain.Condition = "View_SFOrderAndWmsEAS";
+            pageListMain.Condition = "";
             pageListMain.GetRecord();
             MessageBox.Show(@"查询成功", @"成功");
         }
@@ -112,5 +112,7 @@ namespace JWMSY
                 }
             }
         }
+
+        
     }
 }

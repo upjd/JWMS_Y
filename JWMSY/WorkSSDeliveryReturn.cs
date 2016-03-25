@@ -79,6 +79,9 @@ namespace JWMSY
 
             var cBarCode = txtcBarCode.Text;
             var dtOrder = JudgeBarcodeIsOrder(cBarCode);
+
+
+           
             //判断是否是扫描了单据条码
             if (dtOrder!=null&&dtOrder.Rows.Count>0)
             {
@@ -99,8 +102,23 @@ namespace JWMSY
                     dataProductMain.SS_DeliveryReturn.Rows.Add(nRow);
                 }
 
-                return;
             }
+            else
+            {
+                var dtInvCode = JudgeManualInvCode(cBarCode);
+                if (dtInvCode != null && dtInvCode.Rows.Count > 0)
+                {
+
+                    txtcInvCode.Text = dtInvCode.Rows[0]["cInvCode"].ToString();
+                    txtcInvName.Text = dtInvCode.Rows[0]["cInvName"].ToString();
+                    txtcLotNo.Text = "";
+                    txtcOrgOrderNumber.Text = "";
+                    uteiQuantity.Value = 1;
+                    return;}
+                
+            }
+
+
 
             //此处取消扫描的商品码功能
             if (txtcBarCode.Text.Length == 13)
@@ -144,6 +162,14 @@ namespace JWMSY
 
         }
 
+
+        private DataTable JudgeManualInvCode(string cInvCode)
+        {
+            var wf = new WmsFunction(BaseStructure.WmsCon);
+            var cmd = new SqlCommand("select * from IT_Product where cInvCode=@cInvCode and bLotMgr=0");
+            cmd.Parameters.AddWithValue("@cInvCode", cInvCode);
+            return wf.GetSqlTable(cmd);
+        }
 
         private DataTable JudgeBarcodeIsOrder(string cOrderNumber)
         {
@@ -264,6 +290,7 @@ namespace JWMSY
             nRow.cOrderNumber = lblcOrderNumber.Text;
 
             dataProductMain.SS_DeliveryReturn.Rows.Add(nRow);
+            txtcBarCode.Text = "";
         }
 
         private void tsbtnAdd_Click(object sender, EventArgs e)
@@ -298,6 +325,7 @@ namespace JWMSY
             lotCmd.Parameters.AddWithValue("@cOrderNumber", lblcOrderNumber.Text);
             lotCmd.Parameters.AddWithValue("@cType", "销售退货");
             lotCmd.Parameters.AddWithValue("@cGuid", cbxWarehouse.Value);
+            lotCmd.Parameters.AddWithValue("@cMemo", txtcMemo.Text);
             if (wf.ExecSqlCmd(lotCmd))
             {
                 MessageBox.Show(@"更新成功");

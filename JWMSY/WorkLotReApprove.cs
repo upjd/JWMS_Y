@@ -43,6 +43,7 @@ namespace JWMSY
             var cPwd = txtPwd.Text;
             var easDataCenter = txtDataCenter.Text;
             var easproxy = new EASLoginProxyService();
+            easproxy.Url = "http://"+txtUrl.Text+"/ormrpc/services/EASLogin";
             //proxy.Url = Global.oaUrl + "/ormrpc/services/EASLogin?wsdl";
             //WSContext ctx = easproxy.login(name, pwd, "eas", "a", "L2", 2, "BaseDB");
             var ctx = easproxy.login(cName, cPwd, "eas", easDataCenter, "L2", 2, "BaseDB");
@@ -57,6 +58,7 @@ namespace JWMSY
             }
 
             var proxy = new WSWSYofotoFacadeSrvProxyService();
+            proxy.Url = "http://"+txtUrl.Text+"/ormrpc/services/WSWSYofotoFacade";
             var msg = proxy.auditSaleIssueBill("S.01", cOrderNumber);
             uGridOutBox.Rows[i].Cells["cResult"].Value = msg;
             //VLogError(@"销售出库" + cOrderNumber, "调用easWebservices结束" + DateTime.Now);
