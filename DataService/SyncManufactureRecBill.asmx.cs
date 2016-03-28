@@ -450,7 +450,8 @@ namespace DataService
             mrbillEntry.FCOMPANYORGUNITID = _storageUnit;
             mrbillEntry.FWAREHOUSEID = iof.GetWarehouseIDByfID(mrbillEntry.FSOURCEBILLENTRYID,"T_MM_FinishedRptEntry");
             //是否批次管理
-            var bLot = iof.GetBLotById(mrbillEntry.FMATERIALID);
+            //var bLot = iof.GetBLotById(mrbillEntry.FMATERIALID);
+            var bLot = iof.GetBLotById(mrbillEntry.FMATERIALID, mrbillEntry.FSTORAGEORGUNITID);
             if (bLot.Equals("1"))
             {
                 mrbillEntry.FLOT = cLotNo;

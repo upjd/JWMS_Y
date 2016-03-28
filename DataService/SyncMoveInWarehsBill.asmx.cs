@@ -376,7 +376,8 @@ namespace DataService
             //mibillEntry.FLOCATIONID = "0";
             //mibillEntry.FSTOCKERID = "0";
             //是否批次管理
-            var bLot = iof.GetBLotById(mibillEntry.FMATERIALID);
+            //var bLot = iof.GetBLotById(mibillEntry.FMATERIALID);
+            var bLot = iof.GetBLotById(mibillEntry.FMATERIALID, mibillEntry.FSTORAGEORGUNITID);
             if (bLot.Equals("1"))
             {
                 mibillEntry.FLOT = cLotNo;

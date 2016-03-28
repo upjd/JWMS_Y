@@ -387,7 +387,8 @@ namespace DataService
             mrbillEntry.FWAREHOUSEID = iof.GetDefaultWarehouseIDByfID(mrbillEntry.FSOURCEBILLENTRYID, "T_MM_ProductionOrderSEntry");
             mrbillEntry.FLOCATIONID = "";
             //是否批次管理
-            var bLot = iof.GetBLotById(mrbillEntry.FMATERIALID);
+            //var bLot = iof.GetBLotById(mrbillEntry.FMATERIALID);
+            var bLot = iof.GetBLotById(mrbillEntry.FMATERIALID, mrbillEntry.FSTORAGEORGUNITID);
             if (bLot.Equals("1"))
             {
                 mrbillEntry.FLOT = cLotNo;

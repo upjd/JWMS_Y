@@ -422,16 +422,18 @@ namespace DataService
         }
 
         /// <summary>
-        /// 获取成本中心，通过完工汇报单对应的源单单号
+        /// 获取成本中心，通过完工汇报单对应的源单单号(获取是否进行批次管理) -- 16-3-28 修改
         /// </summary>
         /// <param name="cFMaterialID"></param>
+        /// <param name="forgunit">库存组织</param>
         /// <returns></returns>
-        public string GetBLotById(string cFMaterialID)
+        public string GetBLotById(string cFMaterialID, string forgunit)
         {
-            var cmdstr = "select FIsLotNumber from T_BD_MaterialInventory where FMaterialID=:FMaterialID and forgunit='riQAAAAAAD7M567U'";
+            var cmdstr = "select FIsLotNumber from T_BD_MaterialInventory where FMaterialID=:FMaterialID and forgunit=:forgunit";//'riQAAAAAAD7M567U'
             var cmd = new OracleCommand(cmdstr);
             cmd.Parameters.Add(":FMaterialID", cFMaterialID);
-            return ExecOracleScale(cmd, "获取批次管理" + cFMaterialID);
+            cmd.Parameters.Add(":forgunit", forgunit);
+            return ExecOracleScale(cmd, "获取批次管理" + cFMaterialID + forgunit);
         }
 
 

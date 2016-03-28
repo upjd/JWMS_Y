@@ -617,7 +617,8 @@ namespace DataService
             _receivalEntry.FASSISTQTY = 0;
             _receivalEntry.FBASEQTY = iQty;
             //是否批次管理
-            var bLot = iof.GetBLotById(_receivalEntry.FMATERIALID);
+            //var bLot = iof.GetBLotById(_receivalEntry.FMATERIALID);
+            var bLot = iof.GetBLotById(_receivalEntry.FMATERIALID, _receivalEntry.FSTORAGEORGUNITID);
             if (bLot.Equals("1"))
             {
                 _receivalEntry.FLOT = cLotNo;

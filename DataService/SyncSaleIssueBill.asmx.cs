@@ -496,7 +496,8 @@ where fparentid in ('1d2xZMr2TAidqncU9Sam48w+kzs=','fL0QaL95SkyRu0Osx071w8w+kzs=
             sibillEntry.FLOCATIONID = "0";
             sibillEntry.FSTOCKERID = "0";
             //是否批次管理
-            var bLot = iof.GetBLotById(sibillEntry.FMATERIALID);
+            //var bLot = iof.GetBLotById(sibillEntry.FMATERIALID);
+            var bLot = iof.GetBLotById(sibillEntry.FMATERIALID, sibillEntry.FSTORAGEORGUNITID);
             if (bLot.Equals("1"))
             {
                 sibillEntry.FLOT = cLotNo;
