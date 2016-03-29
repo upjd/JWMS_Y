@@ -52,7 +52,6 @@
             this.biSearch = new DevExpress.XtraBars.BarButtonItem();
             this.beidDate = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemDateEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
-            this.bsilblDate = new DevExpress.XtraBars.BarStaticItem();
             this.beiEndDate = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemDateEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.ImgCollection32 = new DevExpress.Utils.ImageCollection(this.components);
@@ -62,6 +61,8 @@
             this.rpgSearch = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.tsgfMain = new UpjdControlBox.ToolStripGridFunction();
             this.uGridProBoxBarCode = new Infragistics.Win.UltraWinGrid.UltraGrid();
+            this.txtOrderPrefix = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImgCollection16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1)).BeginInit();
@@ -70,6 +71,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit2.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImgCollection32)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uGridProBoxBarCode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -86,17 +88,18 @@
             this.biExit,
             this.biSearch,
             this.beidDate,
-            this.bsilblDate,
-            this.beiEndDate});
+            this.beiEndDate,
+            this.txtOrderPrefix});
             this.ribbon.LargeImages = this.ImgCollection32;
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 71;
+            this.ribbon.MaxItemId = 72;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage});
             this.ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemDateEdit1,
-            this.repositoryItemDateEdit2});
+            this.repositoryItemDateEdit2,
+            this.repositoryItemTextEdit1});
             this.ribbon.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010;
             this.ribbon.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbon.ShowCategoryInCaption = false;
@@ -179,13 +182,6 @@
             this.repositoryItemDateEdit1.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             // 
-            // bsilblDate
-            // 
-            this.bsilblDate.Caption = "请输入日期后查询";
-            this.bsilblDate.Id = 69;
-            this.bsilblDate.Name = "bsilblDate";
-            this.bsilblDate.TextAlignment = System.Drawing.StringAlignment.Near;
-            // 
             // beiEndDate
             // 
             this.beiEndDate.Caption = "结束日期";
@@ -254,9 +250,9 @@
             // 
             // rpgSearch
             // 
-            this.rpgSearch.ItemLinks.Add(this.bsilblDate);
             this.rpgSearch.ItemLinks.Add(this.beidDate);
             this.rpgSearch.ItemLinks.Add(this.beiEndDate);
+            this.rpgSearch.ItemLinks.Add(this.txtOrderPrefix);
             this.rpgSearch.ItemLinks.Add(this.biSearch);
             this.rpgSearch.Name = "rpgSearch";
             this.rpgSearch.Text = "查询";
@@ -339,6 +335,19 @@
             this.uGridProBoxBarCode.TabIndex = 37;
             this.uGridProBoxBarCode.UpdateMode = Infragistics.Win.UltraWinGrid.UpdateMode.OnCellChangeOrLostFocus;
             // 
+            // txtOrderPrefix
+            // 
+            this.txtOrderPrefix.Caption = "单据前缀";
+            this.txtOrderPrefix.Edit = this.repositoryItemTextEdit1;
+            this.txtOrderPrefix.Id = 71;
+            this.txtOrderPrefix.Name = "txtOrderPrefix";
+            this.txtOrderPrefix.Width = 160;
+            // 
+            // repositoryItemTextEdit1
+            // 
+            this.repositoryItemTextEdit1.AutoHeight = false;
+            this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
+            // 
             // Rpt_WmsAndEasCompareSaleDeliveryOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -359,6 +368,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImgCollection32)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uGridProBoxBarCode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -382,8 +392,9 @@
         private Infragistics.Win.UltraWinGrid.UltraGrid uGridProBoxBarCode;
         private DevExpress.XtraBars.BarEditItem beidDate;
         private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repositoryItemDateEdit1;
-        private DevExpress.XtraBars.BarStaticItem bsilblDate;
         private DevExpress.XtraBars.BarEditItem beiEndDate;
         private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repositoryItemDateEdit2;
+        private DevExpress.XtraBars.BarEditItem txtOrderPrefix;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
     }
 }

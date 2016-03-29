@@ -58,6 +58,7 @@ namespace JWMSY
             }
             var cdDate = beidDate.EditValue.ToString();
             var cdEndDate = beiEndDate.EditValue.ToString();
+            var orderPrefix = txtOrderPrefix.EditValue.ToString();
             DateTime dDate;
             DateTime dEndDate;
 
@@ -72,7 +73,8 @@ namespace JWMSY
             //通过WebService获取报单系统数据
             var js = new CompareService.EasAndWmsCompareReport();
 
-            var easData = js.GetSaleOrder(dDate, dEndDate);
+            //var easData = js.GetSaleOrder(dDate, dEndDate);
+            var easData = js.GetSaleOrder(dDate, dEndDate, orderPrefix);
 
             var wf = new WmsFunction(BaseStructure.WmsCon);
             var cGuid = Guid.NewGuid();

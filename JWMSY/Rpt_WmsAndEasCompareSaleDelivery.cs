@@ -57,6 +57,7 @@ namespace JWMSY
                 beidDate.EditValue = DateTime.Now.Date;
             }
             var cdDate = beidDate.EditValue.ToString();
+            var orderPrefix = txtOrderPrefix.EditValue.ToString();
             DateTime dDate;
 
             if (!DateTime.TryParse(cdDate, out dDate))
@@ -66,7 +67,7 @@ namespace JWMSY
             //通过WebService获取报单系统数据
             var js = new CompareService.EasAndWmsCompareReport();
 
-            var easData = js.GetSaleIssue(dDate);
+            var easData = js.GetSaleIssue(dDate, orderPrefix);
 
             var wf = new WmsFunction(BaseStructure.WmsCon);
             var cGuid = Guid.NewGuid();
@@ -87,6 +88,7 @@ namespace JWMSY
             var cmd = new SqlCommand("CompareSaleDelivery") { CommandType = CommandType.StoredProcedure };
             cmd.Parameters.AddWithValue("@dDate", dDate);
             cmd.Parameters.AddWithValue("@cGuid", cGuid);
+            cmd.Parameters.AddWithValue("@strOrderPrefix", orderPrefix);
             
             uGridProBoxBarCode.DataSource=wf.GetSqlTable(cmd);
 

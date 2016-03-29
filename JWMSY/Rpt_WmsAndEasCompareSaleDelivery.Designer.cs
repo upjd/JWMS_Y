@@ -53,6 +53,7 @@
             Infragistics.Win.Appearance appearance13 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance14 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance15 = new Infragistics.Win.Appearance();
+            DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.ImgCollection16 = new DevExpress.Utils.ImageCollection(this.components);
             this.biExport = new DevExpress.XtraBars.BarButtonItem();
@@ -71,12 +72,14 @@
             this.rpgSearch = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.tsgfMain = new UpjdControlBox.ToolStripGridFunction();
             this.uGridProBoxBarCode = new Infragistics.Win.UltraWinGrid.UltraGrid();
+            this.txtOrderPrefix = new DevExpress.XtraBars.BarEditItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImgCollection16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImgCollection32)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uGridProBoxBarCode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(repositoryItemTextEdit2)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -93,10 +96,11 @@
             this.biExit,
             this.biSearch,
             this.beidDate,
-            this.bsilblDate});
+            this.bsilblDate,
+            this.txtOrderPrefix});
             this.ribbon.LargeImages = this.ImgCollection32;
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 70;
+            this.ribbon.MaxItemId = 71;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage});
@@ -169,11 +173,12 @@
             // 
             // beidDate
             // 
-            this.beidDate.Caption = "日期";
+            this.beidDate.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.beidDate.Caption = "生产日期";
             this.beidDate.Edit = this.repositoryItemDateEdit1;
             this.beidDate.Id = 68;
             this.beidDate.Name = "beidDate";
-            this.beidDate.Width = 160;
+            this.beidDate.Width = 140;
             // 
             // repositoryItemDateEdit1
             // 
@@ -244,6 +249,7 @@
             // 
             this.rpgSearch.ItemLinks.Add(this.bsilblDate);
             this.rpgSearch.ItemLinks.Add(this.beidDate);
+            this.rpgSearch.ItemLinks.Add(this.txtOrderPrefix);
             this.rpgSearch.ItemLinks.Add(this.biSearch);
             this.rpgSearch.Name = "rpgSearch";
             this.rpgSearch.Text = "查询";
@@ -352,6 +358,15 @@
             this.uGridProBoxBarCode.TabIndex = 37;
             this.uGridProBoxBarCode.UpdateMode = Infragistics.Win.UltraWinGrid.UpdateMode.OnCellChangeOrLostFocus;
             // 
+            // txtOrderPrefix
+            // 
+            this.txtOrderPrefix.Caption = "单据前缀";
+            repositoryItemTextEdit2.AutoHeight = false;
+            this.txtOrderPrefix.Edit = repositoryItemTextEdit2;
+            this.txtOrderPrefix.Id = 70;
+            this.txtOrderPrefix.Name = "txtOrderPrefix";
+            this.txtOrderPrefix.Width = 140;
+            // 
             // Rpt_WmsAndEasCompareSaleDelivery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -370,6 +385,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImgCollection32)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uGridProBoxBarCode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(repositoryItemTextEdit2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -394,5 +410,6 @@
         private DevExpress.XtraBars.BarEditItem beidDate;
         private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repositoryItemDateEdit1;
         private DevExpress.XtraBars.BarStaticItem bsilblDate;
+        private DevExpress.XtraBars.BarEditItem txtOrderPrefix;
     }
 }

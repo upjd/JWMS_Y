@@ -178,25 +178,29 @@ namespace DataService
         }
 
         /// <summary>
-        /// 销售出库
+        /// 销售出库 --2016-3-29 加入订单前缀筛选条件,用来筛选对应分仓订单
         /// </summary>
-        /// <param name="dDate"></param>
+        /// <param name="dDate">查询日期</param>
+        /// <param name="strOrderPrefix">订单前缀</param>
         /// <returns></returns>
         [WebMethod]
-        public DataTable GetSaleIssue(DateTime dDate)
+        public DataTable GetSaleIssue(DateTime dDate, string strOrderPrefix="")
         {
-            var strGetDetail = "select a.fnumber as cOrderNumber,c.fnumber cInvCode,c.fname_l2 cInvName,sum(b.fqty) iSumQuantity,max(d.fname_l2) cUnit " +
+            var strGetDetail = string.Format(
+                        "select a.fnumber as cOrderNumber,c.fnumber cInvCode,c.fname_l2 cInvName,sum(b.fqty) iSumQuantity,max(d.fname_l2) cUnit " +
                         "from T_IM_SaleIssueBill a inner join " +
                         "T_IM_SaleIssueEntry b on a.FID=b.FparentID " +
                         "inner join T_BD_Material c on b.fmaterialid=c.fid " +
                         "left join T_BD_MeasureUnit d on b.FUNITID=d.fid " +
-                        "where trunc(a.fcreatetime)=trunc(:dDate) and a.ftransactiontypeid='DawAAAAPoAywCNyn' and b.fsalegroupid is not null " +
-                        "group by a.fnumber,c.fnumber,c.fname_l2";
+                        "where trunc(a.fcreatetime)=trunc(:dDate) {0} and a.ftransactiontypeid='DawAAAAPoAywCNyn' and b.fsalegroupid is not null " +
+                        "group by a.fnumber,c.fnumber,c.fname_l2"
+                        , string.IsNullOrEmpty(strOrderPrefix) ? "" : "and a.fnumber like :FNumber||'%'");
             using (var con = new OracleConnection(Properties.Settings.Default.EasCon))
             {
                 using (var cmd = new OracleCommand(strGetDetail, con))
                 {
                     cmd.Parameters.Add(":dDate", dDate);
+                    cmd.Parameters.Add(":FNumber", strOrderPrefix);
                     using (var da = new OracleDataAdapter(cmd))
                     {
                         var dt = new DataTable("EasSaleIssue");
@@ -211,22 +215,26 @@ namespace DataService
 
 
         /// <summary>
-        /// 销售出库
+        /// 销售出库 --2016-3-29 加入订单前缀筛选条件,用来筛选对应分仓订单
         /// </summary>
         /// <param name="dStartDate"></param>
         /// <param name="dEndDate"></param>
+        /// <param name="strOrderPrefix">订单前缀</param>
         /// <returns></returns>
         [WebMethod]
-        public DataTable GetSaleOrder(DateTime dStartDate,DateTime dEndDate)
+        public DataTable GetSaleOrder(DateTime dStartDate, DateTime dEndDate, string strOrderPrefix="")
         {
-            var strGetDetail = "select fnumber as cOrderNumber from T_IM_SaleIssueBill " +
-                        "where trunc(fcreatetime)>=trunc(:dStartDate) and trunc(fcreatetime)<=trunc(:dEndDate)  and ftransactiontypeid='DawAAAAPoAywCNyn' ";
+            var strGetDetail = string.Format(
+                        "select fnumber as cOrderNumber from T_IM_SaleIssueBill " +
+                        "where trunc(fcreatetime)>=trunc(:dStartDate) and trunc(fcreatetime)<=trunc(:dEndDate) {0} and ftransactiontypeid='DawAAAAPoAywCNyn' "
+                        , string.IsNullOrEmpty(strOrderPrefix) ? "" : "and a.fnumber like :FNumber||'%'");
             using (var con = new OracleConnection(Properties.Settings.Default.EasCon))
             {
                 using (var cmd = new OracleCommand(strGetDetail, con))
                 {
                     cmd.Parameters.Add(":dStartDate", dStartDate);
                     cmd.Parameters.Add(":dEndDate", dEndDate);
+                    cmd.Parameters.Add(":FNumber", strOrderPrefix);
                     using (var da = new OracleDataAdapter(cmd))
                     {
                         var dt = new DataTable("EasSaleIssue");
