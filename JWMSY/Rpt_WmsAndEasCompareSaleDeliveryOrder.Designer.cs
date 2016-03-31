@@ -54,6 +54,9 @@
             this.repositoryItemDateEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.beiEndDate = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemDateEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
+            this.txtOrderPrefix = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
             this.ImgCollection32 = new DevExpress.Utils.ImageCollection(this.components);
             this.ribbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgSystem = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -61,17 +64,16 @@
             this.rpgSearch = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.tsgfMain = new UpjdControlBox.ToolStripGridFunction();
             this.uGridProBoxBarCode = new Infragistics.Win.UltraWinGrid.UltraGrid();
-            this.txtOrderPrefix = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.chkDifference = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImgCollection16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit2.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImgCollection32)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uGridProBoxBarCode)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -89,10 +91,11 @@
             this.biSearch,
             this.beidDate,
             this.beiEndDate,
-            this.txtOrderPrefix});
+            this.txtOrderPrefix,
+            this.barStaticItem1});
             this.ribbon.LargeImages = this.ImgCollection32;
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 72;
+            this.ribbon.MaxItemId = 74;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage});
@@ -171,7 +174,7 @@
             this.beidDate.Edit = this.repositoryItemDateEdit1;
             this.beidDate.Id = 68;
             this.beidDate.Name = "beidDate";
-            this.beidDate.Width = 160;
+            this.beidDate.Width = 140;
             // 
             // repositoryItemDateEdit1
             // 
@@ -188,7 +191,7 @@
             this.beiEndDate.Edit = this.repositoryItemDateEdit2;
             this.beiEndDate.Id = 70;
             this.beiEndDate.Name = "beiEndDate";
-            this.beiEndDate.Width = 160;
+            this.beiEndDate.Width = 140;
             // 
             // repositoryItemDateEdit2
             // 
@@ -198,6 +201,26 @@
             this.repositoryItemDateEdit2.Name = "repositoryItemDateEdit2";
             this.repositoryItemDateEdit2.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
+            // 
+            // txtOrderPrefix
+            // 
+            this.txtOrderPrefix.Caption = "单据前缀";
+            this.txtOrderPrefix.Edit = this.repositoryItemTextEdit1;
+            this.txtOrderPrefix.Id = 71;
+            this.txtOrderPrefix.Name = "txtOrderPrefix";
+            this.txtOrderPrefix.Width = 140;
+            // 
+            // repositoryItemTextEdit1
+            // 
+            this.repositoryItemTextEdit1.AutoHeight = false;
+            this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
+            // 
+            // barStaticItem1
+            // 
+            this.barStaticItem1.Id = 73;
+            this.barStaticItem1.Name = "barStaticItem1";
+            this.barStaticItem1.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.barStaticItem1.Width = 100;
             // 
             // ImgCollection32
             // 
@@ -253,6 +276,7 @@
             this.rpgSearch.ItemLinks.Add(this.beidDate);
             this.rpgSearch.ItemLinks.Add(this.beiEndDate);
             this.rpgSearch.ItemLinks.Add(this.txtOrderPrefix);
+            this.rpgSearch.ItemLinks.Add(this.barStaticItem1, true);
             this.rpgSearch.ItemLinks.Add(this.biSearch);
             this.rpgSearch.Name = "rpgSearch";
             this.rpgSearch.Text = "查询";
@@ -335,24 +359,25 @@
             this.uGridProBoxBarCode.TabIndex = 37;
             this.uGridProBoxBarCode.UpdateMode = Infragistics.Win.UltraWinGrid.UpdateMode.OnCellChangeOrLostFocus;
             // 
-            // txtOrderPrefix
+            // chkDifference
             // 
-            this.txtOrderPrefix.Caption = "单据前缀";
-            this.txtOrderPrefix.Edit = this.repositoryItemTextEdit1;
-            this.txtOrderPrefix.Id = 71;
-            this.txtOrderPrefix.Name = "txtOrderPrefix";
-            this.txtOrderPrefix.Width = 160;
-            // 
-            // repositoryItemTextEdit1
-            // 
-            this.repositoryItemTextEdit1.AutoHeight = false;
-            this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
+            this.chkDifference.AutoSize = true;
+            this.chkDifference.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.chkDifference.Checked = true;
+            this.chkDifference.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkDifference.Location = new System.Drawing.Point(280, 10);
+            this.chkDifference.Name = "chkDifference";
+            this.chkDifference.Size = new System.Drawing.Size(84, 16);
+            this.chkDifference.TabIndex = 39;
+            this.chkDifference.Text = "只显示差异";
+            this.chkDifference.UseVisualStyleBackColor = false;
             // 
             // Rpt_WmsAndEasCompareSaleDeliveryOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 562);
+            this.Controls.Add(this.chkDifference);
             this.Controls.Add(this.uGridProBoxBarCode);
             this.Controls.Add(this.tsgfMain);
             this.Controls.Add(this.ribbon);
@@ -366,10 +391,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit2.VistaTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImgCollection32)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uGridProBoxBarCode)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -396,5 +422,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repositoryItemDateEdit2;
         private DevExpress.XtraBars.BarEditItem txtOrderPrefix;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
+        private DevExpress.XtraBars.BarStaticItem barStaticItem1;
+        private System.Windows.Forms.CheckBox chkDifference;
     }
 }

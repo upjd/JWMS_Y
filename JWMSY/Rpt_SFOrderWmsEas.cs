@@ -34,6 +34,7 @@ namespace JWMSY
             var strTemp = bfun.GetWhereSqlStr("View_SFOrderAndWmsEAS");
             if (string.IsNullOrEmpty(strTemp))
                 return;
+
             pageListMain.Condition = " View_SFOrderAndWmsEAS where " + strTemp;
             pageListMain.WhereStr = strTemp;
             pageListMain.GetRecord();
@@ -42,8 +43,9 @@ namespace JWMSY
 
         private void bbiRefresh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            pageListMain.Condition = " View_SFOrderAndWmsEAS ";
             pageListMain.WhereStr = "";
-            pageListMain.Condition = "";
+            
             pageListMain.GetRecord();
             MessageBox.Show(@"查询成功", @"成功");
         }
@@ -81,6 +83,10 @@ namespace JWMSY
             {
                 MessageBox.Show(@"写入中间表成功");
             }
+            else
+            {
+                MessageBox.Show(@"写入中间表失败,或未包含需要更新的单据前缀");
+            }
             pageListMain.Constr = BaseStructure.WmsCon;
             pageListMain.GetRecord();
         }
@@ -90,7 +96,7 @@ namespace JWMSY
             uGridProBoxBarCode.UpdateData();
             for(var i=0;i<uGridProBoxBarCode.Rows.Count;i++)
             {
-                if((bool)uGridProBoxBarCode.Rows[i].Cells["bSelect"].Value)
+                if ((bool)uGridProBoxBarCode.Rows[i].Cells["bSelect"].Value)
                 {
                     var cOrderNumber = uGridProBoxBarCode.Rows[i].Cells["cOrderNumber"].Value.ToString();
                     var cState = uGridProBoxBarCode.Rows[i].Cells["cState"].Value.ToString();
@@ -109,6 +115,10 @@ namespace JWMSY
                     {
                         uGridProBoxBarCode.Rows[i].Cells["cResult"].Value = @"写入中间表成功";
                     }
+                }
+                else
+                {
+                    MessageBox.Show(@"请选择要审核的记录行");
                 }
             }
         }

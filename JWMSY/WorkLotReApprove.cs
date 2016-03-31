@@ -26,13 +26,14 @@ namespace JWMSY
             {
                 txtUser.Text = @"yofoto";
                 txtPwd.Text = @"000000";
-                txtDataCenter.Text = @"eas750test20151226";
+                txtDataCenter.Text = @"P001";
             }
             else
             {
                 txtUser.Text = dt.Rows[0]["EasUser"].ToString();
                 txtPwd.Text = dt.Rows[0]["EasUserPwd"].ToString();
-                txtDataCenter.Text = dt.Rows[0]["EasDataCenter"].ToString();
+                //txtDataCenter.Text = dt.Rows[0]["EasDataCenter"].ToString();
+                txtDataCenter.Text = @"P001";
             }
         }
 

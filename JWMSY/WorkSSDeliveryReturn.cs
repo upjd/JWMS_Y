@@ -330,6 +330,10 @@ namespace JWMSY
             {
                 MessageBox.Show(@"更新成功");
             }
+            else
+            {
+                MessageBox.Show(@"写入中间表失败,或未包含需要更新的单据前缀");
+            }
             txtcBarCode.Enabled = false;
 
         }

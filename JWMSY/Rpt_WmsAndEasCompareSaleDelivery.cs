@@ -35,7 +35,7 @@ namespace JWMSY
             tsgfMain.FormName = Text;
             tsgfMain.Constr = BaseStructure.WmsCon;
             tsgfMain.GetGridStyle(tsgfMain.FormId);
-
+            txtOrderPrefix.EditValue = "NBCK";
             
         }
 
@@ -56,18 +56,28 @@ namespace JWMSY
             {
                 beidDate.EditValue = DateTime.Now.Date;
             }
+            if (beidEndDate.EditValue == null)
+            {
+                beidEndDate.EditValue = DateTime.Now.Date;
+            }
             var cdDate = beidDate.EditValue.ToString();
+            var cdEDate = beidEndDate.EditValue.ToString();
             var orderPrefix = txtOrderPrefix.EditValue.ToString();
-            DateTime dDate;
+            DateTime dDate,dEDate;
 
             if (!DateTime.TryParse(cdDate, out dDate))
             {
                 dDate = DateTime.Now.Date;
             }
+            if (!DateTime.TryParse(cdEDate, out dEDate))
+            {
+                dEDate = DateTime.Now.Date;
+            }
+
             //通过WebService获取报单系统数据
             var js = new CompareService.EasAndWmsCompareReport();
 
-            var easData = js.GetSaleIssue(dDate, orderPrefix);
+            var easData = js.GetSaleIssue(dDate, dEDate, orderPrefix);
 
             var wf = new WmsFunction(BaseStructure.WmsCon);
             var cGuid = Guid.NewGuid();
@@ -86,15 +96,16 @@ namespace JWMSY
             }
 
             var cmd = new SqlCommand("CompareSaleDelivery") { CommandType = CommandType.StoredProcedure };
-            cmd.Parameters.AddWithValue("@dDate", dDate);
+            //cmd.Parameters.AddWithValue("@dSDate", dDate);
+            //cmd.Parameters.AddWithValue("@dEDate", dEDate);
             cmd.Parameters.AddWithValue("@cGuid", cGuid);
-            cmd.Parameters.AddWithValue("@strOrderPrefix", orderPrefix);
+            cmd.Parameters.AddWithValue("@isDifference", chkDifference.Checked ? 1 : 0);
             
             uGridProBoxBarCode.DataSource=wf.GetSqlTable(cmd);
 
-            var cmdDelete = new SqlCommand("Delete from Tmp_Compare where cGuid=@cGuid");
-            cmdDelete.Parameters.AddWithValue("@cGuid", cGuid);
-            wf.ExecSqlCmd(cmdDelete);
+            //var cmdDelete = new SqlCommand("Delete from Tmp_Compare where cGuid=@cGuid");
+            //cmdDelete.Parameters.AddWithValue("@cGuid", cGuid);
+            //wf.ExecSqlCmd(cmdDelete);
             tsgfMain.GetGridStyle(tsgfMain.FormId);
         }
 

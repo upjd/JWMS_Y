@@ -5,6 +5,8 @@ using System.Web;
 using Oracle.DataAccess;
 using Oracle.DataAccess.Client;
 using System.Data.SqlClient;
+using System.Text;
+using System.IO;
 
 namespace DataService
 {
@@ -665,6 +667,29 @@ namespace DataService
         }
 
 
+        public static void VLogDebug(string vRoutine, string vErrorDesc)
+        {
+            string isDebug=  System.Configuration.ConfigurationManager.AppSettings["IsDebug"].ToString();
+            if (isDebug == "1")
+            {
+                string path = System.AppDomain.CurrentDomain.BaseDirectory.ToString();
+                TextWriter tw = new StreamWriter(path + @"\Log\LogDebug.log", true);
+                tw.WriteLine("*********" + DateTime.Now);
+                tw.WriteLine("Routine : " + vRoutine);
+                tw.WriteLine("Message: " + vErrorDesc);
+                tw.Close();
+            }
+        }
+
+        public static void VLogError(string vRoutine, string vErrorDesc)
+        {
+            string path = System.AppDomain.CurrentDomain.BaseDirectory.ToString();
+            TextWriter tw = new StreamWriter(path + @"\Log\EasTrx.log", true);
+            tw.WriteLine("*********" + DateTime.Now);
+            tw.WriteLine("Routine : " + vRoutine);
+            tw.WriteLine("Error: " + vErrorDesc);
+            tw.Close();
+        }
 
     }
 }

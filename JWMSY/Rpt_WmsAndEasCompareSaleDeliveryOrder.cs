@@ -35,7 +35,7 @@ namespace JWMSY
             tsgfMain.FormName = Text;
             tsgfMain.Constr = BaseStructure.WmsCon;
             tsgfMain.GetGridStyle(tsgfMain.FormId);
-
+            txtOrderPrefix.EditValue = "NBCK";
             
         }
 
@@ -55,6 +55,10 @@ namespace JWMSY
             if (beidDate.EditValue == null)
             {
                 beidDate.EditValue = DateTime.Now.Date;
+            }
+            if (beiEndDate.EditValue == null)
+            {
+                beiEndDate.EditValue = DateTime.Now.Date;
             }
             var cdDate = beidDate.EditValue.ToString();
             var cdEndDate = beiEndDate.EditValue.ToString();
@@ -92,12 +96,14 @@ namespace JWMSY
             cmd.Parameters.AddWithValue("@dDate", dDate);
             cmd.Parameters.AddWithValue("@dEndDate", dEndDate);
             cmd.Parameters.AddWithValue("@cGuid", cGuid);
+            cmd.Parameters.AddWithValue("@cOrderPrefix", orderPrefix);
+            cmd.Parameters.AddWithValue("@isDifference", chkDifference.Checked ? 1 : 0);
             
             uGridProBoxBarCode.DataSource=wf.GetSqlTable(cmd);
 
-            var cmdDelete = new SqlCommand("Delete from Tmp_Compare where cGuid=@cGuid");
-            cmdDelete.Parameters.AddWithValue("@cGuid", cGuid);
-            wf.ExecSqlCmd(cmdDelete);
+            //var cmdDelete = new SqlCommand("Delete from Tmp_Compare where cGuid=@cGuid");
+            //cmdDelete.Parameters.AddWithValue("@cGuid", cGuid);
+            //wf.ExecSqlCmd(cmdDelete);
             tsgfMain.GetGridStyle(tsgfMain.FormId);
         }
 

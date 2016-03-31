@@ -424,10 +424,10 @@ namespace DataService
             sibill.FCOSTCENTERORGUNITID=null;
 
             sibill.FPaymentTypeID = "cd54aa9f-03a4-459c-9c5a-5489dce5f0676BCA0AB5";
-            sibill.FAUDITORID = "9htALWzQRaGIR4lDJ2tNuRO33n8=";
-            sibill.FLASTUPDATEUSERID = "9htALWzQRaGIR4lDJ2tNuRO33n8=";
-            sibill.FLASTUPDATETIME = DateTime.Now;
-            sibill.FAUDITTIME = DateTime.Now;
+            //sibill.FAUDITORID = "9htALWzQRaGIR4lDJ2tNuRO33n8=";
+            //sibill.FLASTUPDATEUSERID = "9htALWzQRaGIR4lDJ2tNuRO33n8=";
+            //sibill.FLASTUPDATETIME = DateTime.Now;
+            //sibill.FAUDITTIME = DateTime.Now;
             sibill.FSTOCKERID = null;
             sibill.FVOUCHERID = null;
             sibill.FCOSTCENTERORGUNITID = null;
@@ -545,7 +545,7 @@ where fparentid in ('1d2xZMr2TAidqncU9Sam48w+kzs=','fL0QaL95SkyRu0Osx071w8w+kzs=
                 if (!string.IsNullOrEmpty(cFMFG) && DateTime.TryParse(cFMFG, out dFm))
                     sibillEntry.FMFG = dFm;
                 if (!string.IsNullOrEmpty(cFEXP) && DateTime.TryParse(cFEXP, out dFe))
-                    sibillEntry.FMFG = dFe;
+                    sibillEntry.FEXP = dFe;
             }
             
 
@@ -558,7 +558,8 @@ where fparentid in ('1d2xZMr2TAidqncU9Sam48w+kzs=','fL0QaL95SkyRu0Osx071w8w+kzs=
             sibillEntry.FWRITTENOFFBASEQTY = 0;
             sibillEntry.FUNWRITEOFFBASEQTY = 0;
             sibillEntry.FDREWBASEQTY = 0;
-            sibillEntry.FCOREBILLTYPEID = "510b6503-0105-1000-e000-0113c0a812fd463ED552";
+            //sibillEntry.FCOREBILLTYPEID = "510b6503-0105-1000-e000-0113c0a812fd463ED552";
+            sibillEntry.FCOREBILLTYPEID = "";
             sibillEntry.FUNRETURNEDBASEQTY = iQty;
             sibillEntry.FISLOCKED = 0;
             sibillEntry.FINVENTORYID = "0";
@@ -864,6 +865,10 @@ where fparentid in ('1d2xZMr2TAidqncU9Sam48w+kzs=','fL0QaL95SkyRu0Osx071w8w+kzs=
                                     var iQuantity = dtSsDetail.Rows[i]["iQuantity"].ToString();
                                     var cLotNo = dtSsDetail.Rows[i]["cLotNo"].ToString();
                                     FillBillEntry(cOrderNumber, cInvCode, iQuantity, cInvName, cLotNo, i + 1,cWhCode);
+                                    InterfaceOracleFunction.VLogDebug(string.Format("执行[销售出库或退货SyncOrder],参数cOrderNumber[{0}],cEasNewOrder[{1}],cGuid[{2}],iCount[{3}],cMemo[{4}]"
+                                        , cOrderNumber, cEasNewOrder, cGuid, iCount, cMemo)
+                                    , string.Format("仓库fNumber:{0},FWAREHOUSEID:{1}", cWhCode, sibillEntry.FWAREHOUSEID));
+                                    //sibillEntry.FWAREHOUSEID = _cWhareHouse;
                                     GenBillEntryPara(ocmd);
                                     ocmd.ExecuteNonQuery();
                                 }
@@ -889,7 +894,9 @@ where fparentid in ('1d2xZMr2TAidqncU9Sam48w+kzs=','fL0QaL95SkyRu0Osx071w8w+kzs=
         {
             using (var con = new SqlConnection(Properties.Settings.Default.WmsCon))
             {
-                using (var cmd = new SqlCommand("select cInvCode,iQuantity,cLotNo,cWhCode from SS_Detail  where cOrderNumber=@cOrderNumber group by cInvCode,iQuantity,cLotNo,cWhCode", con))
+                //using (var cmd = new SqlCommand("select cInvCode,iQuantity,cLotNo,cWhCode from SS_Detail  where cOrderNumber=@cOrderNumber group by cInvCode,iQuantity,cLotNo,cWhCode", con))
+                //改成cInvCode 产品编码,cLotNo 批次,cWhCode 仓库,合计数量
+                using (var cmd = new SqlCommand("select cInvCode,sum(iQuantity) as iQuantity,cLotNo,cWhCode from SS_Detail  where cOrderNumber=@cOrderNumber group by cInvCode,cLotNo,cWhCode", con))
                 {
                     cmd.Parameters.AddWithValue("@cOrderNumber", cOrderNumber);
                     var da = new SqlDataAdapter(cmd);

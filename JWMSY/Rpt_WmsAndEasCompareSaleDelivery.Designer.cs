@@ -53,7 +53,7 @@
             Infragistics.Win.Appearance appearance13 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance14 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance15 = new Infragistics.Win.Appearance();
-            DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.ImgCollection16 = new DevExpress.Utils.ImageCollection(this.components);
             this.biExport = new DevExpress.XtraBars.BarButtonItem();
@@ -64,7 +64,9 @@
             this.biSearch = new DevExpress.XtraBars.BarButtonItem();
             this.beidDate = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemDateEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
-            this.bsilblDate = new DevExpress.XtraBars.BarStaticItem();
+            this.txtOrderPrefix = new DevExpress.XtraBars.BarEditItem();
+            this.beidEndDate = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemDateEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.ImgCollection32 = new DevExpress.Utils.ImageCollection(this.components);
             this.ribbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgSystem = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -72,15 +74,24 @@
             this.rpgSearch = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.tsgfMain = new UpjdControlBox.ToolStripGridFunction();
             this.uGridProBoxBarCode = new Infragistics.Win.UltraWinGrid.UltraGrid();
-            this.txtOrderPrefix = new DevExpress.XtraBars.BarEditItem();
+            this.barCheckItem1 = new DevExpress.XtraBars.BarCheckItem();
+            this.chkDifference = new System.Windows.Forms.CheckBox();
+            this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImgCollection16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit2.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImgCollection32)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uGridProBoxBarCode)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(repositoryItemTextEdit2)).BeginInit();
             this.SuspendLayout();
+            // 
+            // repositoryItemTextEdit2
+            // 
+            this.repositoryItemTextEdit2.AutoHeight = false;
+            this.repositoryItemTextEdit2.Name = "repositoryItemTextEdit2";
             // 
             // ribbon
             // 
@@ -96,16 +107,19 @@
             this.biExit,
             this.biSearch,
             this.beidDate,
-            this.bsilblDate,
-            this.txtOrderPrefix});
+            this.txtOrderPrefix,
+            this.beidEndDate,
+            this.barCheckItem1,
+            this.barStaticItem1});
             this.ribbon.LargeImages = this.ImgCollection32;
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 71;
+            this.ribbon.MaxItemId = 79;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage});
             this.ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemDateEdit1});
+            this.repositoryItemDateEdit1,
+            this.repositoryItemDateEdit2});
             this.ribbon.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010;
             this.ribbon.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbon.ShowCategoryInCaption = false;
@@ -174,7 +188,7 @@
             // beidDate
             // 
             this.beidDate.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.beidDate.Caption = "生产日期";
+            this.beidDate.Caption = "开始日期";
             this.beidDate.Edit = this.repositoryItemDateEdit1;
             this.beidDate.Id = 68;
             this.beidDate.Name = "beidDate";
@@ -189,12 +203,30 @@
             this.repositoryItemDateEdit1.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             // 
-            // bsilblDate
+            // txtOrderPrefix
             // 
-            this.bsilblDate.Caption = "请输入日期后查询";
-            this.bsilblDate.Id = 69;
-            this.bsilblDate.Name = "bsilblDate";
-            this.bsilblDate.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.txtOrderPrefix.Caption = "单据前缀";
+            this.txtOrderPrefix.Edit = this.repositoryItemTextEdit2;
+            this.txtOrderPrefix.Id = 70;
+            this.txtOrderPrefix.Name = "txtOrderPrefix";
+            this.txtOrderPrefix.Width = 140;
+            // 
+            // beidEndDate
+            // 
+            this.beidEndDate.Caption = "结束日期";
+            this.beidEndDate.Edit = this.repositoryItemDateEdit2;
+            this.beidEndDate.Id = 71;
+            this.beidEndDate.Name = "beidEndDate";
+            this.beidEndDate.Width = 140;
+            // 
+            // repositoryItemDateEdit2
+            // 
+            this.repositoryItemDateEdit2.AutoHeight = false;
+            this.repositoryItemDateEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemDateEdit2.Name = "repositoryItemDateEdit2";
+            this.repositoryItemDateEdit2.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             // 
             // ImgCollection32
             // 
@@ -247,9 +279,10 @@
             // 
             // rpgSearch
             // 
-            this.rpgSearch.ItemLinks.Add(this.bsilblDate);
             this.rpgSearch.ItemLinks.Add(this.beidDate);
+            this.rpgSearch.ItemLinks.Add(this.beidEndDate);
             this.rpgSearch.ItemLinks.Add(this.txtOrderPrefix);
+            this.rpgSearch.ItemLinks.Add(this.barStaticItem1, true);
             this.rpgSearch.ItemLinks.Add(this.biSearch);
             this.rpgSearch.Name = "rpgSearch";
             this.rpgSearch.Text = "查询";
@@ -358,20 +391,38 @@
             this.uGridProBoxBarCode.TabIndex = 37;
             this.uGridProBoxBarCode.UpdateMode = Infragistics.Win.UltraWinGrid.UpdateMode.OnCellChangeOrLostFocus;
             // 
-            // txtOrderPrefix
+            // barCheckItem1
             // 
-            this.txtOrderPrefix.Caption = "单据前缀";
-            repositoryItemTextEdit2.AutoHeight = false;
-            this.txtOrderPrefix.Edit = repositoryItemTextEdit2;
-            this.txtOrderPrefix.Id = 70;
-            this.txtOrderPrefix.Name = "txtOrderPrefix";
-            this.txtOrderPrefix.Width = 140;
+            this.barCheckItem1.Caption = "速度";
+            this.barCheckItem1.Id = 76;
+            this.barCheckItem1.Name = "barCheckItem1";
+            // 
+            // chkDifference
+            // 
+            this.chkDifference.AutoSize = true;
+            this.chkDifference.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.chkDifference.Checked = true;
+            this.chkDifference.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkDifference.Location = new System.Drawing.Point(280, 10);
+            this.chkDifference.Name = "chkDifference";
+            this.chkDifference.Size = new System.Drawing.Size(84, 16);
+            this.chkDifference.TabIndex = 39;
+            this.chkDifference.Text = "只显示差异";
+            this.chkDifference.UseVisualStyleBackColor = false;
+            // 
+            // barStaticItem1
+            // 
+            this.barStaticItem1.Id = 78;
+            this.barStaticItem1.Name = "barStaticItem1";
+            this.barStaticItem1.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.barStaticItem1.Width = 100;
             // 
             // Rpt_WmsAndEasCompareSaleDelivery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 562);
+            this.Controls.Add(this.chkDifference);
             this.Controls.Add(this.uGridProBoxBarCode);
             this.Controls.Add(this.tsgfMain);
             this.Controls.Add(this.ribbon);
@@ -379,14 +430,17 @@
             this.Name = "Rpt_WmsAndEasCompareSaleDelivery";
             this.Text = "WMS与EAS销售出库对照表";
             this.Load += new System.EventHandler(this.Rpt_ProPrintRecord_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImgCollection16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1.VistaTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit2.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImgCollection32)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uGridProBoxBarCode)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(repositoryItemTextEdit2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -409,7 +463,12 @@
         private Infragistics.Win.UltraWinGrid.UltraGrid uGridProBoxBarCode;
         private DevExpress.XtraBars.BarEditItem beidDate;
         private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repositoryItemDateEdit1;
-        private DevExpress.XtraBars.BarStaticItem bsilblDate;
         private DevExpress.XtraBars.BarEditItem txtOrderPrefix;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit2;
+        private DevExpress.XtraBars.BarEditItem beidEndDate;
+        private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repositoryItemDateEdit2;
+        private DevExpress.XtraBars.BarCheckItem barCheckItem1;
+        private DevExpress.XtraBars.BarStaticItem barStaticItem1;
+        private System.Windows.Forms.CheckBox chkDifference;
     }
 }
