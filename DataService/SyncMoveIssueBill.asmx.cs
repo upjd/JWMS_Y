@@ -628,7 +628,8 @@ namespace DataService
         {
             using (var con = new SqlConnection(Properties.Settings.Default.WmsCon))
             {
-                using (var cmd = new SqlCommand("select * from View_Compare_Transfer_Delivery where cGuid=@cGuid", con))
+                //using (var cmd = new SqlCommand("select * from View_Compare_Transfer_Delivery where cGuid=@cGuid", con))
+                using (var cmd = new SqlCommand("select cUser,cInvCode,max(cInvName) [cInvName],sum(iQuantity) [iQuantity],cLotNo from View_Compare_Transfer_Delivery where cGuid=@cGuid group by cInvCode,cLotNo,cUser", con))
                 {
                     cmd.Parameters.AddWithValue("@cGuid", cGuid);
                     var da = new SqlDataAdapter(cmd);

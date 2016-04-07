@@ -166,6 +166,7 @@ namespace JWMSY
                 synCmd.Parameters.AddWithValue("@bLotMgr", dtRm.Rows[i]["FIsLotNumber"]);
                 wf.ExecSqlCmd(synCmd);
                 pbMain.Value = i;
+                WmsFunction.VLogDebug("SyncInventory", dtRm.Rows[i]["cInvCode"] + "/" + dtRm.Rows[i]["cInvName"] + "/" + dtRm.Rows[i]["FStatus"] + "/" + dtRm.Rows[i]["FIsLotNumber"]);
             }
             MessageBox.Show(@"同步完成");
             var bTrue = biDelete.Caption.Equals("停用");

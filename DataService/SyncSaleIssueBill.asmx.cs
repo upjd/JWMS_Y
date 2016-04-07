@@ -425,7 +425,7 @@ namespace DataService
 
             sibill.FPaymentTypeID = "cd54aa9f-03a4-459c-9c5a-5489dce5f0676BCA0AB5";
             //sibill.FAUDITORID = "9htALWzQRaGIR4lDJ2tNuRO33n8=";
-            //sibill.FLASTUPDATEUSERID = "9htALWzQRaGIR4lDJ2tNuRO33n8=";
+            sibill.FLASTUPDATEUSERID = null;
             //sibill.FLASTUPDATETIME = DateTime.Now;
             //sibill.FAUDITTIME = DateTime.Now;
             sibill.FSTOCKERID = null;
@@ -487,6 +487,8 @@ where fparentid in ('1d2xZMr2TAidqncU9Sam48w+kzs=','fL0QaL95SkyRu0Osx071w8w+kzs=
             sibillEntry.FSTORAGEORGUNITID = "riQAAAAAAD7M567U";
             sibillEntry.FCOMPANYORGUNITID = "riQAAAAAAD7M567U";
             //sibillEntry.FWAREHOUSEID = "riQAAAAALQy76fiu";
+            //销售组织
+            sibillEntry.FSALEORGUNITID = sibillEntry.FSTORAGEORGUNITID;
             if (!string.IsNullOrEmpty(cWhCode))
             {
                 _cWhareHouse = iof.GetWareHouse(cWhCode);
@@ -824,6 +826,29 @@ where fparentid in ('1d2xZMr2TAidqncU9Sam48w+kzs=','fL0QaL95SkyRu0Osx071w8w+kzs=
 
             if (dtSsDetail.Rows.Count < 1)
                 return "无内容";
+
+            //验证SS_Detail和SS_Delivery的数量是否一致
+            using (var con = new SqlConnection(Properties.Settings.Default.WmsCon))
+            {
+                //using (var cmd = new SqlCommand("select cInvCode,iQuantity,cLotNo,'' cWhCode from SS_DeliveryReturn  where cOrderNumber=@cOrderNumber group by cInvCode,iQuantity,cLotNo", con))
+                string sql = @"select (SELECT isnull(SUM(iquantity),0)  FROM SS_Detail  where cordernumber = @cOrderNumber ) as [SS_Detail_iquantity]
+                ,(SELECT isnull(SUM(iquantity),0)  FROM SS_Delivery  where cordernumber = @cOrderNumber ) as [SS_Delivery_iquantity]";
+
+                using (var cmd = new SqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("@cOrderNumber", cOrderNumber);
+                    var da = new SqlDataAdapter(cmd);
+                    var dtCompare = new DataTable("SSDetail");
+                    da.Fill(dtCompare);
+
+                    if (Convert.ToInt32(dtCompare.Rows[0]["SS_Detail_iquantity"]) != Convert.ToInt32(dtCompare.Rows[0]["SS_Delivery_iquantity"]))
+                    {
+                        return string.Format("单据数量不一致,cOrderNumber[{0}],SS_Detail_iquantity[{1}],SS_Delivery_iquantity[{2}]"
+                            , cOrderNumber, dtCompare.Rows[0]["SS_Detail_iquantity"], dtCompare.Rows[0]["SS_Delivery_iquantity"]);
+                    }
+                }
+            }
+
             using (var ocon = new OracleConnection(Properties.Settings.Default.EasCon))
             {
                 ocon.Open();
@@ -836,6 +861,8 @@ where fparentid in ('1d2xZMr2TAidqncU9Sam48w+kzs=','fL0QaL95SkyRu0Osx071w8w+kzs=
                             ocmd.Connection = ocon;
                             try
                             {
+                                
+
                                 //执行主表写入
                                 ocmd.CommandText = "select FNUMBER from T_IM_SaleIssueBill where FNUMBER=:FNUMBER";
                                 ocmd.Parameters.Add(":FNUMBER", cEasNewOrder);
@@ -867,8 +894,13 @@ where fparentid in ('1d2xZMr2TAidqncU9Sam48w+kzs=','fL0QaL95SkyRu0Osx071w8w+kzs=
                                     FillBillEntry(cOrderNumber, cInvCode, iQuantity, cInvName, cLotNo, i + 1,cWhCode);
                                     InterfaceOracleFunction.VLogDebug(string.Format("执行[销售出库或退货SyncOrder],参数cOrderNumber[{0}],cEasNewOrder[{1}],cGuid[{2}],iCount[{3}],cMemo[{4}]"
                                         , cOrderNumber, cEasNewOrder, cGuid, iCount, cMemo)
-                                    , string.Format("仓库fNumber:{0},FWAREHOUSEID:{1}", cWhCode, sibillEntry.FWAREHOUSEID));
+                                    , string.Format("仓库fNumber:{0},FWAREHOUSEID:{1},审核人FAUDITORID:{2},FLASTUPDATEUSERID{3}"
+                                    , cWhCode, sibillEntry.FWAREHOUSEID, sibill.FAUDITORID, sibill.FLASTUPDATEUSERID));
                                     //sibillEntry.FWAREHOUSEID = _cWhareHouse;
+                                    //sibill.FAUDITORID = "9htALWzQRaGIR4lDJ2tNuRO33n8=";
+                                    //sibill.FLASTUPDATEUSERID = "9htALWzQRaGIR4lDJ2tNuRO33n8=";
+                                    //sibill.FLASTUPDATETIME = DateTime.Now;
+                                    //sibill.FAUDITTIME = DateTime.Now;
                                     GenBillEntryPara(ocmd);
                                     ocmd.ExecuteNonQuery();
                                 }

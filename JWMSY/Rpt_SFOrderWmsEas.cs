@@ -38,6 +38,8 @@ namespace JWMSY
             pageListMain.Condition = " View_SFOrderAndWmsEAS where " + strTemp;
             pageListMain.WhereStr = strTemp;
             pageListMain.GetRecord();
+
+            WmsFunction.VLogDebug("biSearch_ItemClick", pageListMain.Condition + "/" + pageListMain.WhereStr);
             MessageBox.Show(@"查询成功", @"成功");
         }
 

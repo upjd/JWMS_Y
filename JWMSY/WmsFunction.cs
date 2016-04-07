@@ -11,6 +11,7 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Infragistics.Win.UltraWinGrid;
 using SearchFilter;
+using System.IO;
 
 namespace JWMSY
 {
@@ -399,6 +400,20 @@ namespace JWMSY
                 {
                     con.Close();
                 }
+            }
+        }
+
+        public static void VLogDebug(string vRoutine, string vErrorDesc)
+        {
+            string isDebug = System.Configuration.ConfigurationSettings.AppSettings["IsDebug"].ToString();
+            if (isDebug == "1")
+            {
+                string path = System.AppDomain.CurrentDomain.BaseDirectory.ToString();
+                TextWriter tw = new StreamWriter(path + @"\Log\LogDebug.log", true);
+                tw.WriteLine("*********" + DateTime.Now);
+                tw.WriteLine("Routine : " + vRoutine);
+                tw.WriteLine("Message: " + vErrorDesc);
+                tw.Close();
             }
         }
     }

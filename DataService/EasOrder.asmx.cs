@@ -928,11 +928,13 @@ namespace DataService
         public DataTable GetRm()
         {
             const string strRm = "select a.fnumber cInvCode,a.FName_l2 cInvName,b.fname_l2,a.FStatus,nvl(c.FIsLotNumber,0) FIsLotNumber " +
-                                 "from T_BD_Material a inner join  "+
-                                 "(select fname_l2,fid,flevel from T_BD_MaterialGroup start with FID='riQAAAAAJ2vHn8BC' connect by prior FID=fparentid)  "+
+                                 "from T_BD_Material a inner join  " +
+                                 "(select fname_l2,fid,flevel from T_BD_MaterialGroup start with FID='riQAAAAAJ2vHn8BC' connect by prior FID=fparentid)  " +
                                  "b on a.fmaterialgroupid=b.FID " +
-                                 "left join T_BD_MaterialInventory c on a.fid=c.fmaterialid "+
-                                 "where  c.forgunit='riQAAAAAAD7M567U'";
+                                 "left join T_BD_MaterialInventory c on a.fid=c.fmaterialid ";
+                                 //"where  c.forgunit='riQAAAAAAD7M567U'";
+
+            InterfaceOracleFunction.VLogDebug("EasOrder_GetRm", "");
             using (var con = new OracleConnection(Properties.Settings.Default.EasCon))
             {
 
@@ -955,8 +957,8 @@ namespace DataService
                                  "from T_BD_Material a inner join  " +
                                  "(select fname_l2,fid,flevel from T_BD_MaterialGroup start with FID='riQAAAAAJ6HHn8BC' connect by prior FID=fparentid)  " +
                                  "b on a.fmaterialgroupid=b.FID " +
-                                 "left join T_BD_MaterialInventory c on a.fid=c.fmaterialid " +
-                                 "where  c.forgunit='riQAAAAAAD7M567U'";
+                                 "left join T_BD_MaterialInventory c on a.fid=c.fmaterialid ";
+                                 //"where  c.forgunit='riQAAAAAAD7M567U'";
             using (var con = new OracleConnection(Properties.Settings.Default.EasCon))
             {
 
@@ -979,9 +981,8 @@ namespace DataService
                                  from T_BD_Material a inner join 
                                  (select fname_l2,fid,flevel from T_BD_MaterialGroup start with FID='riQAAAAAJ8PHn8BC' connect by prior FID=fparentid) 
                                  b on a.fmaterialgroupid=b.FID 
-                                 left join T_BD_MaterialInventory c on a.fid=c.fmaterialid 
-                                 where  c.forgunit='riQAAAAAAD7M567U'"
-                                 ;
+                                 left join T_BD_MaterialInventory c on a.fid=c.fmaterialid ";
+                                 //where  c.forgunit='riQAAAAAAD7M567U'"
             using (var con = new OracleConnection(Properties.Settings.Default.EasCon))
             {
 
