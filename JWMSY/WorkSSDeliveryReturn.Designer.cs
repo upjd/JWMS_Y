@@ -131,7 +131,7 @@
             // txtcCusName
             // 
             this.txtcCusName.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtcCusName.ImeMode = System.Windows.Forms.ImeMode.Disable;
+            this.txtcCusName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.txtcCusName.Location = new System.Drawing.Point(172, 177);
             this.txtcCusName.Name = "txtcCusName";
             this.txtcCusName.Size = new System.Drawing.Size(181, 26);

@@ -820,10 +820,7 @@ where fparentid in ('1d2xZMr2TAidqncU9Sam48w+kzs=','fL0QaL95SkyRu0Osx071w8w+kzs=
                 //退货则使用FNumber查询库存
                 _cWhareHouse = iof.GetWareHouse(cGuid);
             }
-            //备注字段
-            sibill.FDESCRIPTION = cMemo;
-
-
+            
             if (dtSsDetail.Rows.Count < 1)
                 return "无内容";
 
@@ -872,10 +869,9 @@ where fparentid in ('1d2xZMr2TAidqncU9Sam48w+kzs=','fL0QaL95SkyRu0Osx071w8w+kzs=
 
                                 ocmd.CommandText = BillCmdStr;
                                 FillBill(cOrderNumber,cEasNewOrder);
-
+                                //备注字段
+                                sibill.FDESCRIPTION = cMemo;
                                 
-                                
-
                                 GenBillPara(ocmd);
                                 ocmd.ExecuteNonQuery();
                                 ocmd.CommandText = BillEntryCmdStr;
@@ -892,10 +888,11 @@ where fparentid in ('1d2xZMr2TAidqncU9Sam48w+kzs=','fL0QaL95SkyRu0Osx071w8w+kzs=
                                     var iQuantity = dtSsDetail.Rows[i]["iQuantity"].ToString();
                                     var cLotNo = dtSsDetail.Rows[i]["cLotNo"].ToString();
                                     FillBillEntry(cOrderNumber, cInvCode, iQuantity, cInvName, cLotNo, i + 1,cWhCode);
+                                    sibillEntry.FREMARK = dtSsDetail.Rows[i]["remarks"].ToString();
                                     InterfaceOracleFunction.VLogDebug(string.Format("执行[销售出库或退货SyncOrder],参数cOrderNumber[{0}],cEasNewOrder[{1}],cGuid[{2}],iCount[{3}],cMemo[{4}]"
                                         , cOrderNumber, cEasNewOrder, cGuid, iCount, cMemo)
-                                    , string.Format("仓库fNumber:{0},FWAREHOUSEID:{1},审核人FAUDITORID:{2},FLASTUPDATEUSERID{3}"
-                                    , cWhCode, sibillEntry.FWAREHOUSEID, sibill.FAUDITORID, sibill.FLASTUPDATEUSERID));
+                                    , string.Format("仓库fNumber:{0},FWAREHOUSEID:{1},审核人FAUDITORID:{2},FLASTUPDATEUSERID:{3},FREMARK:{4}"
+                                    , cWhCode, sibillEntry.FWAREHOUSEID, sibill.FAUDITORID, sibill.FLASTUPDATEUSERID, sibillEntry.FREMARK));
                                     //sibillEntry.FWAREHOUSEID = _cWhareHouse;
                                     //sibill.FAUDITORID = "9htALWzQRaGIR4lDJ2tNuRO33n8=";
                                     //sibill.FLASTUPDATEUSERID = "9htALWzQRaGIR4lDJ2tNuRO33n8=";
@@ -928,7 +925,7 @@ where fparentid in ('1d2xZMr2TAidqncU9Sam48w+kzs=','fL0QaL95SkyRu0Osx071w8w+kzs=
             {
                 //using (var cmd = new SqlCommand("select cInvCode,iQuantity,cLotNo,cWhCode from SS_Detail  where cOrderNumber=@cOrderNumber group by cInvCode,iQuantity,cLotNo,cWhCode", con))
                 //改成cInvCode 产品编码,cLotNo 批次,cWhCode 仓库,合计数量
-                using (var cmd = new SqlCommand("select cInvCode,sum(iQuantity) as iQuantity,cLotNo,cWhCode from SS_Detail  where cOrderNumber=@cOrderNumber group by cInvCode,cLotNo,cWhCode", con))
+                using (var cmd = new SqlCommand("select cInvCode,sum(iQuantity) as iQuantity,cLotNo,cWhCode,'' [remarks] from SS_Detail  where cOrderNumber=@cOrderNumber group by cInvCode,cLotNo,cWhCode", con))
                 {
                     cmd.Parameters.AddWithValue("@cOrderNumber", cOrderNumber);
                     var da = new SqlDataAdapter(cmd);
@@ -945,7 +942,7 @@ where fparentid in ('1d2xZMr2TAidqncU9Sam48w+kzs=','fL0QaL95SkyRu0Osx071w8w+kzs=
             using (var con = new SqlConnection(Properties.Settings.Default.WmsCon))
             {
                 //using (var cmd = new SqlCommand("select cInvCode,iQuantity,cLotNo,'' cWhCode from SS_DeliveryReturn  where cOrderNumber=@cOrderNumber group by cInvCode,iQuantity,cLotNo", con))
-                using (var cmd = new SqlCommand("select cInvCode,-sum(iQuantity) as iQuantity,cLotNo,'' cWhCode from SS_DeliveryReturn  where cOrderNumber=@cOrderNumber group by cInvCode,cLotNo", con))
+                using (var cmd = new SqlCommand("select cInvCode,-sum(iQuantity) as iQuantity,cLotNo,'' cWhCode,case when isnull(max(cCusName),'')='' then isnull(max(cMemo),'') else isnull(max(cCusName),'')+'/'+isnull(max(cMemo),'') end [remarks]  from SS_DeliveryReturn where cOrderNumber=@cOrderNumber  group by cInvCode,cLotNo", con))
                 {
                     cmd.Parameters.AddWithValue("@cOrderNumber", cOrderNumber);
                     var da = new SqlDataAdapter(cmd);
